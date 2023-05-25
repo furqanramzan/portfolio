@@ -176,9 +176,12 @@ export default component$(() => {
           <h1 class="mb-4 max-w-2xl text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl xl:text-6xl">
             Muhammad Furqan
           </h1>
-          <h3 class="mb-4 max-w-2xl text-4xl font-bold leading-none tracking-tight text-white md:text-5xl xl:text-5xl">
+          <h3 class="mb-4 max-w-2xl text-3xl font-bold leading-none tracking-tight text-white md:text-5xl xl:text-5xl">
             Web Developer
           </h3>
+          <h5 class="mb-4 max-w-2xl text-xs font-bold leading-none tracking-tight text-white md:text-2xl xl:text-2xl">
+            Transforming Ideas into Digital Experiences
+          </h5>
         </div>
       </section>
     </>

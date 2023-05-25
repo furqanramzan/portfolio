@@ -938,27 +938,29 @@ export default component$(() => {
 
   return (
     <>
-      <div class="container mx-auto">
-        <div class="grid gap-y-8 gap-x-60 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
-          {sortedSkills.map(({ name, component, color }, index) => (
-            <div
-              key={index}
-              class="w-full bg-white p-10 content-center rounded"
-              onMouseEnter$={() => {
-                if (material.value) {
-                  material.value.color = new Color(color);
-                }
-              }}
-            >
-              <div class="flex justify-center text-8xl">{component}</div>
+      <div class="w-full my-40">
+        <div class="container mx-auto">
+          <div class="grid gap-y-8 gap-x-60 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
+            {sortedSkills.map(({ name, component, color }, index) => (
+              <div
+                key={index}
+                class="w-full bg-white p-10 content-center rounded"
+                onMouseEnter$={() => {
+                  if (material.value) {
+                    material.value.color = new Color(color);
+                  }
+                }}
+              >
+                <div class="flex justify-center text-8xl">{component}</div>
 
-              <div class="pt-5">
-                <h5 class="mb-0 text-center text-2xl font-bold tracking-tight text-black">
-                  {name}
-                </h5>
+                <div class="pt-5">
+                  <h5 class="mb-0 text-center text-2xl font-bold tracking-tight text-black">
+                    {name}
+                  </h5>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </>
