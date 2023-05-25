@@ -1,4 +1,10 @@
-import { component$, noSerialize, useVisibleTask$ } from '@builder.io/qwik';
+/* eslint-disable qwik/valid-lexical-scope */
+import {
+  component$,
+  noSerialize,
+  useSignal,
+  useVisibleTask$,
+} from '@builder.io/qwik';
 import {
   Float32BufferAttribute,
   PointsMaterial,
@@ -29,7 +35,7 @@ export default component$(() => {
         </svg>
       ),
       order: 10,
-      color: 'yellow',
+      color: 0xf7df1e,
     },
     {
       name: 'Bootstrap',
@@ -47,7 +53,7 @@ export default component$(() => {
         </svg>
       ),
       order: 30,
-      color: 'purple',
+      color: 0x7e13f8,
     },
     {
       name: 'Docker',
@@ -65,7 +71,7 @@ export default component$(() => {
         </svg>
       ),
       order: 40,
-      color: 'lightblue',
+      color: 0x2396ed,
     },
     {
       name: 'Laravel',
@@ -83,7 +89,7 @@ export default component$(() => {
         </svg>
       ),
       order: 50,
-      color: 'red',
+      color: 0xff2d20,
     },
     {
       name: 'Linux',
@@ -458,7 +464,7 @@ export default component$(() => {
         </svg>
       ),
       order: 60,
-      color: 'white',
+      color: 0xffc668,
     },
     {
       name: 'MongoDB',
@@ -476,7 +482,7 @@ export default component$(() => {
         </svg>
       ),
       order: 70,
-      color: 'lightgreen',
+      color: 0x01ec64,
     },
     {
       name: 'MySQL',
@@ -498,7 +504,7 @@ export default component$(() => {
         </svg>
       ),
       order: 80,
-      color: 'skyblue',
+      color: 0x00546b,
     },
     {
       name: 'Nest.js',
@@ -516,7 +522,7 @@ export default component$(() => {
         </svg>
       ),
       order: 90,
-      color: 'red',
+      color: 0xe0234e,
     },
     {
       name: 'Next.js',
@@ -567,7 +573,7 @@ export default component$(() => {
         </svg>
       ),
       order: 100,
-      color: 'grey',
+      color: 0xffffff,
     },
     {
       name: 'Node.js',
@@ -647,7 +653,7 @@ export default component$(() => {
         </svg>
       ),
       order: 110,
-      color: 'green',
+      color: 0x61b147,
     },
     {
       name: 'Nuxt',
@@ -665,7 +671,7 @@ export default component$(() => {
         </svg>
       ),
       order: 120,
-      color: 'darkgreen',
+      color: 0x00dc82,
     },
     {
       name: 'React',
@@ -683,7 +689,7 @@ export default component$(() => {
         </svg>
       ),
       order: 130,
-      color: 'blue',
+      color: 0x00d8ff,
     },
     {
       name: 'Svelte',
@@ -705,7 +711,7 @@ export default component$(() => {
         </svg>
       ),
       order: 140,
-      color: 'orange',
+      color: 0xff3e00,
     },
     {
       name: 'Tailwind',
@@ -735,7 +741,7 @@ export default component$(() => {
         </svg>
       ),
       order: 150,
-      color: 'lightblue',
+      color: 0x16beb8,
     },
     {
       name: 'TypeScript',
@@ -757,7 +763,7 @@ export default component$(() => {
         </svg>
       ),
       order: 160,
-      color: 'blue',
+      color: 0x3178c6,
     },
     {
       name: 'Vue.js',
@@ -783,7 +789,7 @@ export default component$(() => {
         </svg>
       ),
       order: 170,
-      color: 'green',
+      color: 0x35495e,
     },
     {
       name: 'PHP',
@@ -827,11 +833,13 @@ export default component$(() => {
         </svg>
       ),
       order: 170,
-      color: 'green',
+      color: 0x6181b6,
     },
   ];
   const sortedSkills = skills.sort((a, b) => (a.order > b.order ? 1 : -1));
   const firstColor = sortedSkills[0].color;
+  const material = useSignal<PointsMaterial>();
+
   useVisibleTask$(({ cleanup }) => {
     const scene = new Scene();
     scene.fog = new FogExp2(0x000000, 0.001);
@@ -873,7 +881,7 @@ export default component$(() => {
 
     geometry.setAttribute('position', new Float32BufferAttribute(vertices, 3));
 
-    const material = noSerialize(
+    material.value = noSerialize(
       new PointsMaterial({
         size: 35,
         sizeAttenuation: true,
@@ -884,7 +892,7 @@ export default component$(() => {
       })
     );
 
-    const particles = new Points(geometry, material);
+    const particles = new Points(geometry, material.value);
     scene.add(particles);
 
     document.body.style.touchAction = 'none';
@@ -932,10 +940,15 @@ export default component$(() => {
     <>
       <div class="container mx-auto">
         <div class="grid gap-y-8 gap-x-60 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
-          {sortedSkills.map(({ name, component }, index) => (
+          {sortedSkills.map(({ name, component, color }, index) => (
             <div
               key={index}
               class="w-full bg-white p-10 content-center rounded"
+              onMouseEnter$={() => {
+                if (material.value) {
+                  material.value.color = new Color(color);
+                }
+              }}
             >
               <div class="flex justify-center text-8xl">{component}</div>
 
