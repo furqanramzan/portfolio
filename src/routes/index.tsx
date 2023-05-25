@@ -56,14 +56,14 @@ export default component$(() => {
 
     const mesh0 = new Mesh(
       new PlaneGeometry(size, size, segs, segs).rotateX(-0.5 * Math.PI),
-      f()
+      f(),
     );
     scene.add(mesh0);
     const mesh1 = new Mesh(
       new PlaneGeometry(size, size, segs >> 1, segs >> 1).rotateX(
-        -0.5 * Math.PI
+        -0.5 * Math.PI,
       ),
-      f(true, new Color('grey'))
+      f(true, new Color('grey')),
     );
     scene.add(mesh1);
 
@@ -103,7 +103,7 @@ export default component$(() => {
                 worldPosition = modelMatrix * worldPosition;
                 vWorldPos = worldPosition.xyz;
             // #endif
-            `
+            `,
             )
             .replace(
               '#include <displacementmap_vertex>',
@@ -115,7 +115,7 @@ export default component$(() => {
                 yOffset = pow(sin(yOffset * 2.0), 2.0);
                 transformed.y += yOffset * ${size.toFixed(1)} / 3.0;
             #endif
-            `
+            `,
             ),
         fragmentShader:
           `
@@ -139,7 +139,7 @@ export default component$(() => {
                         discard;
                     }
                 }
-          `
+          `,
           ),
       });
       mat.uniforms.map.value = tex0;

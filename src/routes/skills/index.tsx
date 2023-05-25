@@ -867,7 +867,7 @@ export default component$(() => {
       55,
       window.innerWidth / window.innerHeight,
       2,
-      2000
+      2000,
     );
     camera.position.z = 1000;
 
@@ -908,7 +908,7 @@ export default component$(() => {
         alphaTest: 0.5,
         transparent: true,
         color: new Color(firstColor),
-      })
+      }),
     );
 
     const particles = new Points(geometry, material.value);
@@ -957,13 +957,13 @@ export default component$(() => {
 
   return (
     <>
-      <div class="w-full my-40">
+      <div class="my-40 w-full">
         <div class="container mx-auto">
-          <div class="grid gap-y-8 gap-x-60 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
+          <div class="grid grid-cols-1 gap-x-60 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
             {sortedSkills.map(({ name, component, color }, index) => (
               <div
                 key={index}
-                class="w-full bg-white p-10 content-center rounded"
+                class="w-full content-center rounded bg-white p-10"
                 onMouseEnter$={() => {
                   if (material.value) {
                     material.value.color = new Color(color);

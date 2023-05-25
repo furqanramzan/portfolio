@@ -18,22 +18,22 @@ export default component$(() => {
   const navbarHidden = useSignal(true);
   return (
     <>
-      <nav class="fixed w-full z-20 top-0 left-0">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a href="/" class="flex items-center text-white text-6xl">
+      <nav class="fixed left-0 top-0 z-20 w-full">
+        <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+          <a href="/" class="flex items-center text-6xl text-white">
             <TbBrandFoursquare />
           </a>
           <div class="flex md:order-2">
-            <div class="text-white flex items-center">
+            <div class="flex items-center text-white">
               <a
-                class="text-2xl mr-4"
+                class="mr-4 text-2xl text-white hover:text-blue-700"
                 href="https://github.com/furqanramzan"
                 target="_blank"
               >
                 <BsGithub />
               </a>
               <a
-                class="text-2xl"
+                class="text-2xl text-white hover:text-blue-700"
                 href="https://twitter.com/furqan271996"
                 target="_blank"
               >
@@ -43,14 +43,14 @@ export default component$(() => {
             <button
               data-collapse-toggle="navbar-sticky"
               type="button"
-              class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              class="ml-2 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden"
               aria-controls="navbar-sticky"
-              aria-expanded="false"
+              aria-expanded={navbarHidden.value ? 'false' : 'true'}
               onClick$={() => (navbarHidden.value = !navbarHidden.value)}
             >
               <span class="sr-only">Open main menu</span>
               <svg
-                class="w-6 h-6"
+                class="h-6 w-6"
                 aria-hidden="true"
                 fill="currentColor"
                 viewBox="0 0 20 20"
@@ -66,25 +66,27 @@ export default component$(() => {
           </div>
           <div
             class={[
-              'items-center justify-between w-full md:flex md:w-auto md:order-1',
+              'w-full items-center justify-between md:order-1 md:flex md:w-auto',
               { hidden: navbarHidden.value },
             ]}
           >
-            <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent text-center">
+            <ul class="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 text-center font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-transparent md:p-0">
               {locations.map(({ name, href }, index) => (
                 <li key={index}>
                   <a
                     href={href}
                     class={[
-                      'block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0',
+                      'block rounded py-2 pl-3 pr-4 md:bg-transparent md:p-0',
                       {
-                        'text-white bg-blue-700 md:bg-transparent md:text-blue-700':
+                        'bg-blue-700 text-white md:bg-transparent md:text-blue-700':
                           location.url.pathname === href,
-                        'md:text-white text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700':
+                        'text-gray-900 hover:bg-gray-100 md:text-white md:hover:bg-transparent md:hover:text-blue-700':
                           location.url.pathname !== href,
                       },
                     ]}
-                    aria-current="page"
+                    aria-current={
+                      location.url.pathname === href ? 'page' : undefined
+                    }
                   >
                     {name}
                   </a>
