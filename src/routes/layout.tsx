@@ -1,4 +1,4 @@
-import { useLocation } from '@builder.io/qwik-city';
+import { Link, useLocation } from '@builder.io/qwik-city';
 import { component$, Slot, useSignal } from '@builder.io/qwik';
 import { TbBrandFoursquare } from '@qwikest/icons/tablericons';
 import { BsGithub, BsTwitter } from '@qwikest/icons/bootstrap';
@@ -18,11 +18,11 @@ export default component$(() => {
   const navbarHidden = useSignal(true);
   return (
     <>
-      <nav class="fixed left-0 top-0 z-20 w-full">
+      <nav class="left-0 top-0 z-20 w-full">
         <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
-          <a href="/" class="flex items-center text-6xl text-white">
+          <Link href="/" class="flex items-center text-6xl text-white">
             <TbBrandFoursquare />
-          </a>
+          </Link>
           <div class="flex md:order-2">
             <div class="flex items-center text-white">
               <a
@@ -41,10 +41,8 @@ export default component$(() => {
               </a>
             </div>
             <button
-              data-collapse-toggle="navbar-sticky"
               type="button"
               class="ml-2 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden"
-              aria-controls="navbar-sticky"
               aria-expanded={navbarHidden.value ? 'false' : 'true'}
               onClick$={() => (navbarHidden.value = !navbarHidden.value)}
             >
@@ -73,7 +71,7 @@ export default component$(() => {
             <ul class="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 text-center font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-transparent md:p-0">
               {locations.map(({ name, href }, index) => (
                 <li key={index}>
-                  <a
+                  <Link
                     href={href}
                     class={[
                       'block rounded py-2 pl-3 pr-4 md:bg-transparent md:p-0',
@@ -89,7 +87,7 @@ export default component$(() => {
                     }
                   >
                     {name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

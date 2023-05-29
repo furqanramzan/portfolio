@@ -790,7 +790,7 @@ export default component$(() => {
         </svg>
       ),
       order: 170,
-      color: 0x35495e,
+      color: 0x41B883,
     },
     {
       name: 'PHP',
@@ -952,7 +952,12 @@ export default component$(() => {
     }
     animate();
 
-    cleanup(() => renderer.dispose());
+    cleanup(() => {
+      window.removeEventListener('resize', () => {});
+      renderer.domElement.remove();
+      renderer.renderLists.dispose();
+      renderer.dispose();
+    });
   });
 
   return (

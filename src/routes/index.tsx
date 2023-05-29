@@ -52,7 +52,7 @@ export default component$(() => {
     light.position.set(0, 1, 0);
     scene.add(light);
 
-    const tex0 = new TextureLoader().load('assets/island.jpeg');
+    const tex0 = new TextureLoader().load('assets/island.jpg');
 
     const mesh0 = new Mesh(
       new PlaneGeometry(size, size, segs, segs).rotateX(-0.5 * Math.PI),
@@ -167,12 +167,17 @@ export default component$(() => {
       controls.update();
     });
 
-    cleanup(() => renderer.dispose());
+    cleanup(() => {
+      window.removeEventListener('resize', () => {});
+      renderer.domElement.remove();
+      renderer.renderLists.dispose();
+      renderer.dispose();
+    });
   });
 
   return (
     <>
-      <section class="flex h-screen w-full">
+      <section class="flex h-[calc(100vh-92px)] w-full">
         <div class="flex w-full flex-col items-center justify-center">
           <h1 class="mb-4 max-w-2xl text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl xl:text-6xl">
             Muhammad Furqan
