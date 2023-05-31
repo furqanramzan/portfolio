@@ -52,24 +52,22 @@ export default component$(() => {
     light.position.set(0, 1, 0);
     scene.add(light);
 
-    const tex0 = new TextureLoader().load('assets/island.jpg');
+    const texture = new TextureLoader().load('/assets/textures/island.jpg');
 
     const mesh0 = new Mesh(
       new PlaneGeometry(size, size, segs, segs).rotateX(-0.5 * Math.PI),
-      f(),
+      makeMaterial(),
     );
     scene.add(mesh0);
     const mesh1 = new Mesh(
       new PlaneGeometry(size, size, segs >> 1, segs >> 1).rotateX(
         -0.5 * Math.PI,
       ),
-      f(true, new Color('grey')),
+      makeMaterial(true, new Color('grey')),
     );
     scene.add(mesh1);
 
-    //// Make Material
-
-    function f(wireframe?: boolean, color?: Color) {
+    function makeMaterial(wireframe?: boolean, color?: Color) {
       const mat = new ShaderMaterial({
         extensions: {
           derivatives: true, // wgl 1
@@ -142,10 +140,10 @@ export default component$(() => {
           `,
           ),
       });
-      mat.uniforms.map.value = tex0;
-      mat.uniforms.displacementMap.value = tex0;
-      (mat as any).map = tex0;
-      (mat as any).displacementMap = tex0;
+      mat.uniforms.map.value = texture;
+      mat.uniforms.displacementMap.value = texture;
+      (mat as any).map = texture;
+      (mat as any).displacementMap = texture;
       return mat;
     }
 

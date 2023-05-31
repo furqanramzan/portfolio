@@ -5,7 +5,6 @@ import {
   useSignal,
   useVisibleTask$,
 } from '@builder.io/qwik';
-import { DocumentHead } from '@builder.io/qwik-city';
 import {
   Float32BufferAttribute,
   PointsMaterial,
@@ -19,6 +18,7 @@ import {
   AmbientLight,
   TextureLoader,
 } from 'three';
+import type { DocumentHead } from '@builder.io/qwik-city';
 
 export default component$(() => {
   const skills = [
@@ -790,7 +790,7 @@ export default component$(() => {
         </svg>
       ),
       order: 170,
-      color: 0x41B883,
+      color: 0x35495e,
     },
     {
       name: 'PHP',
@@ -888,7 +888,7 @@ export default component$(() => {
     const geometry = new BufferGeometry();
     const vertices = [];
 
-    const sprite = new TextureLoader().load('/assets/disc.png');
+    const texture = new TextureLoader().load('/assets/textures/disc.png');
 
     for (let i = 0; i < 10000; i++) {
       const x = 2000 * Math.random() - 1000;
@@ -904,7 +904,7 @@ export default component$(() => {
       new PointsMaterial({
         size: 35,
         sizeAttenuation: true,
-        map: sprite,
+        map: texture,
         alphaTest: 0.5,
         transparent: true,
         color: new Color(firstColor),

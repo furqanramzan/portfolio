@@ -13,6 +13,10 @@ export default component$(() => {
       name: 'Skills',
       href: '/skills/',
     },
+    {
+      name: 'Projects',
+      href: '/projects/',
+    },
   ];
   const location = useLocation();
   const navbarHidden = useSignal(true);
