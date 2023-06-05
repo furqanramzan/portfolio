@@ -1,27 +1,32 @@
 import { component$, useSignal } from '@builder.io/qwik';
 
-export default component$<{ blurImage: string; slug: string; name: string }>(
-  ({ blurImage, slug, name }) => {
-    const imageLoaded = useSignal(false);
+export default component$<{
+  blurImage: string;
+  image: string;
+  alt: string;
+  width: number;
+  height: number;
+  classes?: string;
+}>(({ blurImage, image, alt, width, height, classes = '' }) => {
+  const imageLoaded = useSignal(false);
 
-    return (
-      <>
-        <img
-          class={['w-full', { hidden: imageLoaded.value }]}
-          src={blurImage}
-          width={1120}
-          height={555}
-          alt={name}
-        />
-        <img
-          class={['w-full', { hidden: !imageLoaded.value }]}
-          src={`/assets/projects/${slug}.webp`}
-          width={1120}
-          height={550}
-          alt={name}
-          onLoad$={() => (imageLoaded.value = true)}
-        />
-      </>
-    );
-  },
-);
+  return (
+    <>
+      <img
+        class={[{ hidden: imageLoaded.value }, classes]}
+        src={`data:image/png;base64, ${blurImage}`}
+        width={width}
+        height={height}
+        alt={alt}
+      />
+      <img
+        class={[{ hidden: !imageLoaded.value }, classes]}
+        src={image}
+        width={width}
+        height={height}
+        alt={alt}
+        onLoad$={() => (imageLoaded.value = true)}
+      />
+    </>
+  );
+});
