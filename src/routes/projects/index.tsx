@@ -248,7 +248,7 @@ export default component$(() => {
 
 const title = 'Muhammad Furqan | Projects';
 const description =
-  'Welcome to the online portfolio of Muhammad Furqan, a skilled and passionate web developer. Explore a collection of his projects, demonstrating his expertise in front-end and back-end development, along with his commitment to delivering user-friendly and visually appealing websites.';
+  "Explore Muhammad Furqan's projects. From web applications built with Laravel to dynamic user interfaces created using Nuxt.js, discover a range of innovative and high-performing software solutions. Get inspired by my previous work and see how I can contribute to your project's success.";
 export const head: DocumentHead = {
   title,
   meta: [

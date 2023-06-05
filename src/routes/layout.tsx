@@ -1,7 +1,13 @@
 import { Link, useLocation } from '@builder.io/qwik-city';
 import { component$, Slot, useSignal } from '@builder.io/qwik';
-import { TbBrandFoursquare } from '@qwikest/icons/tablericons';
-import { BsGithub, BsTwitter } from '@qwikest/icons/bootstrap';
+import { SiDevdotto } from '@qwikest/icons/simpleicons';
+import {
+  TbBrandFoursquare,
+  TbBrandUpwork,
+  TbBrandGithub,
+  TbBrandLinkedin,
+  TbBrandTwitter,
+} from '@qwikest/icons/tablericons';
 
 export default component$(() => {
   const locations = [
@@ -34,18 +40,39 @@ export default component$(() => {
           <div class="flex md:order-2">
             <div class="flex items-center text-white">
               <a
+                class="mr-4 text-3xl text-white hover:text-blue-700"
+                href="https://www.upwork.com/freelancers/~016621b11e28c78a5f"
+                target="_blank"
+              >
+                <TbBrandUpwork />
+              </a>
+              <a
                 class="mr-4 text-2xl text-white hover:text-blue-700"
                 href="https://github.com/furqanramzan"
                 target="_blank"
               >
-                <BsGithub />
+                <TbBrandGithub />
+              </a>
+              <a
+                class="mr-4 text-3xl text-white hover:text-blue-700"
+                href="https://dev.to/furqanramzan"
+                target="_blank"
+              >
+                <SiDevdotto />
+              </a>
+              <a
+                class="mr-4 text-2xl text-white hover:text-blue-700"
+                href="https://www.linkedin.com/in/furqan271996/"
+                target="_blank"
+              >
+                <TbBrandLinkedin />
               </a>
               <a
                 class="text-2xl text-white hover:text-blue-700"
-                href="https://twitter.com/furqan271996"
+                href="https://twitter.com/furqanramzan96"
                 target="_blank"
               >
-                <BsTwitter />
+                <TbBrandTwitter />
               </a>
             </div>
             <button

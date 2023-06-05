@@ -180,9 +180,9 @@ export default component$(() => {
           <div class="col-span-[1/2] w-full content-center px-4">
             <p class="text-1xl mb-0 text-justify font-bold text-white">
               With over 7 years of experience in the software development
-              industry, I can do almost anything in web development all you
-              have to do is ask. My top priority is client success, and I strive
-              to exceed their expectations by finding innovative solutions,
+              industry, I can do almost anything in web development all you have
+              to do is ask. My top priority is client success, and I strive to
+              exceed their expectations by finding innovative solutions,
               resolving technical issues, and optimizing performance. Throughout
               my career, I have demonstrated a problem-solving approach and
               delivered high-quality software solutions that meet project
@@ -229,9 +229,9 @@ export default component$(() => {
               success.
             </p>
           </div>
-          <div class="w-full content-center flex justify-center">
+          <div class="flex w-full content-center justify-center">
             <img
-              class="rounded mt-10 lg:mt-40 px-4"
+              class="mt-10 rounded px-4 lg:mt-40"
               src="/assets/furqan.webp"
               alt="Muhammad Furqan"
               width="480"
@@ -246,7 +246,7 @@ export default component$(() => {
 
 const title = 'Muhammad Furqan | About';
 const description =
-  'Welcome to the online portfolio of Muhammad Furqan, a skilled and passionate web developer. Explore a collection of his projects, demonstrating his expertise in front-end and back-end development, along with his commitment to delivering user-friendly and visually appealing websites.';
+  'Learn more about Muhammad Furqan, a dedicated and communicative full-stack developer. With a problem-solving approach and a commitment to client success, Strive to exceed expectations and deliver high-quality software solutions. Discover my experience, expertise, and passion for staying up-to-date with the latest industry advancements.';
 export const head: DocumentHead = {
   title,
   meta: [
