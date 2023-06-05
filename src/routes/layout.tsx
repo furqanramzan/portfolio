@@ -17,6 +17,10 @@ export default component$(() => {
       name: 'Projects',
       href: '/projects/',
     },
+    {
+      name: 'About',
+      href: '/about/',
+    },
   ];
   const location = useLocation();
   const navbarHidden = useSignal(true);
