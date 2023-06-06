@@ -993,7 +993,7 @@ export default component$(() => {
 
 const title = 'Muhammad Furqan | Skills';
 const description =
-  "Discover Muhammad Furqan's extensive skill set as a full-stack developer. With expertise in Laravel, NestJS, Nuxt.js, SvelteKit, Docker, and more, I possess the technical knowledge to build robust and scalable web applications. Explore my skills and see how I can bring your project to life.";
+  'I specialize in Laravel, NestJS, Nuxt.js, SvelteKit, Next.js, and other technologies. Let me demonstrate how I can help you turn your project into reality.';
 export const head: DocumentHead = {
   title,
   meta: [

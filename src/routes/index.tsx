@@ -183,7 +183,7 @@ export default component$(() => {
 
 const title = 'Muhammad Furqan | Full-Stack Developer';
 const description =
-  "Welcome to Muhammad Furqan's portfolio! With over 7 years of experience in the software development industry, I offer innovative solutions and high-quality software development services. Explore my projects, skills, and expertise in web development.";
+  "I deliver top-notch software solutions. I invite you to take a look at my portfolio, where you can see my extensive skills and experience in web development.";
 export const head: DocumentHead = {
   title,
   meta: [
