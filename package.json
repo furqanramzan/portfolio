@@ -4,12 +4,11 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "typecheck": "astro check && tsc --noEmit",
-    "lint": "eslint . --max-warnings 0",
-    "fmt": "prettier --write . --plugin=prettier-plugin-astro"
+    "build": "nx exec -- astro build",
+    "preview": "nx exec -- astro preview",
+    "typecheck": "nx exec -- astro check && nx exec -- tsc --noEmit",
+    "lint": "nx exec -- eslint . --max-warnings 0",
+    "fmt": "nx exec -- prettier --write . --plugin=prettier-plugin-astro"
   },
   "dependencies": {
     "astro": "^3.0.5"
@@ -24,8 +23,18 @@
     "eslint-plugin-astro": "^0.29.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^5.0.0",
+    "nx": "^16.7.4",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
     "typescript": "^5.2.2"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "outputs": [
+          "{projectRoot}/dist"
+        ]
+      }
+    }
   }
 }
