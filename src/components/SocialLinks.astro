@@ -13,7 +13,10 @@ const sortedSocials = socials.sort((a, b) =>
     sortedSocials.map((social) => (
       <li>
         <a target="_blank" href={social.data.link}>
-          <Button class="w-12 h-12 flex justify-center items-center text-white">
+          <Button
+            aria-label={social.data.description}
+            class="w-12 h-12 flex justify-center items-center text-white"
+          >
             <Fragment set:html={social.data.icon} />
           </Button>
         </a>
