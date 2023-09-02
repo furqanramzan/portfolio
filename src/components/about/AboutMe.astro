@@ -22,7 +22,12 @@ const content = await getEntry('page', 'aboutme');
     center === true ? 'items-center text-center' : 'items-start text-left'
   }`}
 >
-  <Image class="rounded-2xl mb-3" src={profile} alt={content.data.name} />
+  <Image
+    loading="eager"
+    class="rounded-2xl mb-3"
+    src={profile}
+    alt={content.data.name}
+  />
   <p>{content.data.greeting}</p>
   <h1 class="font-bold text-5xl">{content.data.name}</h1>
   <p class={`text-sm my-3 w-2/3`}>
