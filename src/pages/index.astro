@@ -13,7 +13,7 @@ const content = await getEntry('page', 'home');
     <div class="flex flex-col items-center gap-10">
       <AboutMe center={true} width={300} height={300} />
       <a href="/about">
-        <Button type="button">
+        <Button type="button" class="px-8 py-2">
           {content.data.explore}
           <svg
             xmlns="http://www.w3.org/2000/svg"

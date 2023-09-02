@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import Button from './Button.astro';
 
 const socials = await getCollection('social');
 const sortedSocials = socials.sort((a, b) =>
@@ -11,12 +12,10 @@ const sortedSocials = socials.sort((a, b) =>
   {
     sortedSocials.map((social) => (
       <li>
-        <a
-          target="_blank"
-          href={social.data.link}
-          class="rounded-xl bg-primary-500 hover:bg-primary-600 focus:ring-primary-300 dark:bg-primary-500 dark:hover:bg-primary-600 dark:focus:ring-primary-700 w-12 h-12 flex justify-center items-center text-white"
-        >
-          <Fragment set:html={social.data.icon} />
+        <a target="_blank" href={social.data.link}>
+          <Button class="w-12 h-12 flex justify-center items-center text-white">
+            <Fragment set:html={social.data.icon} />
+          </Button>
         </a>
       </li>
     ))
