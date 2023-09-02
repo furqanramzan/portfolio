@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+
+const socials = await getCollection('social');
+const sortedSocials = socials.sort((a, b) =>
+  a.data.order > b.data.order ? 1 : -1,
+);
+---
+
+<ul class="flex gap-5">
+  {
+    sortedSocials.map((social) => (
+      <li>
+        <a
+          target="_blank"
+          href={social.data.link}
+          class="rounded-xl bg-primary-500 hover:bg-primary-600 focus:ring-primary-300 dark:bg-primary-500 dark:hover:bg-primary-600 dark:focus:ring-primary-700 w-12 h-12 flex justify-center items-center text-white"
+        >
+          <Fragment set:html={social.data.icon} />
+        </a>
+      </li>
+    ))
+  }
+</ul>

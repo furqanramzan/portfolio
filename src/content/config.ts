@@ -6,6 +6,7 @@ const social = defineCollection({
     name: z.string(),
     link: z.string().url(),
     icon: z.string(),
+    order: z.number(),
   }),
 });
 
