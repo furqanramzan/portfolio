@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss';
-import { orange, yellow } from 'tailwindcss/colors';
+import { emerald } from 'tailwindcss/colors';
 import flowbite from 'flowbite/plugin';
 
 const config: Config = {
@@ -12,8 +12,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: orange,
-        secondary: yellow,
+        primary: emerald,
       },
     },
   },
