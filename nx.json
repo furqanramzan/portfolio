@@ -21,21 +21,35 @@
     },
     "lint": {
       "inputs": ["lint"]
+    },
+    "fmt": {
+      "inputs": ["fmt"]
+    },
+    "fmtcheck": {
+      "inputs": ["fmt"]
     }
   },
   "namedInputs": {
     "sharedGlobals": [],
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
-    "production": [
+    "code": [
       "default",
-      "!{projectRoot}/.eslintrc.json",
-      "!{projectRoot}/**/*.md"
+      "!{projectRoot}/README.md",
+      "{projectRoot}/src/content/**/*.md"
     ],
-    "code": ["default", "!{projectRoot}/**/*.md"],
+    "production": ["default", "code"],
     "lint": [
       "code",
-      "{workspaceRoot}/.eslintrc.json",
-      "{workspaceRoot}/.eslintignore"
+      "{projectRoot}/.eslintrc.cjs",
+      "{projectRoot}/.eslintignore",
+      "!{projectRoot}/**/*.md"
+    ],
+    "fmt": [
+      "default",
+      "{projectRoot}/.eslintrc.cjs",
+      "{projectRoot}/.eslintignore",
+      "{projectRoot}/.prettierrc.js",
+      "{projectRoot}/.prettierignore"
     ]
   },
   "affected": {
