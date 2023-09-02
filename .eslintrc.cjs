@@ -6,10 +6,7 @@ module.exports = {
     'plugin:jsx-a11y/strict',
     'prettier',
   ],
-  plugins: ['jsx-a11y', 'prettier'],
-  rules: {
-    'prettier/prettier': 'error',
-  },
+  plugins: ['jsx-a11y'],
   overrides: [
     {
       files: ['*.astro'],

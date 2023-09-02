@@ -12,7 +12,8 @@
     "preview": "nx exec -- astro preview",
     "typecheck": "nx exec -- astro check && nx exec -- tsc --noEmit",
     "lint": "nx exec -- eslint . --max-warnings 0",
-    "fmt": "nx exec -- prettier --write . --plugin=prettier-plugin-astro"
+    "fmt": "nx exec -- prettier --write . --plugin=prettier-plugin-astro",
+    "fmtcheck": "nx exec -- prettier --list-different . --plugin=prettier-plugin-astro"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.0.0",
@@ -29,7 +30,6 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-astro": "^0.29.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-prettier": "^5.0.0",
     "nx": "^16.7.4",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
