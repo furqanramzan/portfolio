@@ -13,7 +13,9 @@
     "typecheck": "nx exec -- astro check && nx exec -- tsc --noEmit",
     "lint": "nx exec -- eslint . --max-warnings 0",
     "fmt": "nx exec -- prettier --write . --plugin=prettier-plugin-astro",
-    "fmtcheck": "nx exec -- prettier --list-different . --plugin=prettier-plugin-astro"
+    "fmtcheck": "nx exec -- prettier --list-different . --plugin=prettier-plugin-astro",
+    "precommit": "npm run fmt && npm run lint --fix",
+    "precommitcheck": "nx affected -t=fmtcheck,lint,typecheck,build --parallel=4"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.0.0",
