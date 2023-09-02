@@ -1,10 +1,11 @@
 ---
-import { getEntry } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import Layout from '@/Layout.astro';
 import Button from '@/components/Button.astro';
 import AboutMe from '@/components/about/AboutMe.astro';
 
 const content = await getEntry('page', 'home');
+const socials = await getCollection('social');
 ---
 
 <Layout>
@@ -26,6 +27,21 @@ const content = await getEntry('page', 'home');
           >
         </Button>
       </a>
+      <ul class="flex gap-5">
+        {
+          socials.map((social) => (
+            <li>
+              <a
+                target="_blank"
+                href={social.data.link}
+                class="rounded-xl bg-primary-500 hover:bg-primary-600 focus:ring-primary-300 dark:bg-primary-500 dark:hover:bg-primary-600 dark:focus:ring-primary-700 w-12 h-12 flex justify-center items-center text-white"
+              >
+                <Fragment set:html={social.data.icon} />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </div>
 </Layout>
