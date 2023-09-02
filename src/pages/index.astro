@@ -1,9 +1,31 @@
 ---
+import { getEntry } from 'astro:content';
 import Layout from '@/Layout.astro';
+import Button from '@/components/Button.astro';
+import AboutMe from '@/components/about/AboutMe.astro';
+
+const content = await getEntry('page', 'home');
 ---
 
 <Layout>
-  <h1 class="text-2xl font-bold text-primary-600 sm:text-4xl lg:text-8xl">
-    Portfolio
-  </h1>
+  <div class="max-w-screen-md mx-auto mt-10">
+    <div class="flex flex-col items-center gap-10">
+      <AboutMe center={true} width={300} height={300} />
+      <a href="/about">
+        <Button type="button">
+          {content.data.explore}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            ><path
+              fill="currentColor"
+              d="M11.7 15.3q-.475.475-1.087.213T10 14.575v-5.15q0-.675.613-.938T11.7 8.7l2.6 2.6q.15.15.225.325T14.6 12q0 .2-.075.375t-.225.325l-2.6 2.6Z"
+            ></path></svg
+          >
+        </Button>
+      </a>
+    </div>
+  </div>
 </Layout>
