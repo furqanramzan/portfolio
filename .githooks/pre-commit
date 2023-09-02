@@ -3,4 +3,4 @@
 # Abort on error
 set -e
 
-sh -c "npm run precommitcheck" 
+sh -c "pnpm run precommitcheck" 
