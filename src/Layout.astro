@@ -8,8 +8,12 @@ import Header from './components/Header.astro';
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="apple-touch-icon" href="/pwa-192x192.png" />
+    <link rel="mask-icon" href="/favicon.svg" color="#92400E" />
+    <meta name="msapplication-TileColor" content="#92400E" />
+    <meta name="theme-color" content="#92400E" />
     <title>Astro</title>
     <ViewTransitions />
     <script src="/src/pwa.ts"></script>
