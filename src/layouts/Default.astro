@@ -1,7 +1,8 @@
 ---
 import { pwaInfo } from 'virtual:pwa-info';
 import { ViewTransitions } from 'astro:transitions';
-import Header from './components/Header.astro';
+import Header from '@/components/Header.astro';
+import { color, name } from '@/utils/constants';
 ---
 
 <html lang="en">
@@ -11,15 +12,16 @@ import Header from './components/Header.astro';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <link rel="apple-touch-icon" href="/pwa-192x192.png" />
-    <link rel="mask-icon" href="/favicon.svg" color="#92400E" />
-    <meta name="msapplication-TileColor" content="#92400E" />
-    <meta name="theme-color" content="#92400E" />
-    <title>Astro</title>
+    <link rel="mask-icon" href="/favicon.svg" color={color} />
+    <meta name="msapplication-TileColor" content={color} />
+    <meta name="theme-color" content={color} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{name}</title>
     <ViewTransitions />
     <script src="/src/pwa.ts"></script>
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
   </head>
-  <body class="bg-gray-100 dark:bg-gray-900 text-black dark:text-white">
+  <body class="bg-gray-50 dark:bg-gray-900 text-black dark:text-white">
     <div class="max-w-screen-2xl mx-auto flex flex-col px-5 py-5 2xl:px-0">
       <Header />
       <slot />
