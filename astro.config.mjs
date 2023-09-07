@@ -1,6 +1,9 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import AstroPWA from '@vite-pwa/astro';
+import preload from 'astro-preload';
+import compress from 'astro-compress';
+import { color, name, shortName } from './src/utils/constants';
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,9 +15,9 @@ export default defineConfig({
       includeAssets: ['favicon.svg'],
       registerType: 'autoUpdate',
       manifest: {
-        name: 'Muhammad Furqan',
-        short_name: 'Furqan Ramzan',
-        theme_color: '#92400E',
+        name,
+        short_name: shortName,
+        theme_color: color,
         icons: [
           {
             src: 'pwa-192x192.png',
@@ -38,5 +41,7 @@ export default defineConfig({
         globPatterns: ['**/*.{css,js,html,svg,png,webp,ico}'],
       },
     }),
+    preload(),
+    compress(),
   ],
 });

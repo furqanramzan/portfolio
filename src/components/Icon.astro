@@ -1,0 +1,15 @@
+---
+import { Icon as Iconify } from 'astro-iconify';
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'i'> {
+  icon: string;
+}
+
+const props = Astro.props;
+const { icon, ...attrs } = props;
+---
+
+<i class={`h-6 w-6 flex ${attrs.class || ''}`} {...attrs}>
+  <Iconify name={icon} />
+</i>
