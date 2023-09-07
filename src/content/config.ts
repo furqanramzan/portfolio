@@ -61,6 +61,19 @@ const experience = defineCollection({
   }),
 });
 
+const project = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      description: z.string(),
+      detail: z.string(),
+      link: z.object({ name: z.string(), href: z.string() }),
+      image: image(),
+      order: z.number(),
+    }),
+});
+
 export const collections = {
   social,
   aboutme,
@@ -68,4 +81,5 @@ export const collections = {
   tool,
   education,
   experience,
+  project,
 };

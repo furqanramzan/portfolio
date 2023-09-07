@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection, getEntry } from 'astro:content';
+import Page from '@/layouts/Page.astro';
+import Badge from '@/components/Badge.astro';
+import Icon from '@/components/Icon.astro';
+
+const content = await getEntry('page', 'project');
+const projects = (await getCollection('project')).sort((a, b) =>
+  a.data.order > b.data.order ? 1 : -1,
+);
+---
+
+<Page navigationLinks={{ back: 'educationandexperience', forward: 'home' }}>
+  <div class="flex flex-col gap-5">
+    <h2 class="font-semibold text-lg">{content.data.title}</h2>
+    <div class="flex flex-col gap-3">
+      {
+        projects.map((project) => (
+          <div class="flex flex-col sm:flex-row gap-5 p-3 bg-gray-200 dark:bg-gray-800">
+            <div class="flex flex-col gap-4 shrink-0">
+              <Image
+                width={240}
+                height={146}
+                class="rounded-md"
+                src={project.data.image}
+                alt={project.data.name}
+              />
+              <a href={project.data.link.href} class="flex">
+                <Badge class="gap-2">
+                  {project.data.link.name}
+                  <Icon class="!h-5 !w-5" icon="ic:round-arrow-outward" />
+                </Badge>
+              </a>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="font-semibold text-xl">{project.data.name}</h3>
+              <p class="text-gray-500 dark:text-gray-400">
+                {project.data.description}
+              </p>
+              <p>{project.data.detail}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Page>
