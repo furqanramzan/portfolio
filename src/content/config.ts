@@ -40,9 +40,32 @@ const tool = defineCollection({
   }),
 });
 
+const education = defineCollection({
+  type: 'content',
+  schema: z.object({
+    degree: z.string(),
+    institute: z.string(),
+    year: z.string(),
+    order: z.number(),
+  }),
+});
+
+const experience = defineCollection({
+  type: 'content',
+  schema: z.object({
+    designation: z.string(),
+    company: z.string(),
+    year: z.string(),
+    skills: z.array(z.string()),
+    order: z.number(),
+  }),
+});
+
 export const collections = {
   social,
   aboutme,
   specialization,
   tool,
+  education,
+  experience,
 };

@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'i'>;
+
+const props = Astro.props;
+const { ...attrs } = props;
+---
+
+<span
+  class={`flex items-center dark:bg-gray-700 dark:text-gray-400 bg-gray-300 py-2 text-gray-700 px-3 rounded-full text-sm ${
+    attrs.class || ''
+  }`}
+  {...attrs}
+>
+  <slot />
+</span>
