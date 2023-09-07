@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { getEntry } from 'astro:content';
 import profile from './profile.jpg';
+import SocialLinks from '@/components/SocialLinks.astro';
 
 interface Props {
   width: number;
@@ -10,30 +11,31 @@ interface Props {
 }
 
 const { width, height, center } = Astro.props;
-profile.width = width;
-profile.height = height;
 
 const content = await getEntry('page', 'aboutme');
+const classes =
+  center === true ? 'items-center text-center' : 'items-start text-left';
 ---
 
-<div
-  transition:name="aboutme"
-  class={`flex flex-col gap-2 ${
-    center === true ? 'items-center text-center' : 'items-start text-left'
-  }`}
->
-  <Image
-    loading="eager"
-    class="rounded-2xl mb-3"
-    src={profile}
-    alt={content.data.name}
-  />
-  <p>{content.data.greeting}</p>
-  <h1 class="font-bold text-5xl">{content.data.name}</h1>
-  <p class={`text-sm my-3 w-2/3`}>
-    {content.data.designation}
-  </p>
-  <p class="text-2xl leading-10">
-    <Fragment set:html={content.data.description} />
-  </p>
+<div transition:name="aboutme" class={`flex flex-col gap-10 ${classes}`}>
+  <div class={`flex flex-col gap-2  ${classes}`}>
+    <Image
+      width={width}
+      height={height}
+      loading="eager"
+      class="rounded-2xl mb-3"
+      src={profile}
+      alt={content.data.name}
+    />
+    <p class="text-gray-500">{content.data.greeting}</p>
+    <h1 class="font-bold text-5xl">{content.data.name}</h1>
+    <p class="text-sm my-3 w-2/3 text-gray-500">
+      {content.data.designation}
+    </p>
+    <p class="text-2xl leading-10">
+      <Fragment set:html={content.data.description} />
+    </p>
+  </div>
+  <slot />
+  <SocialLinks />
 </div>

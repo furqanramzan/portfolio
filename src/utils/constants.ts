@@ -1,6 +1,6 @@
-export const name = 'Fareed Hassan';
+export const name = 'Muhammad Furqan';
 
-export const shortName = 'Fareed';
+export const shortName = 'Furqan';
 
 export const color = '#111827';
 
