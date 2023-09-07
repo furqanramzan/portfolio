@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss';
-import { amber } from 'tailwindcss/colors';
 import flowbite from 'flowbite/plugin';
 
 const config: Config = {
@@ -9,13 +8,6 @@ const config: Config = {
   ],
   plugins: [flowbite],
   darkMode: 'class',
-  theme: {
-    extend: {
-      colors: {
-        primary: amber,
-      },
-    },
-  },
 };
 
 export default config;
