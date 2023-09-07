@@ -11,6 +11,28 @@ const social = defineCollection({
   }),
 });
 
+const aboutme = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    icon: z.string(),
+    order: z.number(),
+  }),
+});
+
+const specialization = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    icon: z.string(),
+    order: z.number(),
+  }),
+});
+
 export const collections = {
   social,
+  aboutme,
+  specialization,
 };

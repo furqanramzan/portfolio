@@ -1,0 +1,66 @@
+---
+import Layout from '@/layouts/Default.astro';
+import AboutMe from '@/components/about/AboutMe.astro';
+import NavigationButtons, {
+  type Props as NavigationButtonsProps,
+} from '@/components/NavigationButtons.astro';
+import { links, navLinks } from '@/utils/constants';
+import SocialLinks from '@/components/SocialLinks.astro';
+
+interface Props {
+  navigationLinks: NavigationButtonsProps;
+}
+const { navigationLinks } = Astro.props;
+---
+
+<Layout>
+  <div class="grid grid-cols-1 lg:grid-cols-2 my-10">
+    <div class="max-lg:hidden">
+      <AboutMe width={150} height={150}>
+        <nav class="flex flex-col gap-5" id="desktop_nav">
+          {
+            navLinks.map((link, index) => (
+              <a
+                class="transition-all flex gap-2 items-center text-gray-500 [&>span]:bg-gray-500"
+                href={links[link].href}
+              >
+                {`0${index + 1}`}
+                <span class="transition-all w-10 h-[1px]" />
+                {links[link].name}
+              </a>
+            ))
+          }
+        </nav>
+      </AboutMe>
+    </div>
+    <div>
+      <main class="flex flex-col gap-14" transition:animate="slide">
+        <slot />
+        <NavigationButtons {...navigationLinks} />
+        <div class="flex justify-center lg:hidden">
+          <SocialLinks />
+        </div>
+      </main>
+    </div>
+  </div>
+</Layout>
+
+<script is:inline>
+  function activeNavLink() {
+    const classes = [
+      '!text-black',
+      '[&>span]:!bg-black',
+      'dark:!text-white',
+      '[&>span]:dark:!bg-white',
+      '[&>span]:!w-24',
+    ];
+    const navLinks = document.querySelectorAll('#desktop_nav a');
+    navLinks.forEach((link) => {
+      link.classList.remove(...classes);
+      if (link.href.endsWith(window.location.pathname)) {
+        link.classList.add(...classes);
+      }
+    });
+  }
+  activeNavLink();
+</script>

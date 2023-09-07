@@ -1,15 +1,62 @@
 ---
-import Layout from '@/Layout.astro';
-import AboutMe from '@/components/about/AboutMe.astro';
+import { getCollection, getEntry } from 'astro:content';
+import Page from '@/layouts/Page.astro';
+import Icon from '@/components/Icon.astro';
+
+const content = await getEntry('page', 'about');
+const aboutmes = (await getCollection('aboutme')).sort((a, b) =>
+  a.data.order > b.data.order ? 1 : -1,
+);
+const specializations = (await getCollection('specialization')).sort((a, b) =>
+  a.data.order > b.data.order ? 1 : -1,
+);
 ---
 
-<Layout>
-  <div class="grid grid-cols-2 gap-20">
-    <div>
-      <AboutMe width={150} height={150} />
+<Page navigationLinks={{ back: 'home', forward: 'toolandplatform' }}>
+  <div class="flex flex-col gap-14">
+    <div class="flex flex-col gap-7">
+      <div class="flex flex-col gap-2">
+        <h2 class="font-semibold text-lg">{content.data.aboutme.title}</h2>
+        <p class="text-gray-500">{content.data.aboutme.description}</p>
+      </div>
+      <div class="flex flex-col gap-8">
+        {
+          aboutmes.map((aboutme) => (
+            <div class="flex gap-x-5 gap-y-2 flex-col sm:flex-row">
+              <span class="self-start rounded-md text-white dark:text-black p-2 dark:bg-gray-50 bg-gray-900 flex">
+                <Icon icon={aboutme.data.icon} />
+              </span>
+              <div class="flex flex-col gap-1">
+                <h3 class="font-semibold">{aboutme.data.title}</h3>
+                <p class="text-gray-500">{aboutme.data.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
     </div>
-    <div>
-      <h1>About</h1>
+    <div class="flex flex-col gap-7">
+      <div class="flex flex-col gap-2">
+        <h2 class="font-semibold text-lg">
+          {content.data.specialization.title}
+        </h2>
+        <p class="text-gray-500">{content.data.specialization.description}</p>
+      </div>
+      <div class="flex flex-col gap-8">
+        {
+          specializations.map((specialization) => (
+            <div class="flex gap-x-5 gap-y-2 flex-col sm:flex-row">
+              <span class="self-start rounded-md text-white dark:text-black p-2 dark:bg-gray-50 bg-gray-900 flex">
+                <Icon icon={specialization.data.icon} />
+              </span>
+              <div class="flex flex-col gap-1">
+                <h3 class="font-semibold">{specialization.data.title}</h3>
+                <p class="text-gray-500">{specialization.data.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
     </div>
   </div>
-</Layout>
+</Page>
