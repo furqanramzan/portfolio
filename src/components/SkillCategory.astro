@@ -1,13 +1,14 @@
 ---
 import { type CollectionEntry, getEntries } from 'astro:content';
 import Skill from './Skill.astro';
+import { sortByOrder } from '@/utils/sort';
 
 interface Props {
   skillCategory: CollectionEntry<'skillcategory'>;
 }
 
 const { skillCategory } = Astro.props;
-const skills = await getEntries(skillCategory.data.skills);
+const skills = sortByOrder(await getEntries(skillCategory.data.skills));
 ---
 
 <div class="flex gap-5 bg-gray-200 p-5 dark:bg-gray-800">

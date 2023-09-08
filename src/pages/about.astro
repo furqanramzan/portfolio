@@ -2,14 +2,11 @@
 import { getCollection, getEntry } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import Icon from '@/components/Icon.astro';
+import { sortByOrder } from '@/utils/sort';
 
 const content = await getEntry('page', 'about');
-const aboutmes = (await getCollection('aboutme')).sort((a, b) =>
-  a.data.order > b.data.order ? 1 : -1,
-);
-const specializations = (await getCollection('specialization')).sort((a, b) =>
-  a.data.order > b.data.order ? 1 : -1,
-);
+const aboutmes = sortByOrder(await getCollection('aboutme'));
+const specializations = sortByOrder(await getCollection('specialization'));
 ---
 
 <Page navigationLinks={{ back: 'home', forward: 'skill' }}>

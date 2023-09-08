@@ -2,16 +2,14 @@
 import { getCollection } from 'astro:content';
 import Button from './Button.astro';
 import Icon from './Icon.astro';
+import { sortByOrder } from '@/utils/sort';
 
-const socials = await getCollection('social');
-const sortedSocials = socials.sort((a, b) =>
-  a.data.order > b.data.order ? 1 : -1,
-);
+const socials = sortByOrder(await getCollection('social'));
 ---
 
 <ul class="flex gap-3 sm:gap-5">
   {
-    sortedSocials.map((social) => (
+    socials.map((social) => (
       <li>
         <a class="flex" target="_blank" href={social.data.link}>
           <Button

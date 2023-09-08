@@ -4,11 +4,10 @@ import { getCollection, getEntry } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import Badge from '@/components/Badge.astro';
 import Icon from '@/components/Icon.astro';
+import { sortByOrder } from '@/utils/sort';
 
 const content = await getEntry('page', 'project');
-const projects = (await getCollection('project')).sort((a, b) =>
-  a.data.order > b.data.order ? 1 : -1,
-);
+const projects = sortByOrder(await getCollection('project'));
 ---
 
 <Page navigationLinks={{ back: 'educationandexperience', forward: 'home' }}>

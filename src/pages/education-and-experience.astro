@@ -2,14 +2,11 @@
 import { getCollection, getEntry } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import Badge from '@/components/Badge.astro';
+import { sortByOrder } from '@/utils/sort';
 
 const content = await getEntry('page', 'education-and-experience');
-const educations = (await getCollection('education')).sort((a, b) =>
-  a.data.order > b.data.order ? 1 : -1,
-);
-const experiences = (await getCollection('experience')).sort((a, b) =>
-  a.data.order > b.data.order ? 1 : -1,
-);
+const educations = sortByOrder(await getCollection('education'));
+const experiences = sortByOrder(await getCollection('experience'));
 ---
 
 <Page navigationLinks={{ back: 'skill', forward: 'project' }}>
