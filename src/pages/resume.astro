@@ -4,7 +4,7 @@ import Page from '@/layouts/Page.astro';
 import Badge from '@/components/Badge.astro';
 import { sortByOrder } from '@/utils/sort';
 
-const content = await getEntry('page', 'education-and-experience');
+const content = await getEntry('page', 'resume');
 const educations = sortByOrder(await getCollection('education'));
 const experiences = sortByOrder(await getCollection('experience'));
 ---

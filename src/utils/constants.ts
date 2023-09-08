@@ -10,9 +10,9 @@ export const links = {
   skill: { name: 'Skills', href: '/skill' },
   project: { name: 'Projects', href: '/project' },
   repository: { name: 'Repositories', href: '/repository' },
-  educationandexperience: {
-    name: 'Education and Experience',
-    href: '/education-and-experience',
+  resume: {
+    name: 'Resume',
+    href: '/resume',
   },
 };
 type Links = typeof links;
@@ -23,5 +23,5 @@ export const navLinks: LinkKey[] = [
   'skill',
   'project',
   'repository',
-  'educationandexperience',
+  'resume',
 ];
