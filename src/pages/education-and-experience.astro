@@ -15,14 +15,14 @@ const experiences = (await getCollection('experience')).sort((a, b) =>
 <Page navigationLinks={{ back: 'toolandplatform', forward: 'project' }}>
   <div class="flex flex-col gap-14">
     <div class="flex flex-col gap-5">
-      <h2 class="font-semibold text-lg">{content.data.education}</h2>
+      <h2 class="text-lg font-semibold">{content.data.education}</h2>
       <div class="flex flex-col gap-3">
         {
           educations.map((education) => (
-            <div class="flex gap-5 bg-gray-200 dark:bg-gray-800 p-5">
-              <div class="flex flex-col gap-1 w-full">
-                <h3 class="font-semibold text-xl">{education.data.degree}</h3>
-                <div class="flex justify-between flex-col sm:flex-row">
+            <div class="flex gap-5 bg-gray-200 p-5 dark:bg-gray-800">
+              <div class="flex w-full flex-col gap-1">
+                <h3 class="text-xl font-semibold">{education.data.degree}</h3>
+                <div class="flex flex-col justify-between sm:flex-row">
                   <p>{education.data.institute}</p>
                   <p class="text-gray-500 dark:text-gray-400">
                     {education.data.year}
@@ -35,22 +35,22 @@ const experiences = (await getCollection('experience')).sort((a, b) =>
       </div>
     </div>
     <div class="flex flex-col gap-5">
-      <h2 class="font-semibold text-lg">{content.data.experience}</h2>
+      <h2 class="text-lg font-semibold">{content.data.experience}</h2>
       <div class="flex flex-col gap-3">
         {
           experiences.map((experience) => (
-            <div class="flex gap-5 bg-gray-200 dark:bg-gray-800 p-5">
-              <div class="flex flex-col gap-1 w-full">
-                <h3 class="font-semibold text-xl">
+            <div class="flex gap-5 bg-gray-200 p-5 dark:bg-gray-800">
+              <div class="flex w-full flex-col gap-1">
+                <h3 class="text-xl font-semibold">
                   {experience.data.designation}
                 </h3>
-                <div class="flex justify-between flex-col sm:flex-row">
+                <div class="flex flex-col justify-between sm:flex-row">
                   <p>{experience.data.company}</p>
                   <p class="text-gray-500 dark:text-gray-400">
                     {experience.data.year}
                   </p>
                 </div>
-                <div class="flex gap-3 flex-wrap">
+                <div class="flex flex-wrap gap-3">
                   {experience.data.skills.map((skill) => (
                     <Badge>{skill}</Badge>
                   ))}

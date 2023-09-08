@@ -12,8 +12,8 @@
     "preview": "nx exec -- astro preview",
     "typecheck": "nx exec -- astro check && nx exec -- tsc --noEmit",
     "lint": "nx exec -- eslint . --max-warnings 0",
-    "fmt": "nx exec -- prettier --write . --plugin=prettier-plugin-astro",
-    "fmtcheck": "nx exec -- prettier --list-different . --plugin=prettier-plugin-astro",
+    "fmt": "nx exec -- prettier --write . --plugin=prettier-plugin-astro --plugin=prettier-plugin-tailwindcss",
+    "fmtcheck": "nx exec -- prettier --list-different . --plugin=prettier-plugin-astro --plugin=prettier-plugin-tailwindcss",
     "precommit": "pnpm run fmt && pnpm run lint --fix",
     "precommitcheck": "nx affected -t=fmtcheck,lint,typecheck,build --parallel=4",
     "postinstall": "astro sync"
@@ -42,6 +42,7 @@
     "nx": "^16.7.4",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
+    "prettier-plugin-tailwindcss": "^0.5.4",
     "typescript": "^5.2.2",
     "vite-plugin-pwa": "^0.16.4"
   },

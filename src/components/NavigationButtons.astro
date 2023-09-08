@@ -13,15 +13,15 @@ export interface Props {
 const { back, forward } = Astro.props;
 ---
 
-<div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-5">
+<div class="mt-5 flex flex-col items-center justify-center gap-4 sm:flex-row">
   <a href={links[back].href} class="flex">
-    <Button class="py-2 px-7 rounded-sm">
+    <Button class="rounded-sm px-7 py-2">
       <Icon icon="material-symbols:arrow-left-rounded" />
       {links[back].name}
     </Button>
   </a>
   <a href={links[forward].href} class="flex">
-    <Button class="py-2 px-7 rounded-sm">
+    <Button class="rounded-sm px-7 py-2">
       {links[forward].name}
       <Icon icon="material-symbols:arrow-right-rounded" />
     </Button>

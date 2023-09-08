@@ -14,18 +14,18 @@ const { navigationLinks } = Astro.props;
 ---
 
 <Layout>
-  <div class="grid grid-cols-1 lg:grid-cols-2 my-10">
+  <div class="my-10 grid grid-cols-1 lg:grid-cols-2">
     <div class="max-lg:hidden">
       <AboutMe width={150} height={150}>
         <nav class="flex flex-col gap-5" id="desktop_nav">
           {
             navLinks.map((link, index) => (
               <a
-                class="transition-all flex gap-2 items-center text-gray-500 [&>span]:bg-gray-500"
+                class="flex items-center gap-2 text-gray-500 transition-all [&>span]:bg-gray-500"
                 href={links[link].href}
               >
                 {`0${index + 1}`}
-                <span class="transition-all w-10 h-[1px]" />
+                <span class="h-[1px] w-10 transition-all" />
                 {links[link].name}
               </a>
             ))
