@@ -7,7 +7,7 @@ export const color = '#111827';
 export const links = {
   home: { name: 'Home', href: '/' },
   about: { name: 'About', href: '/about' },
-  toolandplatform: { name: 'Tools and Platforms', href: '/tool-and-platform' },
+  skill: { name: 'Skills', href: '/skill' },
   educationandexperience: {
     name: 'Education and Experience',
     href: '/education-and-experience',
@@ -19,7 +19,7 @@ type LinkKey = keyof Links;
 
 export const navLinks: LinkKey[] = [
   'about',
-  'toolandplatform',
+  'skill',
   'educationandexperience',
   'project',
 ];

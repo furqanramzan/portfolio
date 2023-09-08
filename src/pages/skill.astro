@@ -1,0 +1,23 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Page from '@/layouts/Page.astro';
+import SkillCategory from '@/components/SkillCategory.astro';
+
+const content = await getEntry('page', 'skill');
+const skillCategories = (await getCollection('skillcategory')).sort((a, b) =>
+  a.data.order > b.data.order ? 1 : -1,
+);
+---
+
+<Page navigationLinks={{ back: 'about', forward: 'educationandexperience' }}>
+  <div class="flex flex-col gap-5">
+    <h2 class="text-lg font-semibold">{content.data.title}</h2>
+    <div class="flex flex-col gap-3">
+      {
+        skillCategories.map((skillCategory) => (
+          <SkillCategory skillCategory={skillCategory} />
+        ))
+      }
+    </div>
+  </div>
+</Page>

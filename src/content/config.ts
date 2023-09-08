@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, reference, z } from 'astro:content';
 
 const social = defineCollection({
   type: 'content',
@@ -31,11 +31,20 @@ const specialization = defineCollection({
   }),
 });
 
-const tool = defineCollection({
+const skill = defineCollection({
+  type: 'content',
+  schema: z.object({
+    name: z.string(),
+    icon: z.string(),
+    order: z.number(),
+  }),
+});
+
+const skillcategory = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    description: z.string(),
+    skills: z.array(reference('skill')),
     order: z.number(),
   }),
 });
@@ -78,8 +87,9 @@ export const collections = {
   social,
   aboutme,
   specialization,
-  tool,
+  skillcategory,
   education,
   experience,
   project,
+  skill,
 };
