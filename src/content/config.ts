@@ -49,6 +49,30 @@ const skillcategory = defineCollection({
   }),
 });
 
+const project = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      description: z.string(),
+      detail: z.string(),
+      link: z.object({ name: z.string(), href: z.string() }),
+      image: image(),
+      order: z.number(),
+    }),
+});
+
+const repository = defineCollection({
+  type: 'content',
+  schema: z.object({
+    name: z.string(),
+    description: z.string(),
+    link: z.string().url(),
+    skills: z.array(reference('skill')),
+    order: z.number(),
+  }),
+});
+
 const education = defineCollection({
   type: 'content',
   schema: z.object({
@@ -70,26 +94,14 @@ const experience = defineCollection({
   }),
 });
 
-const project = defineCollection({
-  type: 'content',
-  schema: ({ image }) =>
-    z.object({
-      name: z.string(),
-      description: z.string(),
-      detail: z.string(),
-      link: z.object({ name: z.string(), href: z.string() }),
-      image: image(),
-      order: z.number(),
-    }),
-});
-
 export const collections = {
   social,
   aboutme,
   specialization,
   skillcategory,
+  skill,
+  project,
+  repository,
   education,
   experience,
-  project,
-  skill,
 };

@@ -10,7 +10,7 @@ const content = await getEntry('page', 'project');
 const projects = sortByOrder(await getCollection('project'));
 ---
 
-<Page navigationLinks={{ back: 'educationandexperience', forward: 'home' }}>
+<Page navigationLinks={{ back: 'skill', forward: 'repository' }}>
   <div class="flex flex-col gap-5">
     <h2 class="text-lg font-semibold">{content.data.title}</h2>
     <div class="flex flex-col gap-3">

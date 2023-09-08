@@ -8,11 +8,12 @@ export const links = {
   home: { name: 'Home', href: '/' },
   about: { name: 'About', href: '/about' },
   skill: { name: 'Skills', href: '/skill' },
+  project: { name: 'Projects', href: '/project' },
+  repository: { name: 'Repositories', href: '/repository' },
   educationandexperience: {
     name: 'Education and Experience',
     href: '/education-and-experience',
   },
-  project: { name: 'Projects', href: '/project' },
 };
 type Links = typeof links;
 type LinkKey = keyof Links;
@@ -20,6 +21,7 @@ type LinkKey = keyof Links;
 export const navLinks: LinkKey[] = [
   'about',
   'skill',
-  'educationandexperience',
   'project',
+  'repository',
+  'educationandexperience',
 ];
