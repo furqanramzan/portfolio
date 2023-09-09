@@ -11,11 +11,9 @@ const { skillCategory } = Astro.props;
 const skills = sortByOrder(await getEntries(skillCategory.data.skills));
 ---
 
-<div class="flex gap-5 bg-gray-200 p-5 dark:bg-gray-800">
-  <div class="flex flex-col gap-1">
-    <h3 class="text-xl font-semibold">{skillCategory.data.title}</h3>
-    <div class="flex flex-wrap gap-2">
-      {skills.map((x) => <Skill skill={x} />)}
-    </div>
+<div class="flex flex-col gap-2 bg-gray-200 p-5 dark:bg-gray-800">
+  <h3 class="text-xl font-semibold">{skillCategory.data.title}</h3>
+  <div class="flex flex-wrap gap-2">
+    {skills.map((x) => <Skill skill={x} />)}
   </div>
 </div>
