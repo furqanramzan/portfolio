@@ -13,6 +13,7 @@ skills:
     'pwa',
     'bulma',
     'sass',
+    'vuepress',
   ]
 order: 11
 ---

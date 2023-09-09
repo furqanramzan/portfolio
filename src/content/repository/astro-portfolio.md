@@ -1,7 +1,7 @@
 ---
 name: Astro Portfolio
 link: https://github.com/furqanramzan/astro-portfolio
-description: It's leveraging SvelteKit's dynamic features, that prioritize user satisfaction from product presentation to checkout.
+description: Explore this repository to find a web application created using Astro, which utilizes the newest feature known as "View Transitions." Immerse yourself in the world of cutting-edge web page transitions and smooth animations that offer users a seamless and captivating browsing experience.
 skills:
   [
     'nx',
@@ -17,5 +17,5 @@ skills:
     'figma',
     'pwa',
   ]
-order: 1
+order: 31
 ---

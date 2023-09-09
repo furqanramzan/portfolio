@@ -1,7 +1,7 @@
 ---
 name: Upwork Job Filter
 link: https://github.com/furqanramzan/upwork-job-filter
-description: It's leveraging SvelteKit's dynamic features, that prioritize user satisfaction from product presentation to checkout.
+description: The following repository showcases a progressive web application created using the most up-to-date Nuxt.js and tRPC technologies. It emphasizes the remarkable aspect of having typesafe APIs. Take a look at this project to see firsthand how the latest versions of Nuxt.js and tRPC come together to enhance web development, resulting in strong and high-performing web applications.
 skills:
   [
     'nuxt',
@@ -17,6 +17,7 @@ skills:
     'vscode',
     'pwa',
     'git',
+    'trpc',
   ]
-order: 1
+order: 41
 ---
