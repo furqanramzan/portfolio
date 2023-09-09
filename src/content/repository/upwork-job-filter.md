@@ -1,24 +1,21 @@
 ---
-name: Sveltekit E-commerce
-link: https://github.com/furqanramzan/sveltekit-ecommerce
+name: Upwork Job Filter
+link: https://github.com/furqanramzan/upwork-job-filter
 description: It's leveraging SvelteKit's dynamic features, that prioritize user satisfaction from product presentation to checkout.
 skills:
   [
-    'sveltekit',
-    'svelte',
-    's3',
-    'nx',
+    'nuxt',
+    'vue',
+    'element',
     'css',
     'html',
     'mysql',
     'nodejs',
     'javascript',
     'typescript',
-    'tailwindcss',
     'github',
-    'planetscale',
-    'vercel',
     'vscode',
+    'pwa',
     'git',
   ]
 order: 1

@@ -1,11 +1,11 @@
 ---
-name: Sveltekit E-commerce
-link: https://github.com/furqanramzan/sveltekit-ecommerce
+name: Next.js Portfolio
+link: https://github.com/furqanramzan/nextjs-portfolio
 description: It's leveraging SvelteKit's dynamic features, that prioritize user satisfaction from product presentation to checkout.
 skills:
   [
-    'sveltekit',
-    'svelte',
+    'nextjs',
+    'react',
     's3',
     'nx',
     'css',
@@ -20,6 +20,7 @@ skills:
     'vercel',
     'vscode',
     'git',
+    'figma',
   ]
 order: 1
 ---
