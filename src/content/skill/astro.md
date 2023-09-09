@@ -1,5 +1,5 @@
 ---
 name: Astro
 icon: logos:astro-icon
-order: 71
+order: 51
 ---

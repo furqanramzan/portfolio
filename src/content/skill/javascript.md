@@ -1,5 +1,5 @@
 ---
 name: Javascript
 icon: logos:javascript
-order: 1
+order: 101
 ---

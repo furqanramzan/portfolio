@@ -1,5 +1,5 @@
 ---
 name: MySQL
 icon: logos:mysql-icon
-order: 1
+order: 91
 ---

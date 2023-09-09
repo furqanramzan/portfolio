@@ -1,5 +1,5 @@
 ---
 name: cPanel
 icon: logos:cpanel
-order: 1
+order: 261
 ---

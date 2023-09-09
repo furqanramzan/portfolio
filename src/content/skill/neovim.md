@@ -1,5 +1,5 @@
 ---
 name: Neovim
 icon: logos:vim
-order: 1
+order: 401
 ---

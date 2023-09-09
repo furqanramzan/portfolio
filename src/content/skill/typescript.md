@@ -1,5 +1,5 @@
 ---
 name: Typescript
 icon: logos:typescript-icon
-order: 11
+order: 61
 ---

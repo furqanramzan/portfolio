@@ -1,5 +1,5 @@
 ---
 name: PlanetScale
 icon: logos:planetscale
-order: 1
+order: 311
 ---

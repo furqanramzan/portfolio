@@ -1,5 +1,5 @@
 ---
 name: GitLab
 icon: logos:gitlab
-order: 1
+order: 341
 ---

@@ -1,5 +1,5 @@
 ---
 name: Vercel
 icon: logos:vercel-icon
-order: 1
+order: 301
 ---

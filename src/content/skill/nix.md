@@ -1,5 +1,5 @@
 ---
 name: Nix
 icon: vscode-icons:file-type-nix
-order: 1
+order: 121
 ---

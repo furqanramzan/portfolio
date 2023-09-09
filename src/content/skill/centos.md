@@ -1,5 +1,5 @@
 ---
 name: CentOS
 icon: logos:centos-icon
-order: 1
+order: 281
 ---
