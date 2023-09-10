@@ -1,6 +1,6 @@
 ---
-title: Cryptocurrency
-description: Deep knowledge of Blockchain and Cryptocurrency, have done speaking engagements and passed the ConsenSys Blockchain Developer Academy in 2018.
-icon: ic:twotone-currency-bitcoin
+title: Cross-Platform Compatibility
+description: Achieving compatibility across multiple platforms and devices is vital for providing smooth user experiences, expanding your audience, and improving user engagement.
+icon: material-symbols:devices
 order: 31
 ---
