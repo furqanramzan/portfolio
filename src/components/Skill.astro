@@ -10,7 +10,10 @@ interface Props {
 const { skill } = Astro.props;
 ---
 
-<Badge>
-  <Icon class="mr-2 !h-4 !w-4" icon={skill.data.icon} />
-  {skill.data.name}
-</Badge>
+<a href={`/skill/${skill.slug}`} class="flex">
+  <Badge>
+    <Icon class="mr-2 !h-4 !w-4" icon={skill.data.icon} />
+    {skill.data.name}
+    <Icon class="!h-4 !w-4" icon="material-symbols:arrow-right-rounded" />
+  </Badge>
+</a>
