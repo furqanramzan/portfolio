@@ -14,7 +14,9 @@ const skills = sortByOrder(await getEntries(repository.data.skills));
 ---
 
 <div class="flex flex-col gap-2 bg-gray-200 p-5 dark:bg-gray-800">
-  <h3 class="flex items-center gap-2 text-xl font-semibold">
+  <h3
+    class="flex flex-col items-start gap-2 text-xl font-semibold sm:flex-row sm:items-center"
+  >
     {repository.data.name}
     <a class="flex" href={repository.data.link} target="_blank">
       <Badge>
@@ -23,7 +25,7 @@ const skills = sortByOrder(await getEntries(repository.data.skills));
       </Badge>
     </a>
   </h3>
-  <p class="text-gray-500">{repository.data.description}</p>
+  <p class="text-gray-500 dark:text-gray-400">{repository.data.description}</p>
   <div class="flex flex-wrap gap-2">
     {skills.map((x) => <Skill skill={x} />)}
   </div>
