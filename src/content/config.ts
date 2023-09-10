@@ -55,9 +55,9 @@ const project = defineCollection({
     z.object({
       name: z.string(),
       description: z.string(),
-      detail: z.string(),
-      link: z.object({ name: z.string(), href: z.string() }),
+      link: z.string().url(),
       image: image(),
+      skills: z.array(reference('skill')),
       order: z.number(),
     }),
 });

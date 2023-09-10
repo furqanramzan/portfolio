@@ -1,9 +1,7 @@
 ---
-import { Image } from 'astro:assets';
 import { getCollection, getEntry } from 'astro:content';
 import Page from '@/layouts/Page.astro';
-import Badge from '@/components/Badge.astro';
-import Icon from '@/components/Icon.astro';
+import ProjectItem from '@/components/Project.astro';
 import { sortByOrder } from '@/utils/sort';
 
 const content = await getEntry('page', 'project');
@@ -14,34 +12,7 @@ const projects = sortByOrder(await getCollection('project'));
   <div class="flex flex-col gap-5">
     <h2 class="text-lg font-semibold">{content.data.title}</h2>
     <div class="flex flex-col gap-3">
-      {
-        projects.map((project) => (
-          <div class="flex flex-col gap-5 bg-gray-200 p-3 dark:bg-gray-800 sm:flex-row">
-            <div class="flex shrink-0 flex-col gap-4">
-              <Image
-                width={240}
-                height={146}
-                class="rounded-md"
-                src={project.data.image}
-                alt={project.data.name}
-              />
-              <a href={project.data.link.href} class="flex">
-                <Badge class="gap-2">
-                  {project.data.link.name}
-                  <Icon class="!h-5 !w-5" icon="ic:round-arrow-outward" />
-                </Badge>
-              </a>
-            </div>
-            <div class="flex flex-col gap-1">
-              <h3 class="text-xl font-semibold">{project.data.name}</h3>
-              <p class="text-gray-500 dark:text-gray-400">
-                {project.data.description}
-              </p>
-              <p>{project.data.detail}</p>
-            </div>
-          </div>
-        ))
-      }
+      {projects.map((project) => <ProjectItem project={project} />)}
     </div>
   </div>
 </Page>
