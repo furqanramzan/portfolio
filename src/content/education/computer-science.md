@@ -1,6 +1,6 @@
 ---
-degree: Computer Science
-institute: Masinde Muliro University
-year: 2016 - 2020
+degree: Master of Computer Science
+institute: Virtual University of Pakistan
+year: 2018 - 2019
 order: 1
 ---

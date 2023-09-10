@@ -89,7 +89,7 @@ const experience = defineCollection({
     designation: z.string(),
     company: z.string(),
     year: z.string(),
-    skills: z.array(z.string()),
+    skills: z.array(reference('skill')),
     order: z.number(),
   }),
 });

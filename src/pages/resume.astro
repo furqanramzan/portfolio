@@ -1,8 +1,8 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 import Page from '@/layouts/Page.astro';
-import Badge from '@/components/Badge.astro';
 import { sortByOrder } from '@/utils/sort';
+import Experience from '@/components/Experience.astro';
 
 const content = await getEntry('page', 'resume');
 const educations = sortByOrder(await getCollection('education'));
@@ -36,24 +36,7 @@ const experiences = sortByOrder(await getCollection('experience'));
       <div class="flex flex-col gap-3">
         {
           experiences.map((experience) => (
-            <div class="flex gap-5 bg-gray-200 p-5 dark:bg-gray-800">
-              <div class="flex w-full flex-col gap-1">
-                <h3 class="text-xl font-semibold">
-                  {experience.data.designation}
-                </h3>
-                <div class="flex flex-col justify-between sm:flex-row">
-                  <p>{experience.data.company}</p>
-                  <p class="text-gray-500 dark:text-gray-400">
-                    {experience.data.year}
-                  </p>
-                </div>
-                <div class="flex flex-wrap gap-3">
-                  {experience.data.skills.map((skill) => (
-                    <Badge>{skill}</Badge>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <Experience experience={experience} />
           ))
         }
       </div>
