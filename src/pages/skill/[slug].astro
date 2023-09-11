@@ -20,14 +20,14 @@ export async function getStaticPaths() {
 
 const { skill } = Astro.props;
 
-const projectContent = await getEntry('page', 'project');
+const projectContent = await getEntry('page', 'projects');
 const projects = sortByOrder(
   await getCollection('project', ({ data }) =>
     data.skills.some((x) => x.slug === skill.slug),
   ),
 );
 
-const repositoryContent = await getEntry('page', 'repository');
+const repositoryContent = await getEntry('page', 'repositories');
 const repositories = sortByOrder(
   await getCollection('repository', ({ data }) =>
     data.skills.some((x) => x.slug === skill.slug),

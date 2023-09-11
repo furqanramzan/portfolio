@@ -7,9 +7,9 @@ export const color = '#111827';
 export const links = {
   home: { name: 'Home', href: '/' },
   about: { name: 'About', href: '/about' },
-  skill: { name: 'Skills', href: '/skill' },
-  project: { name: 'Projects', href: '/project' },
-  repository: { name: 'Repositories', href: '/repository' },
+  skill: { name: 'Skills', href: '/skills' },
+  project: { name: 'Projects', href: '/projects' },
+  repository: { name: 'Repositories', href: '/repositories' },
   resume: {
     name: 'Resume',
     href: '/resume',

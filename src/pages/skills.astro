@@ -4,7 +4,7 @@ import Page from '@/layouts/Page.astro';
 import SkillCategory from '@/components/SkillCategory.astro';
 import { sortByOrder } from '@/utils/sort';
 
-const content = await getEntry('page', 'skill');
+const content = await getEntry('page', 'skills');
 const skillCategories = sortByOrder(await getCollection('skillcategory'));
 ---
 

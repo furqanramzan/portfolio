@@ -1,10 +1,10 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 import Page from '@/layouts/Page.astro';
-import RepositoryItem from '@/components/Repository.astro';
+import Repository from '@/components/Repository.astro';
 import { sortByOrder } from '@/utils/sort';
 
-const content = await getEntry('page', 'repository');
+const content = await getEntry('page', 'repositories');
 const repositories = sortByOrder(await getCollection('repository'));
 ---
 
@@ -12,11 +12,7 @@ const repositories = sortByOrder(await getCollection('repository'));
   <div class="flex flex-col gap-5">
     <h2 class="text-lg font-semibold">{content.data.title}</h2>
     <div class="flex flex-col gap-3">
-      {
-        repositories.map((repository) => (
-          <RepositoryItem repository={repository} />
-        ))
-      }
+      {repositories.map((repository) => <Repository repository={repository} />)}
     </div>
   </div>
 </Page>
