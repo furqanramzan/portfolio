@@ -18,6 +18,12 @@ Make sure to install dependencies using:
 pnpm install
 ```
 
+Make a copy of the environment variables file.
+
+```bash
+cp .env.example .env
+```
+
 ### Git Hooks
 
 Setup git hooks.
