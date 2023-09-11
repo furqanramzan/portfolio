@@ -9,6 +9,7 @@ const skillCategories = sortByOrder(await getCollection('skillcategory'));
 ---
 
 <Page
+  active="skill"
   title={content.data.title}
   description={content.data.description}
   navigationLinks={{ back: 'about', forward: 'project' }}

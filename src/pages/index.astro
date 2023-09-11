@@ -8,7 +8,11 @@ import Icon from '@/components/Icon.astro';
 const content = await getEntry('page', 'home');
 ---
 
-<Default title={content.data.title} description={content.data.description}>
+<Default
+  active="home"
+  title={content.data.title}
+  description={content.data.description}
+>
   <div class="mx-auto mt-10 max-w-screen-md">
     <div class="flex flex-col items-center gap-10">
       <AboutMe center={true} width={300} height={300}>

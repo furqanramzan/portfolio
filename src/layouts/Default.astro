@@ -2,14 +2,15 @@
 import { pwaInfo } from 'virtual:pwa-info';
 import { ViewTransitions } from 'astro:transitions';
 import Header from '@/components/Header.astro';
-import { color, name } from '@/utils/constants';
+import { type LinkKey, color, name } from '@/utils/constants';
 
 export interface Props {
   title?: string;
   description?: string;
+  active: LinkKey;
 }
 
-let { title, description } = Astro.props;
+let { title, description, active } = Astro.props;
 if (!title) {
   title = name;
 } else {
@@ -41,7 +42,7 @@ if (!description) {
     <div
       class="mx-auto flex max-w-screen-2xl flex-col px-2 py-5 sm:px-5 2xl:px-0"
     >
-      <Header />
+      <Header active={active} />
       <slot />
     </div>
   </body>

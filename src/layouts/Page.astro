@@ -10,10 +10,10 @@ import SocialLinks from '@/components/SocialLinks.astro';
 interface Props extends DefaultProps {
   navigationLinks?: NavigationButtonsProps;
 }
-const { navigationLinks, ...props } = Astro.props;
+const { navigationLinks, active, ...props } = Astro.props;
 ---
 
-<Default {...props}>
+<Default {...props} active={active}>
   <div class="my-10 grid grid-cols-1 lg:grid-cols-2">
     <div class="max-lg:hidden">
       <AboutMe width={150} height={150}>
@@ -21,7 +21,10 @@ const { navigationLinks, ...props } = Astro.props;
           {
             navLinks.map((link, index) => (
               <a
-                class="flex items-center gap-2 text-gray-500 transition-all [&>span]:bg-gray-500"
+                class={`flex items-center gap-2 text-gray-500 transition-all [&>span]:bg-gray-500 ${
+                  links[active] === links[link] &&
+                  `!text-black dark:!text-white [&>span]:!w-24 [&>span]:!bg-black [&>span]:dark:!bg-white`
+                }`}
                 href={links[link].href}
               >
                 {`0${index + 1}`}
@@ -44,23 +47,3 @@ const { navigationLinks, ...props } = Astro.props;
     </div>
   </div>
 </Default>
-
-<script is:inline>
-  function activeNavLink() {
-    const classes = [
-      '!text-black',
-      '[&>span]:!bg-black',
-      'dark:!text-white',
-      '[&>span]:dark:!bg-white',
-      '[&>span]:!w-24',
-    ];
-    const navLinks = document.querySelectorAll('#desktop_nav a');
-    navLinks.forEach((link) => {
-      link.classList.remove(...classes);
-      if (link.href.endsWith(window.location.pathname)) {
-        link.classList.add(...classes);
-      }
-    });
-  }
-  activeNavLink();
-</script>

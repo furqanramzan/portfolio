@@ -16,7 +16,7 @@ export const links = {
   },
 };
 type Links = typeof links;
-type LinkKey = keyof Links;
+export type LinkKey = keyof Links;
 
 export const navLinks: LinkKey[] = [
   'about',

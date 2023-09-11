@@ -9,6 +9,7 @@ const repositories = sortByOrder(await getCollection('repository'));
 ---
 
 <Page
+  active="repository"
   title={content.data.title}
   description={content.data.description}
   navigationLinks={{ back: 'project', forward: 'resume' }}

@@ -9,7 +9,12 @@ const aboutmes = sortByOrder(await getCollection('aboutme'));
 const specializations = sortByOrder(await getCollection('specialization'));
 ---
 
-<Page navigationLinks={{ back: 'home', forward: 'skill' }}>
+<Page
+  active="about"
+  title={content.data.title}
+  description={content.data.description}
+  navigationLinks={{ back: 'home', forward: 'skill' }}
+>
   <div class="flex flex-col gap-14">
     <div class="flex flex-col gap-7">
       <div class="flex flex-col gap-2">

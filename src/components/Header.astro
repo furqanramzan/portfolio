@@ -3,7 +3,13 @@ import DarkMode from './DarkMode.astro';
 import Icon from './Icon.astro';
 import Logo from './Logo.astro';
 import SocialLinks from './SocialLinks.astro';
-import { links } from '@/utils/constants';
+import { type LinkKey, links } from '@/utils/constants';
+
+export interface Props {
+  active: LinkKey;
+}
+
+const { active } = Astro.props;
 ---
 
 <div class="flex items-center justify-between">
@@ -28,7 +34,9 @@ import { links } from '@/utils/constants';
       {
         Object.values(links).map((link) => (
           <a
-            class="flex items-center gap-2 text-2xl font-medium text-gray-500 dark:text-gray-400"
+            class={`flex items-center gap-2 text-2xl font-medium text-gray-500 dark:text-gray-400 ${
+              links[active] === link && `!text-black dark:!text-white`
+            }`}
             href={link.href}
           >
             {link.name}
@@ -48,16 +56,4 @@ import { links } from '@/utils/constants';
   document
     .getElementById('hamburger')
     .addEventListener('click', toggleMobileNav);
-
-  function activeMobileNavLink() {
-    const classes = ['!text-black', '!dark:text-white'];
-    const navLinks = document.querySelectorAll('#mobile_nav a');
-    navLinks.forEach((link) => {
-      link.classList.remove(...classes);
-      if (link.href.endsWith(window.location.pathname)) {
-        link.classList.add(...classes);
-      }
-    });
-  }
-  activeMobileNavLink();
 </script>
