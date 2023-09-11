@@ -5,6 +5,7 @@ import preload from 'astro-preload';
 import compress from 'astro-compress';
 import sitemap from '@astrojs/sitemap';
 import robotsTxt from 'astro-robots-txt';
+import partytown from '@astrojs/partytown';
 import { color, name, shortName, siteUrl } from './src/utils/constants';
 
 // https://astro.build/config
@@ -44,6 +45,7 @@ export default defineConfig({
         globIgnores: ['socials/'],
       },
     }),
+    partytown(),
     tailwind(),
     preload(),
     sitemap(),

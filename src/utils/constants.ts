@@ -1,6 +1,10 @@
 import process from 'node:process';
 
+export const isDev = process.env.NODE_ENV === 'development';
+
 export const siteUrl = process.env.SITE_URL;
+
+export const gTagId = process.env.G_TAG_ID;
 
 export const name = 'Muhammad Furqan';
 

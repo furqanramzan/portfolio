@@ -19,6 +19,7 @@
     "postinstall": "astro sync"
   },
   "dependencies": {
+    "@astrojs/partytown": "^2.0.0",
     "@astrojs/sitemap": "^3.0.0",
     "@astrojs/tailwind": "^5.0.0",
     "@vite-pwa/astro": "^0.1.2",
