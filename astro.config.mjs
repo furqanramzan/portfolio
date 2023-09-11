@@ -1,14 +1,16 @@
+import { env } from 'node:process';
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import AstroPWA from '@vite-pwa/astro';
 import preload from 'astro-preload';
 import compress from 'astro-compress';
 import sitemap from '@astrojs/sitemap';
+import robotsTxt from 'astro-robots-txt';
 import { color, name, shortName } from './src/utils/constants';
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL,
+  site: env.SITE_URL,
   integrations: [
     AstroPWA({
       base: '/',
@@ -44,7 +46,8 @@ export default defineConfig({
     }),
     tailwind(),
     preload(),
-    compress(),
     sitemap(),
+    robotsTxt(),
+    compress(),
   ],
 });

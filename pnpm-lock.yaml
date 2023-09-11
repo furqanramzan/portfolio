@@ -26,6 +26,9 @@ dependencies:
   astro-preload:
     specifier: ^1.1.2
     version: 1.1.2
+  astro-robots-txt:
+    specifier: ^1.0.0
+    version: 1.0.0
   flowbite:
     specifier: ^1.8.1
     version: 1.8.1
@@ -3776,6 +3779,16 @@ packages:
       }
     dev: false
 
+  /astro-robots-txt@1.0.0:
+    resolution:
+      {
+        integrity: sha512-6JQSLid4gMhoWjOm85UHLkgrw0+hHIjnJVIUqxjU2D6feKlVyYukMNYjH44ZDZBK1P8hNxd33PgWlHzCASvedA==,
+      }
+    dependencies:
+      valid-filename: 4.0.0
+      zod: 3.22.2
+    dev: false
+
   /astro@3.0.5:
     resolution:
       {
@@ -5978,6 +5991,14 @@ packages:
       }
     dependencies:
       minimatch: 5.1.6
+
+  /filename-reserved-regex@3.0.0:
+    resolution:
+      {
+        integrity: sha512-hn4cQfU6GOT/7cFHXBqeBg2TbrMBgdD0kcjLhvSQYYwm3s4B6cjvBfb7nBALJLAXqmU5xajSa7X2NnUud/VCdw==,
+      }
+    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    dev: false
 
   /files-pipe@2.0.18:
     resolution:
@@ -10985,6 +11006,16 @@ packages:
       }
     dev: true
 
+  /valid-filename@4.0.0:
+    resolution:
+      {
+        integrity: sha512-VEYTpTVPMgO799f2wI7zWf0x2C54bPX6NAfbZ2Z8kZn76p+3rEYCTYVYzMUcVSMvakxMQTriBf24s3+WeXJtEg==,
+      }
+    engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
+    dependencies:
+      filename-reserved-regex: 3.0.0
+    dev: false
+
   /validate-npm-package-license@3.0.4:
     resolution:
       {
@@ -11734,6 +11765,13 @@ packages:
     resolution:
       {
         integrity: sha512-+dTu2m6gmCbO9Ahm4ZBDapx2O6ZY9QSPXst2WXjcznPMwf2YNpn3RevLx4KkZp1OPW/ouFcoBtBzFz/LeY69oA==,
+      }
+    dev: false
+
+  /zod@3.22.2:
+    resolution:
+      {
+        integrity: sha512-wvWkphh5WQsJbVk1tbx1l1Ly4yg+XecD+Mq280uBGt9wa5BKSWf4Mhp6GmrkPixhMxmabYY7RbzlwVP32pbGCg==,
       }
     dev: false
 
