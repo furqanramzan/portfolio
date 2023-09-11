@@ -8,7 +8,7 @@ import { links, navLinks } from '@/utils/constants';
 import SocialLinks from '@/components/SocialLinks.astro';
 
 interface Props {
-  navigationLinks: NavigationButtonsProps;
+  navigationLinks?: NavigationButtonsProps;
 }
 const { navigationLinks } = Astro.props;
 ---
@@ -36,7 +36,7 @@ const { navigationLinks } = Astro.props;
     <div>
       <main class="flex flex-col gap-14" transition:animate="slide">
         <slot />
-        <NavigationButtons {...navigationLinks} />
+        {navigationLinks && <NavigationButtons {...navigationLinks} />}
         <div class="flex justify-center lg:hidden">
           <SocialLinks />
         </div>
