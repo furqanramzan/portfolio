@@ -1,7 +1,7 @@
 ---
 greeting: Hello, I am
 name: Muhammad Furqan
-designation: Senior React developer | React.js, Node.js, Material-ui, Sass, Firebase, Redux, Redux Toolkit, Rematchjs, HTML, CSS, Javascript ,Typescript
-description: Experienced <b>Javascript</b> Developer with a demonstrated history of working in the internet industry. Skilled in <b>Teamwork, JavaScript</b>, <b>React.js</b>, <b>Node.js</b>, and <b>Web Development</b>.
+designation: Full-Stack Developer | TypeScript, Node.js, SvelteKit, Nuxt, Next.js, PHP, Laravel, JavaScript, Svelte, Vue.js, React, Tailwind CSS, Bootstrap, Docker
+description: Experienced Web Developer with over 7 years of industry expertise, transforming your visionary ideas into captivating digital experiences. My diverse skill set ensures innovative solutions and client success.
 image: './profile.jpg'
 ---
