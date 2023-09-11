@@ -7,7 +7,7 @@
     "pnpm": ">=8"
   },
   "scripts": {
-    "dev": "astro dev",
+    "dev": "nx exec -- astro dev",
     "build": "nx exec -- astro build",
     "preview": "nx exec -- astro preview",
     "typecheck": "nx exec -- astro check && nx exec -- tsc --noEmit",

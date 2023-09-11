@@ -4,7 +4,13 @@ import { SEO } from 'astro-seo';
 import { pwaInfo } from 'virtual:pwa-info';
 import { ViewTransitions } from 'astro:transitions';
 import Header from '@/components/Header.astro';
-import { type LinkKey, color, name, twitterUsername } from '@/utils/constants';
+import {
+  type LinkKey,
+  color,
+  name,
+  siteUrl,
+  twitterUsername,
+} from '@/utils/constants';
 
 export interface Props {
   title: string;
@@ -14,7 +20,7 @@ export interface Props {
 
 const { title, description, active } = Astro.props;
 
-const ogImage = generateSocialImage({
+const imageResult = generateSocialImage({
   backgroundColor: color,
   images: [
     {
@@ -33,6 +39,7 @@ const ogImage = generateSocialImage({
     },
   ],
 });
+const { href: ogImage } = new URL(imageResult.url, siteUrl);
 ---
 
 <html lang="en">
@@ -46,13 +53,13 @@ const ogImage = generateSocialImage({
         creator: twitterUsername,
         card: 'summary',
         description,
-        image: ogImage.url,
+        image: ogImage,
       }}
       openGraph={{
         basic: {
           title,
           type: 'A type.',
-          image: ogImage.url,
+          image: ogImage,
         },
       }}
     />

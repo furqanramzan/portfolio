@@ -1,3 +1,7 @@
+import process from 'node:process';
+
+export const siteUrl = process.env.SITE_URL;
+
 export const name = 'Muhammad Furqan';
 
 export const shortName = 'Furqan';
