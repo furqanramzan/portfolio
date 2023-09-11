@@ -18,6 +18,7 @@ skills:
     'nix',
     'bash',
     'nixos',
+    'pwa',
   ]
 order: 31
 ---

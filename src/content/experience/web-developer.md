@@ -19,6 +19,8 @@ skills:
     'sass',
     'laravel',
     'nuxt',
+    'websocket',
+    'pusher',
   ]
 order: 51
 ---

@@ -1,5 +1,5 @@
 ---
-import Layout from '@/layouts/Default.astro';
+import Default, { type Props as DefaultProps } from '@/layouts/Default.astro';
 import AboutMe from '@/components/about/AboutMe.astro';
 import NavigationButtons, {
   type Props as NavigationButtonsProps,
@@ -7,13 +7,13 @@ import NavigationButtons, {
 import { links, navLinks } from '@/utils/constants';
 import SocialLinks from '@/components/SocialLinks.astro';
 
-interface Props {
+interface Props extends DefaultProps {
   navigationLinks?: NavigationButtonsProps;
 }
-const { navigationLinks } = Astro.props;
+const { navigationLinks, ...props } = Astro.props;
 ---
 
-<Layout>
+<Default {...props}>
   <div class="my-10 grid grid-cols-1 lg:grid-cols-2">
     <div class="max-lg:hidden">
       <AboutMe width={150} height={150}>
@@ -43,7 +43,7 @@ const { navigationLinks } = Astro.props;
       </main>
     </div>
   </div>
-</Layout>
+</Default>
 
 <script is:inline>
   function activeNavLink() {

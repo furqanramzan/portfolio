@@ -8,9 +8,13 @@ const content = await getEntry('page', 'projects');
 const projects = sortByOrder(await getCollection('project'));
 ---
 
-<Page navigationLinks={{ back: 'skill', forward: 'repository' }}>
+<Page
+  title={content.data.title}
+  description={content.data.description}
+  navigationLinks={{ back: 'skill', forward: 'repository' }}
+>
   <div class="flex flex-col gap-5">
-    <h2 class="text-lg font-semibold">{content.data.title}</h2>
+    <h2 class="text-lg font-semibold">{content.data.heading}</h2>
     <div class="flex flex-col gap-3">
       {projects.map((project) => <Project project={project} />)}
     </div>

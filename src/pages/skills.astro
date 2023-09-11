@@ -8,9 +8,13 @@ const content = await getEntry('page', 'skills');
 const skillCategories = sortByOrder(await getCollection('skillcategory'));
 ---
 
-<Page navigationLinks={{ back: 'about', forward: 'project' }}>
+<Page
+  title={content.data.title}
+  description={content.data.description}
+  navigationLinks={{ back: 'about', forward: 'project' }}
+>
   <div class="flex flex-col gap-5">
-    <h2 class="text-lg font-semibold">{content.data.title}</h2>
+    <h2 class="text-lg font-semibold">{content.data.heading}</h2>
     <div class="flex flex-col gap-3">
       {
         skillCategories.map((skillCategory) => (
