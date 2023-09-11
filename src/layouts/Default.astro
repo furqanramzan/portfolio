@@ -22,7 +22,9 @@ import { color, name } from '@/utils/constants';
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
   </head>
   <body class="bg-gray-50 text-black dark:bg-gray-900 dark:text-white">
-    <div class="mx-auto flex max-w-screen-2xl flex-col px-5 py-5 2xl:px-0">
+    <div
+      class="mx-auto flex max-w-screen-2xl flex-col px-2 py-5 sm:px-5 2xl:px-0"
+    >
       <Header />
       <slot />
     </div>
