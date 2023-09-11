@@ -1,4 +1,5 @@
 ---
+import { generateSocialImage } from 'astro-social-images';
 import { SEO } from 'astro-seo';
 import { pwaInfo } from 'virtual:pwa-info';
 import { ViewTransitions } from 'astro:transitions';
@@ -6,35 +7,52 @@ import Header from '@/components/Header.astro';
 import { type LinkKey, color, name, twitterUsername } from '@/utils/constants';
 
 export interface Props {
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
   active: LinkKey;
 }
 
-let { title, description, active } = Astro.props;
-if (!title) {
-  title = name;
-} else {
-  title = `${name} | ${title}`;
-}
-if (!description) {
-  description = name;
-}
+const { title, description, active } = Astro.props;
+
+const ogImage = generateSocialImage({
+  backgroundColor: color,
+  images: [
+    {
+      url: 'public/socials/logo.svg',
+      attributes: { top: 475, left: 800 },
+    },
+  ],
+  texts: [
+    {
+      content: name,
+      attributes: { x: '55', y: '105', 'font-size': '70px', fill: '#ffffff' },
+    },
+    {
+      content: title,
+      attributes: { x: '50', y: '325', 'font-size': '40px', fill: '#ffffff' },
+    },
+  ],
+});
 ---
 
 <html lang="en">
   <head>
     <SEO
+      titleTemplate={`%s | ${name}`}
+      titleDefault={name}
       title={title}
       description={description}
       twitter={{
         creator: twitterUsername,
+        card: 'summary',
+        description,
+        image: ogImage.url,
       }}
       openGraph={{
         basic: {
           title,
           type: 'A type.',
-          image: '/profile.jpg',
+          image: ogImage.url,
         },
       }}
     />

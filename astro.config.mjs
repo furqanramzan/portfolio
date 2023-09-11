@@ -42,6 +42,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{css,js,html,svg,png,webp,ico}'],
+        globIgnores: ['socials/'],
       },
     }),
     tailwind(),
