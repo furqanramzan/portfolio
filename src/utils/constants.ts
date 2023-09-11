@@ -4,6 +4,8 @@ export const shortName = 'Furqan';
 
 export const color = '#111827';
 
+export const twitterUsername = 'furqanramzan96';
+
 export const links = {
   home: { name: 'Home', href: '/' },
   about: { name: 'About', href: '/about' },
