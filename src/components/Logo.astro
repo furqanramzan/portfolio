@@ -1,8 +1,9 @@
 ---
+import Link from './Link.astro';
 import { name } from '@/utils/constants';
 ---
 
-<a
+<Link
   href="/"
   aria-label={name}
   class="flex w-40 text-black dark:text-white sm:w-60"
@@ -54,4 +55,4 @@ import { name } from '@/utils/constants';
       </g>
     </g>
   </svg>
-</a>
+</Link>
