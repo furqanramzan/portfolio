@@ -41,6 +41,7 @@ export default defineConfig({
         ],
       },
       workbox: {
+        navigateFallback: '/404',
         globPatterns: ['**/*.{css,js,html,svg,png,webp,ico}'],
         globIgnores: ['**/socials/*.{svg,png}'],
       },
