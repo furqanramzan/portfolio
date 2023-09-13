@@ -15,8 +15,10 @@ const { navigationLinks, active, ...props } = Astro.props;
 ---
 
 <Default {...props} active={active}>
-  <div class="my-10 grid grid-cols-1 lg:grid-cols-2">
-    <div class="max-lg:hidden">
+  <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
+    <div
+      class="sticky top-0 h-screen overflow-y-scroll pt-10 scrollbar-none max-lg:hidden"
+    >
       <AboutMe width={150} height={150}>
         <nav class="flex flex-col gap-5" id="desktop_nav">
           {
@@ -38,7 +40,7 @@ const { navigationLinks, active, ...props } = Astro.props;
       </AboutMe>
     </div>
     <div>
-      <main class="flex flex-col gap-14" transition:animate="slide">
+      <main class="flex flex-col gap-14">
         <slot />
         {navigationLinks && <NavigationButtons {...navigationLinks} />}
         <div class="flex justify-center lg:hidden">
