@@ -1,0 +1,11 @@
+---
+import { pwaInfo } from 'virtual:pwa-info';
+import { color } from '@/utils/constants';
+---
+
+<link rel="apple-touch-icon" href="/pwa-192x192.png" />
+<link rel="mask-icon" href="/favicon.svg" color={color} />
+<meta name="msapplication-TileColor" content={color} />
+<meta name="theme-color" content={color} />
+<script src="/src/pwa.ts"></script>
+{pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
