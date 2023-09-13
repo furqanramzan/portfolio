@@ -2,6 +2,7 @@
 import { getEntry } from 'astro:content';
 import Button from '@/components/Button.astro';
 import Default from '@/layouts/Default.astro';
+import Link from '@/components/Link.astro';
 
 const content = await getEntry('page', '404');
 ---
@@ -28,8 +29,8 @@ const content = await getEntry('page', '404');
       Sorry, we can't find that page. You'll find lots to explore on the home
       page.
     </p>
-    <a href="/" class="flex">
+    <Link href="/" class="flex">
       <Button class="px-5 py-2.5">Back to Homepage</Button>
-    </a>
+    </Link>
   </section>
 </Default>

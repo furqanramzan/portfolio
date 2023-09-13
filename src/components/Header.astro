@@ -1,6 +1,7 @@
 ---
 import DarkMode from './DarkMode.astro';
 import Icon from './Icon.astro';
+import Link from './Link.astro';
 import Logo from './Logo.astro';
 import SocialLinks from './SocialLinks.astro';
 import { type LinkKey, links } from '@/utils/constants';
@@ -33,14 +34,14 @@ const { active } = Astro.props;
     <nav class="flex w-full flex-col items-center gap-5" id="mobile_nav">
       {
         Object.values(links).map((link) => (
-          <a
+          <Link
             class={`flex items-center gap-2 text-2xl font-medium text-gray-500 dark:text-gray-400 ${
               links[active] === link && `!text-black dark:!text-white`
             }`}
             href={link.href}
           >
             {link.name}
-          </a>
+          </Link>
         ))
       }
     </nav>

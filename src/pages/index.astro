@@ -4,6 +4,7 @@ import Default from '@/layouts/Default.astro';
 import AboutMe from '@/components/about/AboutMe.astro';
 import Button from '@/components/Button.astro';
 import Icon from '@/components/Icon.astro';
+import Link from '@/components/Link.astro';
 
 const content = await getEntry('page', 'home');
 ---
@@ -16,12 +17,12 @@ const content = await getEntry('page', 'home');
   <div class="mx-auto mt-10 max-w-screen-md">
     <div class="flex flex-col items-center gap-10">
       <AboutMe center={true} width={300} height={300}>
-        <a href="/about" class="flex">
+        <Link href="/about" class="flex">
           <Button type="button" class="px-8 py-2">
             {content.data.explore}
             <Icon icon="material-symbols:arrow-right-rounded" />
           </Button>
-        </a>
+        </Link>
       </AboutMe>
     </div>
   </div>

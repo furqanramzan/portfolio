@@ -1,0 +1,19 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'a'> & {
+  /**
+   * @default pre
+   */
+  fetch?: 'pre' | 'hover';
+};
+
+const { href, fetch, ...attrs } = Astro.props;
+const prefetch = fetch || 'pre';
+const rel = prefetch === 'pre' ? 'prefetch' : 'prefetch-intent';
+---
+
+<link rel={rel} href={href} />
+<a {...attrs} href={href}>
+  <slot />
+</a>

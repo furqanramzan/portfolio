@@ -1,6 +1,7 @@
 ---
 import Button from './Button.astro';
 import Icon from './Icon.astro';
+import Link from './Link.astro';
 import { type LinkKey, links } from '@/utils/constants';
 
 export interface Props {
@@ -12,16 +13,16 @@ const { back, forward } = Astro.props;
 ---
 
 <div class="mt-5 flex flex-col items-center justify-center gap-4 sm:flex-row">
-  <a href={links[back].href} class="flex">
+  <Link href={links[back].href} class="flex">
     <Button class="rounded-sm px-7 py-2">
       <Icon icon="material-symbols:arrow-left-rounded" />
       {links[back].name}
     </Button>
-  </a>
-  <a href={links[forward].href} class="flex">
+  </Link>
+  <Link href={links[forward].href} class="flex">
     <Button class="rounded-sm px-7 py-2">
       {links[forward].name}
       <Icon icon="material-symbols:arrow-right-rounded" />
     </Button>
-  </a>
+  </Link>
 </div>
