@@ -12,6 +12,7 @@ import {
   siteUrl,
   twitterUsername,
 } from '@/utils/constants';
+import ProgressBar from '@/components/ProgressBar.astro';
 
 export interface Props {
   title: string;
@@ -81,6 +82,7 @@ const { href: ogImage } = new URL(imageResult.url, siteUrl);
   <body
     class="scroo bg-gray-50 text-black scrollbar-thin scrollbar-track-gray-50 scrollbar-thumb-gray-900 dark:bg-gray-900 dark:text-white dark:scrollbar-track-gray-900 dark:scrollbar-thumb-gray-50"
   >
+    <ProgressBar />
     <div
       class="mx-auto flex max-w-screen-2xl flex-col px-2 py-5 sm:px-5 2xl:px-0"
     >

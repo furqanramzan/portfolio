@@ -7,6 +7,9 @@ module.exports = {
     'prettier',
   ],
   plugins: ['jsx-a11y'],
+  globals: {
+    NodeJS: true,
+  },
   overrides: [
     {
       files: ['*.astro'],
