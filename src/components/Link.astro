@@ -1,6 +1,5 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
-import { isDev } from '@/utils/constants';
 
 type Props = HTMLAttributes<'a'> & {
   /**
@@ -14,7 +13,7 @@ const prefetch = fetch || 'pre';
 const rel = prefetch === 'pre' ? 'prefetch' : 'prefetch-intent';
 ---
 
-{!isDev && <link rel={rel} href={href} />}
+<link rel={rel} href={href} />
 <a {...attrs} href={href}>
   <slot />
 </a>

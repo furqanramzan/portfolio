@@ -4,11 +4,10 @@ import { SEO } from 'astro-seo';
 import { pwaInfo } from 'virtual:pwa-info';
 import { ViewTransitions } from 'astro:transitions';
 import Header from '@/components/Header.astro';
+import GoogleTag from '@/components/GoogleTag.astro';
 import {
   type LinkKey,
   color,
-  gTagId,
-  isDev,
   name,
   siteUrl,
   twitterUsername,
@@ -42,8 +41,6 @@ const imageResult = generateSocialImage({
   ],
 });
 const { href: ogImage } = new URL(imageResult.url, siteUrl);
-const gTag = `
-<script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=${gTagId}"></script><script type="text/partytown"> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag("js", new Date()); gtag("config", ${gTagId}); </script>`;
 ---
 
 <html lang="en">
@@ -79,8 +76,7 @@ const gTag = `
     <meta name="theme-color" content={color} />
     <script src="/src/pwa.ts"></script>
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
-    <!-- Google tag -->
-    {!isDev && gTagId && <Fragment set:html={gTag} />}
+    <GoogleTag />
   </head>
   <body
     class="scroo bg-gray-50 text-black scrollbar-thin scrollbar-track-gray-50 scrollbar-thumb-gray-900 dark:bg-gray-900 dark:text-white dark:scrollbar-track-gray-900 dark:scrollbar-thumb-gray-50"

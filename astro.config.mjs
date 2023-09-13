@@ -5,7 +5,6 @@ import preload from 'astro-preload';
 import compress from 'astro-compress';
 import sitemap from '@astrojs/sitemap';
 import robotsTxt from 'astro-robots-txt';
-import partytown from '@astrojs/partytown';
 import prefetch from '@astrojs/prefetch';
 import { color, isDev, name, shortName, siteUrl } from './src/utils/constants';
 
@@ -50,7 +49,6 @@ export default defineConfig({
         globIgnores: ['**/socials/*.{svg,png}'],
       },
     }),
-    partytown(),
     tailwind(),
     preload(),
     sitemap(),
