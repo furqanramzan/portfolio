@@ -1,0 +1,68 @@
+---
+const initialProgress = 30;
+---
+
+<div
+  id="progress-container"
+  class="absolute top-0 mb-4 hidden h-1.5 w-full rounded-full bg-gray-300 dark:bg-gray-700"
+>
+  <div
+    id="progress"
+    style={{ width: `${initialProgress}%` }}
+    class="h-1 rounded-full bg-black transition-all dark:bg-white"
+  >
+  </div>
+</div>
+
+<script>
+  const initialProgress = 30;
+  let startTimeout: NodeJS.Timeout;
+  let updateTimeout: NodeJS.Timeout;
+
+  function setProgress(progress: number) {
+    const progressElement = document.getElementById('progress') as HTMLElement;
+    progressElement.style.width = `${progress}%`;
+  }
+
+  function toggleProgressContainer(type: 'hide' | 'show') {
+    const action = {
+      hide: 'add',
+      show: 'remove',
+    } as const;
+    const progressContainer = document.getElementById('progress-container');
+    progressContainer?.classList[action[type]]('hidden');
+  }
+
+  function updateProgress(currentProgress: number) {
+    updateTimeout = setTimeout(() => {
+      currentProgress += 10;
+      setProgress(currentProgress);
+
+      if (currentProgress < 90) {
+        updateProgress(currentProgress);
+      }
+    }, 300);
+  }
+
+  function startProgress() {
+    if (!localStorage.getItem('offline-ready')) {
+      toggleProgressContainer('show');
+      updateProgress(initialProgress);
+    }
+  }
+
+  function stopProgress() {
+    clearTimeout(startTimeout);
+    clearTimeout(updateTimeout);
+
+    setProgress(100);
+
+    setTimeout(() => {
+      toggleProgressContainer('hide');
+      setProgress(initialProgress);
+    }, 200);
+  }
+
+  document.addEventListener('astro:after-swap', startProgress);
+  document.addEventListener('astro:page-load', stopProgress);
+</script>
