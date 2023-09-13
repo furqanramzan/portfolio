@@ -82,7 +82,9 @@ const gTag = `
     <!-- Google tag -->
     {!isDev && gTagId && <Fragment set:html={gTag} />}
   </head>
-  <body class="bg-gray-50 text-black dark:bg-gray-900 dark:text-white">
+  <body
+    class="scroo bg-gray-50 text-black scrollbar-thin scrollbar-track-gray-50 scrollbar-thumb-gray-900 dark:bg-gray-900 dark:text-white dark:scrollbar-track-gray-900 dark:scrollbar-thumb-gray-50"
+  >
     <div
       class="mx-auto flex max-w-screen-2xl flex-col px-2 py-5 sm:px-5 2xl:px-0"
     >

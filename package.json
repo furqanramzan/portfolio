@@ -33,6 +33,7 @@
     "astro-social-images": "^0.4.1",
     "flowbite": "^1.8.1",
     "sharp": "^0.32.5",
+    "tailwind-scrollbar": "^3.0.5",
     "tailwindcss": "^3.0.24",
     "workbox-window": "^7.0.0"
   },
