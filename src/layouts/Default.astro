@@ -17,10 +17,11 @@ import PWA from '@/components/PWA.astro';
 export interface Props {
   title: string;
   description: string;
+  ogdescription: string;
   active: LinkKey;
 }
 
-const { title, description, active } = Astro.props;
+const { title, description, ogdescription, active } = Astro.props;
 
 const imageResult = generateSocialImage({
   backgroundColor: color,
@@ -37,7 +38,11 @@ const imageResult = generateSocialImage({
     },
     {
       content: title,
-      attributes: { x: '50', y: '325', 'font-size': '40px', fill: '#ffffff' },
+      attributes: { x: '50', y: '305', 'font-size': '50px', fill: '#ffffff' },
+    },
+    {
+      content: ogdescription,
+      attributes: { x: '50', y: '355', 'font-size': '30px', fill: '#ffffff' },
     },
   ],
 });

@@ -13,6 +13,7 @@ const experiences = sortByOrder(await getCollection('experience'));
   active="resume"
   title={content.data.title}
   description={content.data.description}
+  ogdescription={content.data.ogdescription}
   navigationLinks={{ back: 'repository', forward: 'home' }}
 >
   <div class="flex flex-col gap-14">

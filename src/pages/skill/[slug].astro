@@ -28,6 +28,10 @@ const description = content.data.description.replaceAll(
   '{skill}',
   skill.data.name,
 );
+const ogdescription = content.data.ogdescription.replaceAll(
+  '{skill}',
+  skill.data.name,
+);
 
 const projectContent = await getEntry('page', 'projects');
 const projects = sortByOrder(
@@ -51,7 +55,12 @@ const experiences = sortByOrder(
 );
 ---
 
-<Page active="skill" title={title} description={description}>
+<Page
+  active="skill"
+  title={title}
+  description={description}
+  ogdescription={ogdescription}
+>
   <div class="flex w-full flex-col gap-8">
     <h2 class="flex items-center text-lg font-semibold">
       <SkillName skill={skill} />

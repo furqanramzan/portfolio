@@ -12,6 +12,7 @@ const skillCategories = sortByOrder(await getCollection('skillcategory'));
   active="skill"
   title={content.data.title}
   description={content.data.description}
+  ogdescription={content.data.ogdescription}
   navigationLinks={{ back: 'about', forward: 'project' }}
 >
   <div class="flex flex-col gap-5">
