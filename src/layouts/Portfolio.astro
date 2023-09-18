@@ -1,0 +1,19 @@
+---
+import Default, { type Props as DefaultProps } from '@/layouts/Default.astro';
+import { type LinkKey } from '@/utils/constants';
+import Header from '@/components/Header.astro';
+
+export interface Props extends DefaultProps {
+  active: LinkKey;
+}
+const { active, ...props } = Astro.props;
+---
+
+<Default {...props}>
+  <div
+    class="mx-auto flex max-w-screen-2xl flex-col px-2 py-5 sm:px-5 2xl:px-0"
+  >
+    <Header active={active} />
+    <slot />
+  </div>
+</Default>

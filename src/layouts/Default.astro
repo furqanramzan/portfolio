@@ -2,15 +2,8 @@
 import { generateSocialImage } from 'astro-social-images';
 import { SEO } from 'astro-seo';
 import { ViewTransitions } from 'astro:transitions';
-import Header from '@/components/Header.astro';
 import GoogleTag from '@/components/GoogleTag.astro';
-import {
-  type LinkKey,
-  color,
-  name,
-  siteUrl,
-  twitterUsername,
-} from '@/utils/constants';
+import { color, name, siteUrl, twitterUsername } from '@/utils/constants';
 import ProgressBar from '@/components/ProgressBar.astro';
 import PWA from '@/components/PWA.astro';
 
@@ -18,10 +11,9 @@ export interface Props {
   title: string;
   description: string;
   ogdescription: string;
-  active: LinkKey;
 }
 
-const { title, description, ogdescription, active } = Astro.props;
+const { title, description, ogdescription } = Astro.props;
 
 const imageResult = generateSocialImage({
   backgroundColor: color,
@@ -82,11 +74,6 @@ const { href: ogImage } = new URL(imageResult.url, siteUrl);
     class="scroo bg-gray-50 text-black scrollbar-thin scrollbar-track-gray-50 scrollbar-thumb-gray-900 dark:bg-gray-900 dark:text-white dark:scrollbar-track-gray-900 dark:scrollbar-thumb-gray-50"
   >
     <ProgressBar />
-    <div
-      class="mx-auto flex max-w-screen-2xl flex-col px-2 py-5 sm:px-5 2xl:px-0"
-    >
-      <Header active={active} />
-      <slot />
-    </div>
+    <slot />
   </body>
 </html>
