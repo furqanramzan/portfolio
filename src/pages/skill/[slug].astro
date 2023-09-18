@@ -6,6 +6,7 @@ import { sortByOrder } from '@/utils/sort';
 import Repository from '@/components/Repository.astro';
 import Experience from '@/components/Experience.astro';
 import Hr from '@/components/Hr.astro';
+import SkillName from '@/components/SkillName.astro';
 
 interface Props {
   skill: CollectionEntry<'skill'>;
@@ -52,7 +53,9 @@ const experiences = sortByOrder(
 
 <Page active="skill" title={title} description={description}>
   <div class="flex w-full flex-col gap-8">
-    <h2 class="text-lg font-semibold">{skill.data.name}</h2>
+    <h2 class="flex items-center text-lg font-semibold">
+      <SkillName skill={skill} />
+    </h2>
 
     {
       projects.length > 0 && (

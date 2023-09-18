@@ -1,8 +1,8 @@
 ---
 import { type CollectionEntry, getEntries } from 'astro:content';
-import Skill from './Skill.astro';
 import Badge from './Badge.astro';
 import Icon from './Icon.astro';
+import Skills from './Skills.astro';
 import { sortByOrder } from '@/utils/sort';
 
 interface Props {
@@ -26,7 +26,5 @@ const skills = sortByOrder(await getEntries(repository.data.skills));
     </a>
   </h3>
   <p class="text-gray-500 dark:text-gray-400">{repository.data.description}</p>
-  <div class="flex flex-wrap gap-2">
-    {skills.map((x) => <Skill skill={x} />)}
-  </div>
+  <Skills skills={skills} />
 </div>

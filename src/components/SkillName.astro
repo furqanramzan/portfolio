@@ -1,0 +1,13 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Icon from './Icon.astro';
+
+interface Props {
+  skill: CollectionEntry<'skill'>;
+}
+
+const { skill } = Astro.props;
+---
+
+<Icon class="mr-2 !h-4 !w-4" icon={skill.data.icon} />
+{skill.data.name}

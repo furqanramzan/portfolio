@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getEntries } from 'astro:content';
-import Skill from './Skill.astro';
+import Skills from './Skills.astro';
 import { sortByOrder } from '@/utils/sort';
 
 interface Props {
@@ -21,7 +21,5 @@ const skills = sortByOrder(await getEntries(experience.data.skills));
       {experience.data.year}
     </p>
   </div>
-  <div class="flex flex-wrap gap-2">
-    {skills.map((x) => <Skill skill={x} />)}
-  </div>
+  <Skills skills={skills} />
 </div>
