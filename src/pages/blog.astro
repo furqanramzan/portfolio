@@ -1,0 +1,14 @@
+---
+import { getEntry } from 'astro:content';
+import BlogLayout from '@/layouts/Blog.astro';
+
+const content = await getEntry('page', 'about');
+---
+
+<BlogLayout
+  title={content.data.title}
+  description={content.data.description}
+  ogdescription={content.data.ogdescription}
+>
+  <h1>Home</h1>
+</BlogLayout>

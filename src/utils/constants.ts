@@ -35,3 +35,16 @@ export const navLinks: LinkKey[] = [
   'repository',
   'resume',
 ];
+
+export const blogLinks = [
+  {
+    name: 'Blog',
+    href: '/blog',
+    icon: 'streamline:interface-content-book-2-library-content-books-book-shelf-stack',
+  },
+  {
+    name: 'Portfolio',
+    href: '/',
+    icon: 'icon-park-outline:user-business',
+  },
+];
