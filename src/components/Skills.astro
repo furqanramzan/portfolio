@@ -1,0 +1,14 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Skill from './Skill.astro';
+
+interface Props {
+  skills: CollectionEntry<'skill'>[];
+}
+
+const { skills } = Astro.props;
+---
+
+<div class="flex flex-wrap gap-2">
+  {skills.map((x) => <Skill skill={x} />)}
+</div>

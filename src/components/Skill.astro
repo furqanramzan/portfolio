@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import Badge from './Badge.astro';
 import Icon from './Icon.astro';
 import Link from './Link.astro';
+import SkillName from './SkillName.astro';
 
 interface Props {
   skill: CollectionEntry<'skill'>;
@@ -12,9 +13,8 @@ const { skill } = Astro.props;
 ---
 
 <Link fetch="hover" href={`/skill/${skill.slug}`} class="flex">
-  <Badge>
-    <Icon class="mr-2 !h-4 !w-4" icon={skill.data.icon} />
-    {skill.data.name}
+  <Badge class="hover:bg-gray-50 dark:hover:bg-gray-900">
+    <SkillName skill={skill} />
     <Icon class="!h-4 !w-4" icon="material-symbols:arrow-right-rounded" />
   </Badge>
 </Link>
