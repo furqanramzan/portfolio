@@ -16,7 +16,7 @@ const articles = sortByOrder(await getCollection('article'));
 >
   <div class="flex flex-col gap-5">
     <h1 class="text-2xl font-semibold">{content.data.title}</h1>
-    <div class="columns-2 gap-5">
+    <div class="columns-1 gap-5 md:columns-2">
       {
         articles.map((article) => (
           <Article detail={content.data.detail} article={article} />
