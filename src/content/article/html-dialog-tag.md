@@ -2,7 +2,7 @@
 title: Create a modal with just HTML
 description: Working with Modal has never been this easy. Create a modal with just HTML using a dialog tag.
 date: 2023-09-19T00:00:00.000Z
-image: ./images/dialog.jpeg
+image: ./images/html-dialog-tag.jpeg
 skills:
   - html
 order: 1001
