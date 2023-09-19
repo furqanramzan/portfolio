@@ -102,7 +102,7 @@ const article = defineCollection({
       description: z.string(),
       date: z.date(),
       image: image().optional(),
-      skills: z.array(reference('skill')).optional(),
+      skills: z.array(reference('skill')),
       order: z.number(),
     }),
 });

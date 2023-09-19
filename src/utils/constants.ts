@@ -41,6 +41,11 @@ export const blogLinks = {
     href: '/articles',
     icon: 'streamline:interface-content-book-2-library-content-books-book-shelf-stack',
   },
+  category: {
+    name: 'Categories',
+    href: '/categories',
+    icon: 'carbon:category-add',
+  },
   portfolio: {
     name: 'Portfolio',
     href: '/',

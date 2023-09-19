@@ -1,0 +1,36 @@
+---
+import { getCollection, getEntries, getEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BlogLayout from '@/layouts/Blog.astro';
+import { sortByOrder } from '@/utils/sort';
+import Icon from '@/components/Icon.astro';
+
+const content = await getEntry('page', 'categories');
+const articles = await getCollection('article');
+
+const skillsMap = new Map<string, CollectionEntry<'skill'>>();
+(
+  await getEntries(articles.map((atricle) => atricle.data.skills).flat())
+).forEach((x) => skillsMap.set(x.slug, x));
+const skills = sortByOrder([...skillsMap.values()]);
+---
+
+<BlogLayout
+  title={content.data.title}
+  description={content.data.description}
+  ogdescription={content.data.ogdescription}
+>
+  <div class="flex flex-col gap-5">
+    <h1 class="text-2xl font-semibold">{content.data.title}</h1>
+    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      {
+        skills.map((skill) => (
+          <div class="flex flex-col items-center gap-2 bg-gray-200 p-5 dark:bg-gray-800">
+            <Icon class="!h-28 !w-28" icon={skill.data.icon} />
+            <h3 class="text-lg font-medium">{skill.data.name}</h3>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</BlogLayout>
