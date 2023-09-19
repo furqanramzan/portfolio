@@ -35,15 +35,15 @@ export const navLinks: LinkKey[] = [
   'article',
 ];
 
-export const blogLinks = [
-  {
+export const blogLinks = {
+  article: {
     name: 'Articles',
     href: '/articles',
     icon: 'streamline:interface-content-book-2-library-content-books-book-shelf-stack',
   },
-  {
+  portfolio: {
     name: 'Portfolio',
     href: '/',
     icon: 'icon-park-outline:user-business',
   },
-];
+};

@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 import Icon from './Icon.astro';
 import Skills from './Skills.astro';
 import { sortByOrder } from '@/utils/sort';
+import { formatDate } from '@/utils/time';
 
 interface Props {
   article: CollectionEntry<'article'>;
@@ -13,14 +14,6 @@ const { article } = Astro.props;
 const skills = article.data.skills
   ? sortByOrder(await getEntries(article.data.skills))
   : [];
-
-function formatDate(date: Date) {
-  return new Intl.DateTimeFormat('en-GB', {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric',
-  }).format(date);
-}
 ---
 
 <div class="mb-5 w-full break-inside-avoid">
@@ -53,7 +46,7 @@ function formatDate(date: Date) {
 
         <a
           href={`/article/${article.slug}`}
-          class="flex items-center font-medium text-blue-600 hover:underline dark:text-blue-500"
+          class="flex items-center font-medium text-black hover:underline dark:text-white"
         >
           Read more
           <Icon class="!h-4 !w-4" icon="material-symbols:arrow-right-rounded" />

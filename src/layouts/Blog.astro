@@ -9,6 +9,8 @@ import SocialLinks from '@/components/SocialLinks.astro';
 type Props = DefaultProps;
 
 const { ...props } = Astro.props;
+
+const links = Object.values(blogLinks);
 ---
 
 <Default {...props}>
@@ -22,14 +24,14 @@ const { ...props } = Astro.props;
       <div class="flex items-center gap-8">
         <nav class="flex gap-5 max-sm:hidden">
           {
-            blogLinks.map((blog) => (
+            links.map((link) => (
               <a
-                href={blog.href}
-                aria-label={blog.name}
+                href={link.href}
+                aria-label={link.name}
                 class="text-md flex items-center gap-1 font-semibold hover:border-b"
               >
-                <Icon class="!h-4 !w-4" icon={blog.icon} />
-                {blog.name}
+                <Icon class="!h-4 !w-4" icon={link.icon} />
+                {link.name}
               </a>
             ))
           }
@@ -42,14 +44,14 @@ const { ...props } = Astro.props;
     class="fixed bottom-0 left-0 flex w-full justify-around border-t border-gray-300 bg-gray-50 py-2 dark:border-gray-700 dark:bg-gray-900 sm:hidden"
   >
     {
-      blogLinks.map((blog) => (
+      links.map((link) => (
         <a
-          href={blog.href}
-          aria-label={blog.name}
+          href={link.href}
+          aria-label={link.name}
           class="text-md flex w-full flex-col items-center gap-1 font-semibold hover:border-b"
         >
-          <Icon class="!h-4 !w-4" icon={blog.icon} />
-          {blog.name}
+          <Icon class="!h-4 !w-4" icon={link.icon} />
+          {link.name}
         </a>
       ))
     }
