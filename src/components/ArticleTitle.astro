@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+import { type CollectionEntry } from 'astro:content';
+
+interface Props {
+  article: CollectionEntry<'article'>;
+}
+
+const { article } = Astro.props;
+---
+
+<div transition:name={`article-${article.id}`} class="flex flex-col gap-3">
+  {
+    article.data.image && (
+      <Image src={article.data.image} alt={article.data.title} />
+    )
+  }
+  <h2
+    class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white"
+  >
+    {article.data.title}
+  </h2>
+  <p class="font-medium text-gray-500 dark:text-gray-400">
+    {article.data.description}
+  </p>
+</div>

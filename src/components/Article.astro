@@ -1,8 +1,8 @@
 ---
 import { type CollectionEntry, getEntries } from 'astro:content';
-import { Image } from 'astro:assets';
 import Icon from './Icon.astro';
 import Skills from './Skills.astro';
+import ArticleTitle from './ArticleTitle.astro';
 import { sortByOrder } from '@/utils/sort';
 import { formatDate } from '@/utils/time';
 
@@ -18,29 +18,15 @@ const skills = article.data.skills
 
 <div class="mb-5 w-full break-inside-avoid">
   <div class="flex flex-col gap-2 bg-gray-200 p-3 dark:bg-gray-800">
-    <a href={`/article/${article.slug}`} class="flex">
-      {
-        article.data.image && (
-          <Image
-            class="w-full"
-            src={article.data.image}
-            alt={article.data.title}
-          />
-        )
-      }
-    </a>
-    <div class="flex flex-col gap-2">
-      {skills.length > 0 && <Skills link="articles" skills={skills} />}
-      <a href={`/article/${article.slug}`}>
-        <h3
-          class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white"
-        >
-          {article.data.title}
-        </h3>
-      </a>
-      <p class="text-gray-500 dark:text-gray-400">{article.data.description}</p>
+    <div class="flex flex-col gap-3">
+      <ArticleTitle article={article} />
+      <Skills link="articles" skills={skills} />
       <div class="flex items-center justify-between">
-        <span class="text-gray-500 dark:text-gray-400">
+        <span class="flex items-center gap-1 text-gray-500 dark:text-gray-400">
+          <Icon
+            class="!h-5 !w-5"
+            icon="material-symbols:calendar-today-rounded"
+          />
           {formatDate(article.data.date)}
         </span>
 

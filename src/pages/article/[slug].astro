@@ -1,11 +1,11 @@
 ---
 import { type CollectionEntry, getCollection, getEntries } from 'astro:content';
-import { Image } from 'astro:assets';
 import { sortByOrder } from '@/utils/sort';
 import BlogLayout from '@/layouts/Blog.astro';
 import { formatDate } from '@/utils/time';
 import { blogLinks } from '@/utils/constants';
 import Icon from '@/components/Icon.astro';
+import ArticleTitle from '@/components/ArticleTitle.astro';
 
 interface Props {
   article: CollectionEntry<'article'>;
@@ -74,10 +74,6 @@ const skills = article.data.skills
         }
       </ol>
     </nav>
-    <h1 class="text-2xl font-semibold">{article.data.title}</h1>
-    <p class="font-semibold text-gray-500 dark:text-gray-400">
-      {article.data.description}
-    </p>
     <hr class="h-px border-0 bg-gray-200 dark:bg-gray-700" />
     <div class="flex gap-5 text-gray-500 dark:text-gray-400">
       <span class="flex items-center gap-1">
@@ -88,17 +84,10 @@ const skills = article.data.skills
         {formatDate(article.data.date)}
       </span>
     </div>
-    {
-      article.data.image && (
-        <div class="my-8 flex justify-center">
-          <Image
-            class="rounded-xl"
-            src={article.data.image}
-            alt={article.data.title}
-          />
-        </div>
-      )
-    }
+    <ArticleTitle article={article} />
+    <hr
+      class="mx-auto my-4 h-1 w-48 rounded border-0 bg-gray-400 dark:bg-gray-500 md:my-10"
+    />
     <article class="prose prose-lg max-w-full dark:prose-invert">
       <Content />
     </article>
