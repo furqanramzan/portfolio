@@ -3,8 +3,7 @@ import { getCollection, getEntry } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import Project from '@/components/Project.astro';
 import { sortByOrder } from '@/utils/sort';
-import Icon from '@/components/Icon.astro';
-import Button from '@/components/Button.astro';
+import FutureProject from '@/components/FutureProject.astro';
 
 const content = await getEntry('page', 'projects');
 const upwork = await getEntry('social', 'upwork');
@@ -22,21 +21,7 @@ const projects = sortByOrder(await getCollection('project'));
     <h2 class="text-lg font-semibold">{content.data.heading}</h2>
     <div class="flex flex-col gap-3">
       {projects.map((project) => <Project project={project} />)}
-      <div
-        class="flex flex-col items-center gap-5 bg-gray-200 p-3 py-10 dark:bg-gray-800"
-      >
-        <Icon class="!h-14 !w-14" icon="pepicons-pop:stars" />
-        <div class="flex flex-col items-center gap-1">
-          <h3 class="text-xl font-semibold">{content.data.cta.title}</h3>
-          <p class="text-gray-500">{content.data.cta.description}</p>
-        </div>
-        <a href={upwork.data.link} class="flex" target="_blank">
-          <Button class="gap-2 px-5 py-2">
-            <Icon icon="iconamoon:send-duotone" />
-            {content.data.cta.button}
-          </Button>
-        </a>
-      </div>
+      <FutureProject cta={content.data.cta} link={upwork.data.link} />
     </div>
   </div>
 </Page>
