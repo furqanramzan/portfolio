@@ -94,6 +94,19 @@ const experience = defineCollection({
   }),
 });
 
+const article = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      date: z.date(),
+      image: image().optional(),
+      skills: z.array(reference('skill')),
+      order: z.number(),
+    }),
+});
+
 export const collections = {
   social,
   aboutme,
@@ -104,4 +117,5 @@ export const collections = {
   repository,
   education,
   experience,
+  article,
 };

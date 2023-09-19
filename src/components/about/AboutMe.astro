@@ -17,8 +17,8 @@ const classes =
   center === true ? 'items-center text-center' : 'items-start text-left';
 ---
 
-<div transition:name="aboutme" class={`flex flex-col gap-10 ${classes}`}>
-  <div class={`flex flex-col gap-2  ${classes}`}>
+<div transition:name="aboutme" class={`flex flex-col gap-7 ${classes}`}>
+  <div class={`flex flex-col gap-1  ${classes}`}>
     <Image
       width={width}
       height={height}
@@ -29,7 +29,7 @@ const classes =
     />
     <p class="text-gray-500 dark:text-gray-400">{content.data.greeting}</p>
     <h1 class="text-5xl font-bold">{content.data.name}</h1>
-    <p class="my-3 w-11/12 text-sm text-gray-500 sm:w-2/3">
+    <p class="my-1 w-11/12 text-sm text-gray-500 sm:w-2/3">
       {content.data.designation}
     </p>
     <p class="text-2xl leading-10">

@@ -15,6 +15,7 @@ const projects = sortByOrder(await getCollection('project'));
   active="project"
   title={content.data.title}
   description={content.data.description}
+  ogdescription={content.data.ogdescription}
   navigationLinks={{ back: 'skill', forward: 'repository' }}
 >
   <div class="flex flex-col gap-5">

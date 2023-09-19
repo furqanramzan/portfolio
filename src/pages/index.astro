@@ -1,6 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
-import Default from '@/layouts/Default.astro';
+import Portfolio from '@/layouts/Portfolio.astro';
 import AboutMe from '@/components/about/AboutMe.astro';
 import Button from '@/components/Button.astro';
 import Icon from '@/components/Icon.astro';
@@ -9,10 +9,11 @@ import Link from '@/components/Link.astro';
 const content = await getEntry('page', 'home');
 ---
 
-<Default
+<Portfolio
   active="home"
   title={content.data.title}
   description={content.data.description}
+  ogdescription={content.data.ogdescription}
 >
   <div class="mx-auto mt-10 max-w-screen-md">
     <div class="flex flex-col items-center gap-10">
@@ -26,4 +27,4 @@ const content = await getEntry('page', 'home');
       </AboutMe>
     </div>
   </div>
-</Default>
+</Portfolio>

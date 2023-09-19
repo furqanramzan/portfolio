@@ -1,0 +1,95 @@
+---
+import { type CollectionEntry, getCollection, getEntries } from 'astro:content';
+import { sortByOrder } from '@/utils/sort';
+import BlogLayout from '@/layouts/Blog.astro';
+import { formatDate } from '@/utils/time';
+import { blogLinks } from '@/utils/constants';
+import Icon from '@/components/Icon.astro';
+import ArticleTitle from '@/components/ArticleTitle.astro';
+
+interface Props {
+  article: CollectionEntry<'article'>;
+}
+
+export async function getStaticPaths() {
+  const articles = sortByOrder(await getCollection('article'));
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+
+const { Content } = await article.render();
+const skills = article.data.skills
+  ? sortByOrder(await getEntries(article.data.skills))
+  : [];
+---
+
+<BlogLayout
+  title={article.data.title}
+  description={article.data.description}
+  ogdescription={article.data.description}
+>
+  <div class="flex flex-col gap-2">
+    <nav class="flex" aria-label="Breadcrumb">
+      <ol class="inline-flex items-center space-x-1 md:space-x-3">
+        <li class="inline-flex items-center">
+          <a
+            href={blogLinks.article.href}
+            class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
+          >
+            {blogLinks.article.name}
+          </a>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <Icon class="!h-3 !w-3 text-gray-400" icon="ep:arrow-right-bold" />
+            <a
+              href={`${blogLinks.category.href}`}
+              class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white md:ml-2"
+            >
+              {blogLinks.category.name}
+            </a>
+          </div>
+        </li>
+        {
+          skills.map((skill) => (
+            <li>
+              <div class="flex items-center">
+                <Icon
+                  class="!h-3 !w-3 text-gray-400"
+                  icon="ep:arrow-right-bold"
+                />
+                <a
+                  href={`/articles/${skill.slug}`}
+                  class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white md:ml-2"
+                >
+                  {skill.data.name}
+                </a>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </nav>
+    <hr class="h-px border-0 bg-gray-200 dark:bg-gray-700" />
+    <div class="flex gap-5 text-gray-500 dark:text-gray-400">
+      <span class="flex items-center gap-1">
+        <Icon
+          class="!h-5 !w-5"
+          icon="material-symbols:calendar-today-rounded"
+        />
+        {formatDate(article.data.date)}
+      </span>
+    </div>
+    <ArticleTitle article={article} />
+    <hr
+      class="mx-auto my-4 h-1 w-48 rounded border-0 bg-gray-400 dark:bg-gray-500 md:my-10"
+    />
+    <article class="prose prose-lg max-w-full dark:prose-invert">
+      <Content />
+    </article>
+  </div>
+</BlogLayout>

@@ -20,10 +20,8 @@ export const links = {
   skill: { name: 'Skills', href: '/skills' },
   project: { name: 'Projects', href: '/projects' },
   repository: { name: 'Repositories', href: '/repositories' },
-  resume: {
-    name: 'Resume',
-    href: '/resume',
-  },
+  resume: { name: 'Resume', href: '/resume' },
+  article: { name: 'Blog', href: '/articles' },
 };
 type Links = typeof links;
 export type LinkKey = keyof Links;
@@ -34,4 +32,23 @@ export const navLinks: LinkKey[] = [
   'project',
   'repository',
   'resume',
+  'article',
 ];
+
+export const blogLinks = {
+  article: {
+    name: 'Articles',
+    href: '/articles',
+    icon: 'streamline:interface-content-book-2-library-content-books-book-shelf-stack',
+  },
+  category: {
+    name: 'Categories',
+    href: '/categories',
+    icon: 'carbon:category-add',
+  },
+  portfolio: {
+    name: 'Portfolio',
+    href: '/',
+    icon: 'icon-park-outline:user-business',
+  },
+};

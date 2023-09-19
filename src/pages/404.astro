@@ -8,9 +8,9 @@ const content = await getEntry('page', '404');
 ---
 
 <Default
-  active="home"
   title={content.data.title}
   description={content.data.description}
+  ogdescription={content.data.ogdescription}
 >
   <section
     class="flex h-screen flex-col items-center justify-center bg-white dark:bg-gray-900"

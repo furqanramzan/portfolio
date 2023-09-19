@@ -1,0 +1,75 @@
+---
+import Default, { type Props as DefaultProps } from '@/layouts/Default.astro';
+import Logo from '@/components/Logo.astro';
+import DarkMode from '@/components/DarkMode.astro';
+import { blogLinks } from '@/utils/constants';
+import Icon from '@/components/Icon.astro';
+import SocialLinks from '@/components/SocialLinks.astro';
+
+type Props = DefaultProps;
+
+const { ...props } = Astro.props;
+
+const links = Object.values(blogLinks);
+---
+
+<Default {...props}>
+  <header
+    class="fixed top-0 z-40 w-full border-b border-gray-300 bg-gray-50 pb-2 pt-1 dark:border-gray-700 dark:bg-gray-900"
+  >
+    <div
+      class="mx-auto flex max-w-screen-lg items-center justify-between max-lg:px-2"
+    >
+      <Logo />
+      <div class="flex items-center gap-8">
+        <nav class="flex gap-5 max-sm:hidden">
+          {
+            links.map((link) => (
+              <a
+                href={link.href}
+                aria-label={link.name}
+                class="text-md flex items-center gap-1 font-semibold hover:border-b"
+              >
+                <Icon class="!h-4 !w-4" icon={link.icon} />
+                {link.name}
+              </a>
+            ))
+          }
+        </nav>
+        <DarkMode />
+      </div>
+    </div>
+  </header>
+  <nav
+    class="fixed bottom-0 left-0 flex w-full justify-around border-t border-gray-300 bg-gray-50 py-2 dark:border-gray-700 dark:bg-gray-900 sm:hidden"
+  >
+    {
+      links.map((link) => (
+        <a
+          href={link.href}
+          aria-label={link.name}
+          class="text-md flex w-full flex-col items-center gap-1 font-semibold hover:border-b"
+        >
+          <Icon class="!h-4 !w-4" icon={link.icon} />
+          {link.name}
+        </a>
+      ))
+    }
+  </nav>
+  <div class="flex min-h-screen flex-col">
+    <main class="py-10">
+      <div
+        class="mx-auto grid max-w-screen-md grid-cols-1 pt-[73px] max-md:px-2"
+      >
+        <slot />
+      </div>
+    </main>
+    <footer class="mt-auto max-sm:pb-[61px]">
+      <div
+        class="mx-auto flex max-w-screen-sm justify-center border-t border-gray-300 py-4 dark:border-gray-700 max-sm:px-2"
+      >
+        <SocialLinks />
+      </div>
+    </footer>
+  </div>
+</Default>

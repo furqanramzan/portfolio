@@ -1,0 +1,43 @@
+---
+import { type CollectionEntry, getEntries } from 'astro:content';
+import Icon from './Icon.astro';
+import Skills from './Skills.astro';
+import ArticleTitle from './ArticleTitle.astro';
+import { sortByOrder } from '@/utils/sort';
+import { formatDate } from '@/utils/time';
+
+interface Props {
+  article: CollectionEntry<'article'>;
+}
+
+const { article } = Astro.props;
+const skills = article.data.skills
+  ? sortByOrder(await getEntries(article.data.skills))
+  : [];
+---
+
+<div class="mb-5 w-full break-inside-avoid">
+  <div class="flex flex-col gap-2 bg-gray-200 p-3 dark:bg-gray-800">
+    <div class="flex flex-col gap-3">
+      <ArticleTitle article={article} />
+      <Skills link="articles" skills={skills} />
+      <div class="flex items-center justify-between">
+        <span class="flex items-center gap-1 text-gray-500 dark:text-gray-400">
+          <Icon
+            class="!h-5 !w-5"
+            icon="material-symbols:calendar-today-rounded"
+          />
+          {formatDate(article.data.date)}
+        </span>
+
+        <a
+          href={`/article/${article.slug}`}
+          class="flex items-center font-medium text-black hover:underline dark:text-white"
+        >
+          Read more
+          <Icon class="!h-4 !w-4" icon="material-symbols:arrow-right-rounded" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
