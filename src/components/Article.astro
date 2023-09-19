@@ -8,15 +8,16 @@ import { formatDate } from '@/utils/time';
 
 interface Props {
   article: CollectionEntry<'article'>;
+  detail: string;
 }
 
-const { article } = Astro.props;
+const { article, detail } = Astro.props;
 const skills = article.data.skills
   ? sortByOrder(await getEntries(article.data.skills))
   : [];
 ---
 
-<div class="mb-5 w-full break-inside-avoid">
+<div class="mb-5 break-inside-avoid">
   <div class="flex flex-col gap-2 bg-gray-200 p-3 dark:bg-gray-800">
     <div class="flex flex-col gap-3">
       <ArticleTitle article={article} />
@@ -34,7 +35,7 @@ const skills = article.data.skills
           href={`/article/${article.slug}`}
           class="flex items-center font-medium text-black hover:underline dark:text-white"
         >
-          Read more
+          {detail}
           <Icon class="!h-4 !w-4" icon="material-symbols:arrow-right-rounded" />
         </a>
       </div>

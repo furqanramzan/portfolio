@@ -21,6 +21,7 @@ export async function getStaticPaths() {
 const { skill } = Astro.props;
 
 const content = await getEntry('page', 'category');
+const articlesContent = await getEntry('page', 'articles');
 const title = content.data.title.replaceAll('{skill}', skill.data.name);
 const description = content.data.description.replaceAll(
   '{skill}',
@@ -48,7 +49,11 @@ const articles = sortByOrder(
       <SkillName skill={skill} />
     </h1>
     <div class="columns-2 gap-5">
-      {articles.map((article) => <Article article={article} />)}
+      {
+        articles.map((article) => (
+          <Article detail={articlesContent.data.detail} article={article} />
+        ))
+      }
     </div>
   </div>
 </BlogLayout>

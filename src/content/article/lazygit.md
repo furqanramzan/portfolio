@@ -1,7 +1,7 @@
 ---
 title: 'LazyGit: Streamline Git Management'
 description: Simplify Git tasks with an intuitive interface and workflow automation. Boost productivity and collaboration.
-date: 2023-09-12T00:00:00.000Z
+date: 2023-09-18T00:00:00.000Z
 image: ./images/lazygit.png
 skills:
   - linux
@@ -17,15 +17,12 @@ LazyGit is a powerful command-line interface (CLI) tool that has been meticulous
 #### Key Features:
 
 1. **User-Friendly Interface:**
-
    LazyGit offers an intuitive and user-friendly interface that makes navigating through your Git repositories a pleasant experience.
 
 2. **Time-Saving Abilities:**
-
    With this tool, you can perform complex Git operations with just a few keystrokes and saving precious time.
 
 3. **Streamlined Workflow:**
-
    Tasks such as managing branches, committing changes, and resolving conflicts have never been easier. LazyGit provides a seamless workflow that allows you to focus on what truly matters - creating exceptional code!
 
 Are You Ready for an Elevated Git Experience?
