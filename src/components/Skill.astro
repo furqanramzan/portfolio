@@ -5,14 +5,21 @@ import Icon from './Icon.astro';
 import Link from './Link.astro';
 import SkillName from './SkillName.astro';
 
-interface Props {
+export interface Props {
   skill: CollectionEntry<'skill'>;
+  /**
+   * @default skill
+   */
+  link?: 'skill' | 'articles';
 }
 
-const { skill } = Astro.props;
+let { skill, link } = Astro.props;
+if (!link) {
+  link = 'skill';
+}
 ---
 
-<Link fetch="hover" href={`/skill/${skill.slug}`} class="flex">
+<Link fetch="hover" href={`/${link}/${skill.slug}`} class="flex">
   <Badge class="hover:bg-gray-50 dark:hover:bg-gray-900">
     <SkillName skill={skill} />
     <Icon class="!h-4 !w-4" icon="material-symbols:arrow-right-rounded" />
