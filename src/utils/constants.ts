@@ -21,7 +21,7 @@ export const links = {
   project: { name: 'Projects', href: '/projects' },
   repository: { name: 'Repositories', href: '/repositories' },
   resume: { name: 'Resume', href: '/resume' },
-  article: { name: 'Articles', href: '/articles' },
+  article: { name: 'Blog', href: '/articles' },
 };
 type Links = typeof links;
 export type LinkKey = keyof Links;
