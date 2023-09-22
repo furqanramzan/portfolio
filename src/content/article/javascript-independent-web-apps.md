@@ -26,7 +26,7 @@ In today's digital era, where advanced web applications reign supreme, it is cru
 
 ### How SvelteKit Enables JavaScript-Independent Functionality?
 
-[SvelteKit](https://kit.svelte.dev) is a modern web application framework that allows you to build highly interactive and dynamic single-page applications (SPAs). However, it provides the capability to build web apps that can perform essential tasks such as rendering data and submitting data even without JavaScript. Rich Harris, the developer and caretaker of Svelte and SvelteKit, adheres to this fundamental principle in all his creations. It serves as his guiding philosophy.
+[SvelteKit](https://kit.svelte.dev) is a modern web application framework that allows you to build highly interactive and dynamic single-page applications (SPAs). However, it provides the capability to build web apps that can perform essential tasks such as rendering data and submitting data even without JavaScript. [Rich Harris](https://twitter.com/Rich_Harris), the developer and caretaker of Svelte and SvelteKit, adheres to this fundamental principle in all his creations. It serves as his guiding philosophy.
 
 Here's how SvelteKit ensures the above concept:
 
