@@ -3,7 +3,14 @@
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "typecheck", "fmt", "fmtcheck"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "typecheck",
+          "fmt",
+          "fmtcheck",
+          "deploy"
+        ]
       }
     }
   },
@@ -13,6 +20,9 @@
       "inputs": ["production", "^production"]
     },
     "preview": {
+      "dependsOn": ["build"]
+    },
+    "deploy": {
       "dependsOn": ["build"]
     },
     "typecheck": {

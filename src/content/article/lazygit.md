@@ -20,7 +20,7 @@ LazyGit is a powerful command-line interface (CLI) tool that has been meticulous
    LazyGit offers an intuitive and user-friendly interface that makes navigating through your Git repositories a pleasant experience.
 
 2. **Time-Saving Abilities:**
-   With this tool, you can perform complex Git operations with just a few keystrokes and saving precious time.
+   With this tool, you can perform complex Git operations with just a few keystrokes and save precious time.
 
 3. **Streamlined Workflow:**
    Tasks such as managing branches, committing changes, and resolving conflicts have never been easier. LazyGit provides a seamless workflow that allows you to focus on what truly matters - creating exceptional code!

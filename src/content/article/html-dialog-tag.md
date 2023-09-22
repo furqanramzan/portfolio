@@ -66,7 +66,7 @@ document
 }
 ```
 
-As it's just a HTML, you can style it however you want.
+As it's just an HTML, you can style it however you want.
 
 ### Complete Code
 

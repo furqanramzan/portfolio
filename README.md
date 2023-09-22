@@ -74,6 +74,12 @@ pnpm run lint
 
 ## Deploying
 
+Use the following command if you want to deploy to GitHub pages.
+
+```bash
+pnpm run deploy your_github_repository_url
+```
+
 Check out the [deployment documentation](https://docs.astro.build/en/guides/deploy) for more information.
 
 ## License

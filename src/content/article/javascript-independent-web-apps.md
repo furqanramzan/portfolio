@@ -13,7 +13,7 @@ In today's digital era, where advanced web applications reign supreme, it is cru
 ### Why Web Apps Should Function Without JavaScript?
 
 1. **Enhancing Accessibility and Inclusivity**:
-   A considerable proportion of individuals who use the internet rely on assistive technologies that may not fully support JavaScript. By developing web applications that can function without JavaScript, we are able to create a more inclusive online experience, catering to a wider range of users.
+   A considerable proportion of individuals who use the internet rely on assistive technologies that may not fully support JavaScript. By developing web applications that can function without JavaScript, we can create a more inclusive online experience, catering to a wider range of users.
 
 2. **Optimizing SEO and Search Engine Indexing**:
    Search engines often face challenges in indexing content within web applications that heavily rely on JavaScript. Ensuring that essential features can work without JavaScript enhances search engine visibility and overall performance in terms of search engine optimization (SEO), ultimately leading to improved discoverability.
@@ -26,11 +26,11 @@ In today's digital era, where advanced web applications reign supreme, it is cru
 
 ### How SvelteKit Enables JavaScript-Independent Functionality?
 
-[SvelteKit](https://kit.svelte.dev) is a modern web application framework that allows you to build highly interactive and dynamic single-page applications (SPAs). However, it provides the capability to build web apps that can perform essential tasks such as rendering data and submitting data even without JavaScript.
+[SvelteKit](https://kit.svelte.dev) is a modern web application framework that allows you to build highly interactive and dynamic single-page applications (SPAs). However, it provides the capability to build web apps that can perform essential tasks such as rendering data and submitting data even without JavaScript. [Rich Harris](https://twitter.com/Rich_Harris), the developer and caretaker of Svelte and SvelteKit, adheres to this fundamental principle in all his creations. It serves as his guiding philosophy.
 
-Here's how SvelteKit ensures above concept:
+Here's how SvelteKit ensures the above concept:
 
-- **Hybrid Approach:** SvelteKit adopts a unique strategy that combines server-side rendering (SSR) for the first page loads and effortlessly switches to a client-side application for subsequent interactions. Making web app work just like modern single-page application.
+- **Hybrid Approach:** SvelteKit adopts a unique strategy that combines server-side rendering (SSR) for the first page loads and effortlessly switches to a client-side application for subsequent interactions. Making web apps work just like modern single-page applications.
 
 - **Ensuring Server-rendered Content as Backup:** To ensure that important content is still accessible when JavaScript is disabled, SvelteKit renders essential content on the server initially and handles data post-processing in a manner reminiscent of PHP. This guarantees that crucial features remain fully functional regardless of the user's JS settings.
 
@@ -40,7 +40,7 @@ Witness firsthand the practical application of this idea through a live demonstr
 
 You can disable JavaScript in Google Chrome using [this link](https://developer.chrome.com/docs/devtools/javascript/disable).
 
-To delve into the code for above project, visit the [GitHub repository](https://github.com/furqanramzan/sveltekit-ecommerce).
+To delve into the code for the above project, visit the [GitHub repository](https://github.com/furqanramzan/sveltekit-ecommerce).
 
 ### Conclusion
 
