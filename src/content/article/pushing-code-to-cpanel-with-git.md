@@ -1,6 +1,7 @@
 ---
 title: Pushing Code to cPanel with Git
 description: Simplify your development workflow by seamlessly pushing code directly from your local machine to cPanel using Git.
+ogdescription: Push code directly from your local machine to cPanel using Git
 date: 2023-10-02T00:00:00.000Z
 image: ./images/pushing-code-to-cpanel-with-git.png
 skills:

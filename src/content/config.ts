@@ -100,6 +100,7 @@ const article = defineCollection({
     z.object({
       title: z.string(),
       description: z.string(),
+      ogdescription: z.string().optional(),
       date: z.date(),
       image: image().optional(),
       skills: z.array(reference('skill')),

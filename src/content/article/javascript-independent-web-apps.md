@@ -1,6 +1,7 @@
 ---
 title: 'JavaScript-Independent Web Apps: A Step Toward Inclusive Digital Experiences'
 description: Discover why ensuring core web app features work without JavaScript is crucial for accessibility and how SvelteKit makes it seamless.
+ogdescription: Ensuring core features work without JS is crucial and how SvelteKit makes it seamless
 date: 2023-09-20T00:00:00.000Z
 image: ./images/javascript-independent-web-apps.png
 skills:
