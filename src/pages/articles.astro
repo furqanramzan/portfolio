@@ -1,12 +1,12 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 import BlogLayout from '@/layouts/Blog.astro';
-import { sortByOrder } from '@/utils/sort';
+import { sortByDate, sortByOrder } from '@/utils/sort';
 import Article from '@/components/Article.astro';
 import FutureArticle from '@/components/FutureArticle.astro';
 
 const content = await getEntry('page', 'articles');
-const articles = sortByOrder(await getCollection('article'));
+const articles = sortByOrder(sortByDate(await getCollection('article')));
 ---
 
 <BlogLayout
