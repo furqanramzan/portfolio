@@ -5,18 +5,23 @@ import Image, { type Src } from '@/components/Image.astro';
 import SocialLinks from '@/components/SocialLinks.astro';
 
 interface Props {
-  width: number;
-  height: number;
+  page?: 'home' | 'other';
   center?: boolean;
 }
 
-const { width, height, center } = Astro.props;
+const { page, center } = Astro.props;
 
 const classes =
   center === true ? 'items-center text-center' : 'items-start text-left';
 const image = profile as unknown as Src;
-image.width = width;
-image.height = height;
+const isOther = page === 'other';
+if (isOther) {
+  image.width = 150;
+  image.height = 150;
+} else {
+  image.width = 300;
+  image.height = 300;
+}
 
 const content = await getEntry('page', 'aboutme');
 ---
@@ -24,6 +29,7 @@ const content = await getEntry('page', 'aboutme');
 <div transition:name="aboutme" class={`flex flex-col gap-7 ${classes}`}>
   <div class={`flex flex-col gap-1  ${classes}`}>
     <Image
+      transition:persist={isOther}
       loading="eager"
       class="mb-3 rounded-2xl"
       src={image}

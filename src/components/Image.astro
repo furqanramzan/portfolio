@@ -33,6 +33,8 @@ if (!isDev) {
 ---
 
 <AstroImage
+  width={src.width}
+  height={src.height}
   src={src}
   data-src={background}
   {...attrs}
@@ -41,7 +43,6 @@ if (!isDev) {
 
 <style>
   .blurred-image {
-    width: 100%;
     filter: blur(10px); /* Adjust the blur intensity as needed */
     transition: filter 0.3s ease-in-out; /* Add a smooth transition effect */
   }
