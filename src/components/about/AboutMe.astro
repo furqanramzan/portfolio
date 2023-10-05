@@ -1,7 +1,7 @@
 ---
-import { Image } from 'astro:assets';
 import { getEntry } from 'astro:content';
 import profile from './profile.jpg';
+import Image, { type Src } from '@/components/Image.astro';
 import SocialLinks from '@/components/SocialLinks.astro';
 
 interface Props {
@@ -12,19 +12,21 @@ interface Props {
 
 const { width, height, center } = Astro.props;
 
-const content = await getEntry('page', 'aboutme');
 const classes =
   center === true ? 'items-center text-center' : 'items-start text-left';
+const image = profile as unknown as Src;
+image.width = width;
+image.height = height;
+
+const content = await getEntry('page', 'aboutme');
 ---
 
 <div transition:name="aboutme" class={`flex flex-col gap-7 ${classes}`}>
   <div class={`flex flex-col gap-1  ${classes}`}>
     <Image
-      width={width}
-      height={height}
       loading="eager"
       class="mb-3 rounded-2xl"
-      src={profile}
+      src={image}
       alt={content.data.name}
     />
     <p class="text-gray-500 dark:text-gray-400">{content.data.greeting}</p>

@@ -1,0 +1,50 @@
+---
+import { isDev } from '@/utils/constants';
+
+const isDevScript = `<script>window.isDev = ${isDev};</script>`;
+---
+
+<Fragment set:html={isDevScript} />
+<script is:inline>
+  function blurImages() {
+    const lazyImages = document.querySelectorAll('img.blurred-image');
+    lazyImages.forEach((image) => {
+      const src = image.getAttribute('src');
+      image.setAttribute('src', image.getAttribute('data-src'));
+      image.setAttribute('data-src', src);
+    });
+
+    const options = {
+      threshold: 0.5,
+    };
+
+    const lazyLoad = (entry) => {
+      entry.forEach((image) => {
+        if (image.isIntersecting) {
+          image.target.setAttribute(
+            'src',
+            image.target.getAttribute('data-src'),
+          );
+          image.target.onload = () => {
+            image.target.classList.add('loaded');
+          };
+          // eslint-disable-next-line @typescript-eslint/no-use-before-define
+          observer.unobserve(image.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(lazyLoad, options);
+
+    lazyImages.forEach((image) => {
+      observer.observe(image);
+    });
+  }
+
+  // eslint-disable-next-line no-undef
+  if (!isDev) {
+    document.addEventListener('astro:page-load', () => {
+      blurImages();
+    });
+  }
+</script>

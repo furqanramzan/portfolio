@@ -1,6 +1,6 @@
 ---
-import { Image } from 'astro:assets';
 import { type CollectionEntry, getEntries } from 'astro:content';
+import Image from './Image.astro';
 import Badge from './Badge.astro';
 import Icon from './Icon.astro';
 import Skills from './Skills.astro';
@@ -12,13 +12,13 @@ interface Props {
 
 const { project } = Astro.props;
 const skills = sortByOrder(await getEntries(project.data.skills));
+project.data.image.width = 745;
+project.data.image.height = 365;
 ---
 
 <div class="flex flex-col gap-5 bg-gray-200 p-3 dark:bg-gray-800">
   <div class="flex flex-col gap-2">
     <Image
-      width={745}
-      height={365}
       class="w-full rounded-md"
       src={project.data.image}
       alt={project.data.name}

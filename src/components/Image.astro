@@ -1,0 +1,52 @@
+---
+import { join } from 'node:path';
+import { cwd } from 'node:process';
+import { Image as AstroImage } from 'astro:assets';
+import { generateBlurPlaceholder } from '@/utils/blur';
+import { isDev } from '@/utils/constants';
+
+export interface Src {
+  src: string;
+  width: number;
+  height: number;
+  format: 'png' | 'jpg' | 'jpeg' | 'tiff' | 'webp' | 'gif' | 'svg' | 'avif';
+}
+
+interface Props {
+  src: Src;
+  alt: string;
+  loading?: 'eager' | 'lazy';
+  class?: string;
+}
+
+const { src, class: classes, ...attrs } = Astro.props;
+
+let background = '';
+if (!isDev) {
+  const srcStr = (src as unknown as { src: string }).src;
+  const path = isDev
+    ? srcStr.split('?')[0].replace('/@fs', '')
+    : join(cwd(), 'dist', srcStr);
+
+  background = await generateBlurPlaceholder(path);
+}
+---
+
+<AstroImage
+  src={src}
+  data-src={background}
+  {...attrs}
+  class={`${!isDev && `blurred-image`} ${classes}`}
+/>
+
+<style>
+  .blurred-image {
+    width: 100%;
+    filter: blur(10px); /* Adjust the blur intensity as needed */
+    transition: filter 0.3s ease-in-out; /* Add a smooth transition effect */
+  }
+
+  .blurred-image.loaded {
+    filter: blur(0); /* Remove blur on load */
+  }
+</style>
