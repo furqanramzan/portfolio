@@ -21,7 +21,7 @@ const { navigationLinks, active, ...props } = Astro.props;
     <div
       class="sticky top-0 h-screen overflow-y-scroll pt-10 scrollbar-none max-lg:hidden"
     >
-      <AboutMe width={150} height={150}>
+      <AboutMe page="other">
         <nav class="flex flex-col gap-5" id="desktop_nav">
           {
             navLinks.map((link, index) => (

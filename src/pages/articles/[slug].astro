@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
-import { sortByOrder } from '@/utils/sort';
+import { sortByDate, sortByOrder } from '@/utils/sort';
 import BlogLayout from '@/layouts/Blog.astro';
 import { getArticleSkills } from '@/utils/blog';
 import Article from '@/components/Article.astro';
@@ -33,8 +33,10 @@ const ogdescription = content.data.ogdescription.replaceAll(
 );
 
 const articles = sortByOrder(
-  await getCollection('article', ({ data }) =>
-    data.skills.some((x) => x.slug === skill.slug),
+  sortByDate(
+    await getCollection('article', ({ data }) =>
+      data.skills.some((x) => x.slug === skill.slug),
+    ),
   ),
 );
 ---
