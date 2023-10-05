@@ -19,7 +19,7 @@ const skills = sortByOrder(await getEntries(repository.data.skills));
   >
     {repository.data.name}
     <a class="flex" href={repository.data.link} target="_blank">
-      <Badge>
+      <Badge class="gap-2 text-sm">
         Review code
         <Icon class="!h-5 !w-5" icon="ic:round-arrow-outward" />
       </Badge>
