@@ -19,5 +19,13 @@ module.exports = {
         extraFileExtensions: ['.astro'],
       },
     },
+    {
+      files: ['./**/*.{astro,js,ts}'],
+      rules: {
+        '@stylistic/ts/brace-style': 'off',
+        '@stylistic/ts/member-delimiter-style': 'off',
+        '@stylistic/js/operator-linebreak': 'off',
+      },
+    },
   ],
 };
