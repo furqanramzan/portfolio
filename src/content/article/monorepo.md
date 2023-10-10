@@ -6,6 +6,8 @@ date: 2023-10-05T00:00:00.000Z
 image: ./images/monorepo.png
 skills:
   - git
+  - javascript
+  - nodejs
 order: 1001
 ---
 
