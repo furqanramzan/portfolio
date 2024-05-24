@@ -6,7 +6,7 @@ import { sortByOrder } from '@/utils/sort';
 import FutureProject from '@/components/FutureProject.astro';
 
 const content = await getEntry('page', 'projects');
-const linkedin = await getEntry('social', 'linkedin');
+const upwork = await getEntry('social', 'upwork');
 const projects = sortByOrder(await getCollection('project'));
 ---
 
@@ -21,7 +21,7 @@ const projects = sortByOrder(await getCollection('project'));
     <h2 class="text-lg font-semibold">{content.data.heading}</h2>
     <div class="flex flex-col gap-3">
       {projects.map((project) => <Project project={project} />)}
-      <FutureProject cta={content.data.cta} link={linkedin.data.link} />
+      <FutureProject cta={content.data.cta} link={upwork.data.link} />
     </div>
   </div>
 </Page>
