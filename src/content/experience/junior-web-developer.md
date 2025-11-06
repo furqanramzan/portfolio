@@ -1,7 +1,7 @@
 ---
-designation: React Developer
-company: Teclipse Sol Pvt Ltd
-year: Aug 2021 - Mar 2022
+designation: Junior Web Developer
+company: ZNH Collection
+year: Jan 2016 - July 2017
 skills: ['php', 'html', 'mysql', 'linux', 'ubuntu']
 order: 61
 ---
