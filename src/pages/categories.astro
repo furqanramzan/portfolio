@@ -1,26 +1,23 @@
 ---
 import { getEntry } from 'astro:content';
+import Icon from '@/components/Icon.astro';
 import BlogLayout from '@/layouts/Blog.astro';
 import { getArticleSkills } from '@/utils/blog';
-import Icon from '@/components/Icon.astro';
+import { removeUndefined } from '@/utils/remove-undefined';
 
-const content = await getEntry('page', 'categories');
+const content = removeUndefined(await getEntry('page', 'categories'));
 const skills = await getArticleSkills();
 ---
 
-<BlogLayout
-  title={content.data.title}
-  description={content.data.description}
-  ogdescription={content.data.ogdescription}
->
+<BlogLayout title={content.data.title} description={content.data.description}>
   <div class="flex flex-col gap-5">
-    <h1 class="text-2xl font-semibold">{content.data.heading}</h1>
+    <h1 class="text-2xl font-semibold">{content.data.title}</h1>
     <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
       {
         skills.map((skill) => (
-          <a href={`/articles/${skill.slug}`}>
+          <a href={`/articles/${skill.id}`}>
             <div class="flex flex-col items-center gap-2 bg-gray-200 p-5 dark:bg-gray-800">
-              <Icon class="!h-28 !w-28" icon={skill.data.icon} />
+              <Icon class="h-28! w-28!" icon={skill.data.icon} />
               <h3 class="text-lg font-medium">{skill.data.name}</h3>
             </div>
           </a>

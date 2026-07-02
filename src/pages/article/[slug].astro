@@ -1,11 +1,12 @@
 ---
-import { type CollectionEntry, getCollection, getEntries } from 'astro:content';
-import { sortByOrder } from '@/utils/sort';
-import BlogLayout from '@/layouts/Blog.astro';
-import { formatDate } from '@/utils/time';
-import { blogLinks } from '@/utils/constants';
-import Icon from '@/components/Icon.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, getEntries, render } from 'astro:content';
 import ArticleTitle from '@/components/ArticleTitle.astro';
+import Icon from '@/components/Icon.astro';
+import BlogLayout from '@/layouts/Blog.astro';
+import { blogLinks } from '@/utils/constants';
+import { sortByOrder } from '@/utils/sort';
+import { formatDate } from '@/utils/time';
 
 interface Props {
   article: CollectionEntry<'article'>;
@@ -14,25 +15,20 @@ interface Props {
 export async function getStaticPaths() {
   const articles = sortByOrder(await getCollection('article'));
   return articles.map((article) => ({
-    params: { slug: article.slug },
+    params: { slug: article.id },
     props: { article },
   }));
 }
 
 const { article } = Astro.props;
-const ogdescription = article.data.ogdescription || article.data.description;
 
-const { Content } = await article.render();
+const { Content } = await render(article);
 const skills = article.data.skills
   ? sortByOrder(await getEntries(article.data.skills))
   : [];
 ---
 
-<BlogLayout
-  title={article.data.title}
-  description={article.data.description}
-  ogdescription={ogdescription}
->
+<BlogLayout title={article.data.title} description={article.data.description}>
   <div class="flex flex-col gap-2">
     <nav class="flex" aria-label="Breadcrumb">
       <ol class="inline-flex items-center space-x-1 md:space-x-3">
@@ -46,10 +42,10 @@ const skills = article.data.skills
         </li>
         <li>
           <div class="flex items-center">
-            <Icon class="!h-3 !w-3 text-gray-400" icon="ep:arrow-right-bold" />
+            <Icon class="h-3! w-3! text-gray-400" icon="ep:arrow-right-bold" />
             <a
               href={`${blogLinks.category.href}`}
-              class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white md:ml-2"
+              class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white"
             >
               {blogLinks.category.name}
             </a>
@@ -60,12 +56,12 @@ const skills = article.data.skills
             <li>
               <div class="flex items-center">
                 <Icon
-                  class="!h-3 !w-3 text-gray-400"
+                  class="h-3! w-3! text-gray-400"
                   icon="ep:arrow-right-bold"
                 />
                 <a
-                  href={`/articles/${skill.slug}`}
-                  class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white md:ml-2"
+                  href={`/articles/${skill.id}`}
+                  class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white"
                 >
                   {skill.data.name}
                 </a>
@@ -79,7 +75,7 @@ const skills = article.data.skills
     <div class="flex gap-5 text-gray-500 dark:text-gray-400">
       <span class="flex items-center gap-1">
         <Icon
-          class="!h-5 !w-5"
+          class="h-5! w-5!"
           icon="material-symbols:calendar-today-rounded"
         />
         {formatDate(article.data.date)}
@@ -87,9 +83,9 @@ const skills = article.data.skills
     </div>
     <ArticleTitle article={article} />
     <hr
-      class="mx-auto my-4 h-1 w-48 rounded border-0 bg-gray-400 dark:bg-gray-500 md:my-10"
+      class="mx-auto my-4 h-1 w-48 rounded border-0 bg-gray-400 md:my-10 dark:bg-gray-500"
     />
-    <article class="prose prose-lg max-w-full dark:prose-invert">
+    <article class="prose prose-lg dark:prose-invert max-w-full">
       <Content />
     </article>
   </div>

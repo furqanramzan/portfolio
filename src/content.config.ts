@@ -1,18 +1,29 @@
-import { defineCollection, reference, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
+import { defineCollection, reference } from 'astro:content';
+
+const page = defineCollection({
+  loader: glob({ base: './src/content/page', pattern: '**/*.{md,mdx}' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    ogdescription: z.string(),
+  }),
+});
 
 const social = defineCollection({
-  type: 'content',
+  loader: glob({ base: './src/content/social', pattern: '**/*.{md,mdx}' }),
   schema: z.object({
     name: z.string(),
     description: z.string(),
-    link: z.string().url(),
+    link: z.url(),
     icon: z.string(),
     order: z.number(),
   }),
 });
 
 const aboutme = defineCollection({
-  type: 'content',
+  loader: glob({ base: './src/content/aboutme', pattern: '**/*.{md,mdx}' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -22,7 +33,10 @@ const aboutme = defineCollection({
 });
 
 const specialization = defineCollection({
-  type: 'content',
+  loader: glob({
+    base: './src/content/specialization',
+    pattern: '**/*.{md,mdx}',
+  }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -32,7 +46,7 @@ const specialization = defineCollection({
 });
 
 const skill = defineCollection({
-  type: 'content',
+  loader: glob({ base: './src/content/skill', pattern: '**/*.{md,mdx}' }),
   schema: z.object({
     name: z.string(),
     icon: z.string(),
@@ -41,7 +55,10 @@ const skill = defineCollection({
 });
 
 const skillcategory = defineCollection({
-  type: 'content',
+  loader: glob({
+    base: './src/content/skillcategory',
+    pattern: '**/*.{md,mdx}',
+  }),
   schema: z.object({
     title: z.string(),
     skills: z.array(reference('skill')),
@@ -50,12 +67,12 @@ const skillcategory = defineCollection({
 });
 
 const project = defineCollection({
-  type: 'content',
+  loader: glob({ base: './src/content/project', pattern: '**/*.{md,mdx}' }),
   schema: ({ image }) =>
     z.object({
       name: z.string(),
       description: z.string(),
-      link: z.string().url().optional(),
+      link: z.url().optional(),
       image: image(),
       skills: z.array(reference('skill')),
       order: z.number(),
@@ -63,18 +80,18 @@ const project = defineCollection({
 });
 
 const repository = defineCollection({
-  type: 'content',
+  loader: glob({ base: './src/content/repository', pattern: '**/*.{md,mdx}' }),
   schema: z.object({
     name: z.string(),
     description: z.string(),
-    link: z.string().url(),
+    link: z.url(),
     skills: z.array(reference('skill')),
     order: z.number(),
   }),
 });
 
 const education = defineCollection({
-  type: 'content',
+  loader: glob({ base: './src/content/education', pattern: '**/*.{md,mdx}' }),
   schema: z.object({
     degree: z.string(),
     institute: z.string(),
@@ -84,7 +101,7 @@ const education = defineCollection({
 });
 
 const experience = defineCollection({
-  type: 'content',
+  loader: glob({ base: './src/content/experience', pattern: '**/*.{md,mdx}' }),
   schema: z.object({
     designation: z.string(),
     company: z.string(),
@@ -95,7 +112,7 @@ const experience = defineCollection({
 });
 
 const article = defineCollection({
-  type: 'content',
+  loader: glob({ base: './src/content/article', pattern: '**/*.{md,mdx}' }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -119,4 +136,5 @@ export const collections = {
   education,
   experience,
   article,
+  page,
 };

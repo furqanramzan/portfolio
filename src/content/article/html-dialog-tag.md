@@ -26,7 +26,7 @@ Now, let's explore a basic illustration of how to create a modal using only HTML
 
 - `<button id="open-btn">Open Dialog</button>`: This button initiates the opening of the dialog.
 
-- `<dialog id="dialog"> ... </dialog>`: The `<dialog> `tag encapsulates the modal content.
+- `<dialog id="dialog"> ... </dialog>`: The `<dialog> `tag encapsulates the modal content?.
 
 - `<button id="close-btn">Close Dialog</button>`: This button initiates the closing of the dialog.
 
@@ -36,8 +36,7 @@ Now, let's explore a basic illustration of how to create a modal using only HTML
 document
   .getElementById('open-btn')
   .addEventListener('click', () =>
-    document.getElementById('dialog').showModal(),
-  );
+    document.getElementById('dialog').showModal(),  );
 
 document
   .getElementById('close-btn')

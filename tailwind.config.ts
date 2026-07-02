@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
+import typography from '@tailwindcss/typography';
 import flowbite from 'flowbite/plugin';
 import scrollbar from 'tailwind-scrollbar';
-import typography from '@tailwindcss/typography';
 
 const config: Config = {
   content: [

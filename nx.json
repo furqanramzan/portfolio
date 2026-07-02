@@ -64,5 +64,6 @@
   },
   "affected": {
     "defaultBase": "main"
-  }
+  },
+  "analytics": false
 }

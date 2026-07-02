@@ -1,8 +1,9 @@
 ---
+import type { LinkKey } from '@/utils/constants';
+import { links } from '@/utils/constants';
 import Button from './Button.astro';
 import Icon from './Icon.astro';
 import Link from './Link.astro';
-import { type LinkKey, links } from '@/utils/constants';
 
 export interface Props {
   back: LinkKey;

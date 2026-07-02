@@ -16,7 +16,6 @@ const initialProgress = 30;
 
 <script>
   const initialProgress = 30;
-  let startTimeout: NodeJS.Timeout;
   let updateTimeout: NodeJS.Timeout;
 
   function setProgress(progress: number) {
@@ -52,7 +51,6 @@ const initialProgress = 30;
   }
 
   function stopProgress() {
-    clearTimeout(startTimeout);
     clearTimeout(updateTimeout);
 
     setProgress(100);

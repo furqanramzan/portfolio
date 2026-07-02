@@ -1,45 +1,19 @@
 ---
-import { generateSocialImage } from 'astro-social-images';
 import { SEO } from 'astro-seo';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import GoogleTag from '@/components/GoogleTag.astro';
-import { color, name, siteUrl, twitterUsername } from '@/utils/constants';
 import ProgressBar from '@/components/ProgressBar.astro';
 import PWA from '@/components/PWA.astro';
 import Scripts from '@/components/Scripts.astro';
+import { name, twitterUsername } from '@/utils/constants';
+import '../styles/global.css';
 
 export interface Props {
   title: string;
   description: string;
-  ogdescription: string;
 }
 
-const { title, description, ogdescription } = Astro.props;
-
-const imageResult = generateSocialImage({
-  backgroundColor: color,
-  images: [
-    {
-      url: 'public/socials/logo.svg',
-      attributes: { top: 475, left: 800 },
-    },
-  ],
-  texts: [
-    {
-      content: name,
-      attributes: { x: '55', y: '105', 'font-size': '70px', fill: '#ffffff' },
-    },
-    {
-      content: title,
-      attributes: { x: '50', y: '305', 'font-size': '50px', fill: '#ffffff' },
-    },
-    {
-      content: ogdescription,
-      attributes: { x: '50', y: '355', 'font-size': '30px', fill: '#ffffff' },
-    },
-  ],
-});
-const { href: ogImage } = new URL(imageResult.url, siteUrl);
+const { title, description } = Astro.props;
 ---
 
 <html lang="en">
@@ -53,14 +27,6 @@ const { href: ogImage } = new URL(imageResult.url, siteUrl);
         creator: twitterUsername,
         card: 'summary',
         description,
-        image: ogImage,
-      }}
-      openGraph={{
-        basic: {
-          title,
-          type: 'A type.',
-          image: ogImage,
-        },
       }}
     />
     <meta charset="utf-8" />
@@ -68,12 +34,12 @@ const { href: ogImage } = new URL(imageResult.url, siteUrl);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <Scripts />
-    <ViewTransitions />
+    <ClientRouter />
     <PWA />
     <GoogleTag />
   </head>
   <body
-    class="bg-gray-50 text-black scrollbar-thin scrollbar-track-gray-50 scrollbar-thumb-gray-900 dark:bg-gray-900 dark:text-white dark:scrollbar-track-gray-900 dark:scrollbar-thumb-gray-50"
+    class="scrollbar-thin scrollbar-thumb-gray-900 scrollbar-track-gray-50 bg-gray-50 text-black dark:scrollbar-thumb-gray-50 dark:scrollbar-track-gray-900 dark:bg-gray-900 dark:text-white"
   >
     <ProgressBar />
     <slot />

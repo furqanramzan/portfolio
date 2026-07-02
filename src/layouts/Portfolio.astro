@@ -1,7 +1,8 @@
 ---
-import Default, { type Props as DefaultProps } from '@/layouts/Default.astro';
-import { type LinkKey } from '@/utils/constants';
+import type { Props as DefaultProps } from '@/layouts/Default.astro';
+import type { LinkKey } from '@/utils/constants';
 import Header from '@/components/Header.astro';
+import Default from '@/layouts/Default.astro';
 
 export interface Props extends DefaultProps {
   active: LinkKey;

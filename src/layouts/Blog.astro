@@ -1,10 +1,11 @@
 ---
-import Default, { type Props as DefaultProps } from '@/layouts/Default.astro';
-import Logo from '@/components/Logo.astro';
+import type { Props as DefaultProps } from '@/layouts/Default.astro';
 import DarkMode from '@/components/DarkMode.astro';
-import { blogLinks } from '@/utils/constants';
 import Icon from '@/components/Icon.astro';
+import Logo from '@/components/Logo.astro';
 import SocialLinks from '@/components/SocialLinks.astro';
+import Default from '@/layouts/Default.astro';
+import { blogLinks } from '@/utils/constants';
 
 type Props = DefaultProps;
 
@@ -15,10 +16,10 @@ const links = Object.values(blogLinks);
 
 <Default {...props}>
   <header
-    class="left-0 top-0 z-40 w-full border-b border-gray-300 bg-gray-50 pb-2 pt-1 dark:border-gray-700 dark:bg-gray-900 sm:fixed"
+    class="top-0 left-0 z-40 w-full border-b border-gray-300 bg-gray-50 pt-1 pb-2 sm:fixed dark:border-gray-700 dark:bg-gray-900"
   >
     <div
-      class="mx-auto flex max-w-screen-lg items-center justify-between max-lg:px-2"
+      class="mx-auto flex max-w-5xl items-center justify-between max-lg:px-2"
     >
       <Logo />
       <div class="flex items-center gap-8">
@@ -30,7 +31,7 @@ const links = Object.values(blogLinks);
                 aria-label={link.name}
                 class="text-md flex items-center gap-1 font-semibold hover:border-b"
               >
-                <Icon class="!h-4 !w-4" icon={link.icon} />
+                <Icon class="h-4! w-4!" icon={link.icon} />
                 {link.name}
               </a>
             ))
@@ -41,7 +42,7 @@ const links = Object.values(blogLinks);
     </div>
   </header>
   <nav
-    class="fixed bottom-0 left-0 z-40 flex w-full justify-around border-t border-gray-300 bg-gray-50 py-2 dark:border-gray-700 dark:bg-gray-900 sm:hidden"
+    class="fixed bottom-0 left-0 z-40 flex w-full justify-around border-t border-gray-300 bg-gray-50 py-2 sm:hidden dark:border-gray-700 dark:bg-gray-900"
   >
     {
       links.map((link) => (
@@ -50,7 +51,7 @@ const links = Object.values(blogLinks);
           aria-label={link.name}
           class="text-md flex w-full flex-col items-center gap-1 font-semibold hover:border-b"
         >
-          <Icon class="!h-4 !w-4" icon={link.icon} />
+          <Icon class="h-4! w-4!" icon={link.icon} />
           {link.name}
         </a>
       ))
@@ -58,15 +59,13 @@ const links = Object.values(blogLinks);
   </nav>
   <div class="flex min-h-screen flex-col">
     <main class="py-10">
-      <div
-        class="mx-auto grid max-w-screen-md grid-cols-1 max-md:px-2 sm:pt-[73px]"
-      >
+      <div class="mx-auto grid max-w-3xl grid-cols-1 max-md:px-2 sm:pt-18.25">
         <slot />
       </div>
     </main>
-    <footer class="mt-auto max-sm:pb-[61px]">
+    <footer class="mt-auto max-sm:pb-15.25">
       <div
-        class="mx-auto flex max-w-screen-lg justify-center border-t border-gray-300 py-4 dark:border-gray-700"
+        class="mx-auto flex max-w-5xl justify-center border-t border-gray-300 py-4 dark:border-gray-700"
       >
         <SocialLinks />
       </div>

@@ -1,17 +1,14 @@
 ---
 import { getEntry } from 'astro:content';
 import Button from '@/components/Button.astro';
-import Default from '@/layouts/Default.astro';
 import Link from '@/components/Link.astro';
+import Default from '@/layouts/Default.astro';
+import { removeUndefined } from '@/utils/remove-undefined';
 
-const content = await getEntry('page', '404');
+const content = removeUndefined(await getEntry('page', '404'));
 ---
 
-<Default
-  title={content.data.title}
-  description={content.data.description}
-  ogdescription={content.data.ogdescription}
->
+<Default title={content.data.title} description={content.data.description}>
   <section
     class="flex h-screen flex-col items-center justify-center bg-white dark:bg-gray-900"
   >
@@ -21,7 +18,7 @@ const content = await getEntry('page', '404');
       404
     </h1>
     <p
-      class="mb-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-white md:text-4xl"
+      class="mb-4 text-3xl font-bold tracking-tight text-gray-900 md:text-4xl dark:text-white"
     >
       Something's missing.
     </p>

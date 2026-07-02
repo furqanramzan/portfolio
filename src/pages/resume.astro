@@ -1,10 +1,11 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
-import Page from '@/layouts/Page.astro';
-import { sortByOrder } from '@/utils/sort';
 import Experience from '@/components/Experience.astro';
+import Page from '@/layouts/Page.astro';
+import { removeUndefined } from '@/utils/remove-undefined';
+import { sortByOrder } from '@/utils/sort';
 
-const content = await getEntry('page', 'resume');
+const content = removeUndefined(await getEntry('page', 'resume'));
 const educations = sortByOrder(await getCollection('education'));
 const experiences = sortByOrder(await getCollection('experience'));
 ---
@@ -13,12 +14,11 @@ const experiences = sortByOrder(await getCollection('experience'));
   active="resume"
   title={content.data.title}
   description={content.data.description}
-  ogdescription={content.data.ogdescription}
   navigationLinks={{ back: 'repository', forward: 'article' }}
 >
   <div class="flex flex-col gap-14">
     <div class="flex flex-col gap-5">
-      <h2 class="text-lg font-semibold">{content.data.education}</h2>
+      <h2 class="text-lg font-semibold">Education</h2>
       <div class="flex flex-col gap-3">
         {
           educations.map((education) => (
@@ -38,7 +38,7 @@ const experiences = sortByOrder(await getCollection('experience'));
       </div>
     </div>
     <div class="flex flex-col gap-5">
-      <h2 class="text-lg font-semibold">{content.data.experience}</h2>
+      <h2 class="text-lg font-semibold">Experience</h2>
       <div class="flex flex-col gap-3">
         {
           experiences.map((experience) => (

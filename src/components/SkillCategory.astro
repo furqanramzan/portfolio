@@ -1,7 +1,8 @@
 ---
-import { type CollectionEntry, getEntries } from 'astro:content';
-import Skills from './Skills.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getEntries } from 'astro:content';
 import { sortByOrder } from '@/utils/sort';
+import Skills from './Skills.astro';
 
 interface Props {
   skillCategory: CollectionEntry<'skillcategory'>;

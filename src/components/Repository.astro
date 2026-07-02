@@ -1,9 +1,10 @@
 ---
-import { type CollectionEntry, getEntries } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { getEntries } from 'astro:content';
+import { sortByOrder } from '@/utils/sort';
 import Badge from './Badge.astro';
 import Icon from './Icon.astro';
 import Skills from './Skills.astro';
-import { sortByOrder } from '@/utils/sort';
 
 interface Props {
   repository: CollectionEntry<'repository'>;

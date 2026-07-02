@@ -1,10 +1,11 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
-import Page from '@/layouts/Page.astro';
 import SkillCategory from '@/components/SkillCategory.astro';
+import Page from '@/layouts/Page.astro';
+import { removeUndefined } from '@/utils/remove-undefined';
 import { sortByOrder } from '@/utils/sort';
 
-const content = await getEntry('page', 'skills');
+const content = removeUndefined(await getEntry('page', 'skills'));
 const skillCategories = sortByOrder(await getCollection('skillcategory'));
 ---
 
@@ -12,11 +13,10 @@ const skillCategories = sortByOrder(await getCollection('skillcategory'));
   active="skill"
   title={content.data.title}
   description={content.data.description}
-  ogdescription={content.data.ogdescription}
   navigationLinks={{ back: 'about', forward: 'project' }}
 >
   <div class="flex flex-col gap-5">
-    <h2 class="text-lg font-semibold">{content.data.heading}</h2>
+    <h2 class="text-lg font-semibold">{content.data.title}</h2>
     <div class="flex flex-col gap-3">
       {
         skillCategories.map((skillCategory) => (

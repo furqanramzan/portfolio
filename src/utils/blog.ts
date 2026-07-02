@@ -1,4 +1,5 @@
-import { type CollectionEntry, getCollection, getEntries } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, getEntries } from 'astro:content';
 import { sortByOrder } from './sort';
 
 export async function getArticleSkills() {
@@ -7,7 +8,7 @@ export async function getArticleSkills() {
   const allSkills = await getEntries(allSkillEntries);
 
   const skillsMap = new Map<string, CollectionEntry<'skill'>>();
-  allSkills.forEach((x) => skillsMap.set(x.slug, x));
+  allSkills.forEach((x) => skillsMap.set(x.id, x));
   const allSkillsArray = [...skillsMap.values()];
 
   return sortByOrder(allSkillsArray);

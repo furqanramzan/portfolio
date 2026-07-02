@@ -1,13 +1,15 @@
 ---
-import { type CollectionEntry, getCollection, getEntry } from 'astro:content';
-import Page from '@/layouts/Page.astro';
-import Project from '@/components/Project.astro';
-import { sortByDate, sortByOrder } from '@/utils/sort';
-import Repository from '@/components/Repository.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
+import Article from '@/components/Article.astro';
 import Experience from '@/components/Experience.astro';
 import Hr from '@/components/Hr.astro';
+import Project from '@/components/Project.astro';
+import Repository from '@/components/Repository.astro';
 import SkillName from '@/components/SkillName.astro';
-import Article from '@/components/Article.astro';
+import Page from '@/layouts/Page.astro';
+import { removeUndefined } from '@/utils/remove-undefined';
+import { sortByDate, sortByOrder } from '@/utils/sort';
 
 interface Props {
   skill: CollectionEntry<'skill'>;
@@ -16,61 +18,49 @@ interface Props {
 export async function getStaticPaths() {
   const skills = sortByOrder(await getCollection('skill'));
   return skills.map((skill) => ({
-    params: { slug: skill.slug },
+    params: { slug: skill.id },
     props: { skill },
   }));
 }
 
 const { skill } = Astro.props;
 
-const content = await getEntry('page', 'skill');
+const content = removeUndefined(await getEntry('page', 'skill'));
 const title = content.data.title.replaceAll('{skill}', skill.data.name);
 const description = content.data.description.replaceAll(
   '{skill}',
   skill.data.name,
 );
-const ogdescription = content.data.ogdescription.replaceAll(
-  '{skill}',
-  skill.data.name,
-);
 
-const projectContent = await getEntry('page', 'projects');
+const projectContent = removeUndefined(await getEntry('page', 'projects'));
 const projects = sortByOrder(
   await getCollection('project', ({ data }) =>
-    data.skills.some((x) => x.slug === skill.slug),
-  ),
+    data.skills.some((x) => x.id === skill.id),  ),
 );
 
-const repositoryContent = await getEntry('page', 'repositories');
+const repositoryContent = removeUndefined(
+  await getEntry('page', 'repositories'),
+);
 const repositories = sortByOrder(
   await getCollection('repository', ({ data }) =>
-    data.skills.some((x) => x.slug === skill.slug),
-  ),
+    data.skills.some((x) => x.id === skill.id),  ),
 );
 
-const experienceContent = await getEntry('page', 'resume');
 const experiences = sortByOrder(
   await getCollection('experience', ({ data }) =>
-    data.skills.some((x) => x.slug === skill.slug),
-  ),
+    data.skills.some((x) => x.id === skill.id),  ),
 );
 
-const articleContent = await getEntry('page', 'articles');
+const articleContent = removeUndefined(await getEntry('page', 'articles'));
 const articles = sortByOrder(
   sortByDate(
     await getCollection('article', ({ data }) =>
-      data.skills.some((x) => x.slug === skill.slug),
-    ),
+      data.skills.some((x) => x.id === skill.id),    ),
   ),
 );
 ---
 
-<Page
-  active="skill"
-  title={title}
-  description={description}
-  ogdescription={ogdescription}
->
+<Page active="skill" title={title} description={description}>
   <div class="flex w-full flex-col gap-8">
     <h2 class="flex items-center text-lg font-semibold">
       <SkillName skill={skill} />
@@ -114,9 +104,7 @@ const articles = sortByOrder(
       experiences.length > 0 && (
         <>
           <div class="flex flex-col gap-3">
-            <h3 class="text-md font-semibold">
-              {experienceContent.data.experience}
-            </h3>
+            <h3 class="text-md font-semibold">Experience</h3>
             <div class="flex flex-col gap-3">
               {experiences.map((experience) => (
                 <Experience experience={experience} />
@@ -134,7 +122,7 @@ const articles = sortByOrder(
           <h3 class="text-md font-semibold">{articleContent.data.title}</h3>
           <div class="columns-1 gap-5 md:columns-2">
             {articles.map((article) => (
-              <Article detail={articleContent.data.detail} article={article} />
+              <Article article={article} />
             ))}
           </div>
         </div>

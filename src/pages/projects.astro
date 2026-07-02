@@ -1,12 +1,13 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
-import Page from '@/layouts/Page.astro';
-import Project from '@/components/Project.astro';
-import { sortByOrder } from '@/utils/sort';
 import FutureProject from '@/components/FutureProject.astro';
+import Project from '@/components/Project.astro';
+import Page from '@/layouts/Page.astro';
+import { removeUndefined } from '@/utils/remove-undefined';
+import { sortByOrder } from '@/utils/sort';
 
-const content = await getEntry('page', 'projects');
-const linkedin = await getEntry('social', 'linkedin');
+const content = removeUndefined(await getEntry('page', 'projects'));
+const linkedin = removeUndefined(await getEntry('social', 'linkedin'));
 const projects = sortByOrder(await getCollection('project'));
 ---
 
@@ -14,14 +15,13 @@ const projects = sortByOrder(await getCollection('project'));
   active="project"
   title={content.data.title}
   description={content.data.description}
-  ogdescription={content.data.ogdescription}
   navigationLinks={{ back: 'skill', forward: 'repository' }}
 >
   <div class="flex flex-col gap-5">
-    <h2 class="text-lg font-semibold">{content.data.heading}</h2>
+    <h2 class="text-lg font-semibold">{content.data.title}</h2>
     <div class="flex flex-col gap-3">
       {projects.map((project) => <Project project={project} />)}
-      <FutureProject cta={content.data.cta} link={linkedin.data.link} />
+      <FutureProject link={linkedin.data.link} />
     </div>
   </div>
 </Page>

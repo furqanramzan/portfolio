@@ -1,7 +1,9 @@
 ---
 greeting: Hello, I am
+title: hello
 name: Muhammad Furqan
 designation: Full-Stack Developer | TypeScript, Node.js, SvelteKit, Nuxt, Next.js, PHP, Laravel, JavaScript, Svelte, Vue.js, React, Tailwind CSS, MySQL, Docker, Vercel
 description: With 10 years of experience, transforming your visionary ideas into captivating digital experiences. My diverse skill set ensures innovative solutions and your success.
+ogdescription: With 10 years of experience, transforming your visionary ideas into captivating digital experiences. My diverse skill set ensures innovative solutions and your success.
 image: './profile.jpg'
 ---

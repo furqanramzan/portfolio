@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
+import { sortByOrder } from '@/utils/sort';
 import Button from './Button.astro';
 import Icon from './Icon.astro';
-import { sortByOrder } from '@/utils/sort';
 
 const socials = sortByOrder(await getCollection('social'));
 ---

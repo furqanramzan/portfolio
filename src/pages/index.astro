@@ -1,26 +1,26 @@
 ---
 import { getEntry } from 'astro:content';
-import Portfolio from '@/layouts/Portfolio.astro';
 import AboutMe from '@/components/about/AboutMe.astro';
 import Button from '@/components/Button.astro';
 import Icon from '@/components/Icon.astro';
 import Link from '@/components/Link.astro';
+import Portfolio from '@/layouts/Portfolio.astro';
+import { removeUndefined } from '@/utils/remove-undefined';
 
-const content = await getEntry('page', 'home');
+const content = removeUndefined(await getEntry('page', 'home'));
 ---
 
 <Portfolio
   active="home"
   title={content.data.title}
   description={content.data.description}
-  ogdescription={content.data.ogdescription}
 >
-  <div class="mx-auto mt-10 max-w-screen-md">
+  <div class="mx-auto mt-10 max-w-3xl">
     <div class="flex flex-col items-center gap-10">
       <AboutMe center={true}>
         <Link href="/about" class="flex">
           <Button type="button" class="px-8 py-2">
-            {content.data.explore}
+            Explore
             <Icon icon="material-symbols:arrow-right-rounded" />
           </Button>
         </Link>

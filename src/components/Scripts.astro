@@ -28,7 +28,7 @@ const isDevScript = `<script>window.isDev = ${isDev};</script>`;
           image.target.onload = () => {
             image.target.classList.add('loaded');
           };
-          // eslint-disable-next-line @typescript-eslint/no-use-before-define
+          // eslint-disable-next-line ts/no-use-before-define
           observer.unobserve(image.target);
         }
       });
@@ -41,7 +41,6 @@ const isDevScript = `<script>window.isDev = ${isDev};</script>`;
     });
   }
 
-  // eslint-disable-next-line no-undef
   if (!isDev) {
     document.addEventListener('astro:page-load', () => {
       blurImages();
