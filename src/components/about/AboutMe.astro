@@ -15,21 +15,16 @@ const classes =
   center === true ? 'items-center text-center' : 'items-start text-left';
 const image = profile as unknown as Src;
 const isOther = page === 'other';
-if (isOther) {
-  image.width = 150;
-  image.height = 150;
-} else {
-  image.width = 300;
-  image.height = 300;
-}
+image.width = 300;
+image.height = 300;
 ---
 
 <div transition:name="aboutme" class={`flex flex-col gap-5 ${classes}`}>
-  <div class={`flex flex-col gap-1  ${classes}`}>
+  <div class={`flex flex-col gap-1 ${classes}`}>
     <Image
       transition:persist={isOther}
       loading="eager"
-      class="mb-3 rounded-2xl"
+      class={`mb-3 rounded-2xl ${page === 'other' ? 'h-37.5 w-37.5' : 'h-75 w-75'}`}
       src={image}
       alt="Muhammad Furqan"
     />
@@ -49,3 +44,22 @@ if (isOther) {
   <slot />
   <SocialLinks />
 </div>
+
+<script is:inline>
+  function updateImageSize() {
+    const img = document.querySelector(
+      'img[data-astro-transition-persist="(isOther)"]',
+    );
+
+    if (!img) {
+      return;
+    }
+
+    const size = window.location.pathname === '/' ? '300px' : '150px';
+
+    img.style.width = size;
+    img.style.height = size;
+  }
+
+  document.addEventListener('astro:page-load', updateImageSize);
+</script>
