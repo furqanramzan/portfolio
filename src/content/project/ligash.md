@@ -7,8 +7,6 @@ skills:
     'laravel',
     'php',
     'mysql',
-    'github',
-    'git',
     'nuxt',
     'vue',
     'css',
@@ -19,5 +17,5 @@ skills:
     'sass',
     'git',
   ]
-order: 51
+order: 271
 ---
