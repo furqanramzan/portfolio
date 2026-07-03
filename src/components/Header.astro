@@ -21,6 +21,7 @@ const { active } = Astro.props;
     <button
       id="hamburger"
       type="button"
+      onclick="toggleMobileNav()"
       data-collapse-toggle="navbar-hamburger"
       class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-200 text-sm text-gray-500 shadow-md hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 focus:outline-none lg:hidden dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
     >
@@ -51,11 +52,9 @@ const { active } = Astro.props;
 </div>
 
 <script is:inline>
+  // eslint-disable-next-line unused-imports/no-unused-vars
   function toggleMobileNav() {
     const mobileNav = document.getElementById('mobile_nav');
     mobileNav.classList.toggle('!max-h-96');
   }
-  document
-    .getElementById('hamburger')
-    .addEventListener('click', toggleMobileNav);
 </script>

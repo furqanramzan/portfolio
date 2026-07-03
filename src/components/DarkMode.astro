@@ -1,4 +1,5 @@
 <button
+  onclick="toggleTheme()"
   aria-label="Dark mode"
   type="button"
   id="theme_button"
@@ -33,13 +34,11 @@
 </button>
 
 <script is:inline>
+  // eslint-disable-next-line unused-imports/no-unused-vars
   function toggleTheme() {
     const isDark = window.document.documentElement.classList.toggle('dark');
     localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
   }
-  document
-    .getElementById('theme_button')
-    .addEventListener('click', toggleTheme);
 
   function colorMode() {
     if ('color-theme' in localStorage) {
