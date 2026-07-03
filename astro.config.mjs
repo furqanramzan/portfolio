@@ -43,6 +43,8 @@ export default defineConfig({
         ],
       },
       workbox: {
+        skipWaiting: true,
+        clientsClaim: true,
         navigateFallback: '/404',
         globPatterns: ['**/*.{css,js,html,svg,png,webp,ico}'],
         globIgnores: ['**/socials/*.{svg,png}'],
