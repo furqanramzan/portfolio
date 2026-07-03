@@ -1,5 +1,5 @@
 ---
 name: Stripe
-icon: logos:stripe
+icon: selfhst:stripe
 order: 300
 ---

@@ -18,7 +18,17 @@ skills:
     'nix',
     'bash',
     'nixos',
-    'pwa',
+    'pinecone',
+    'supabase',
+    'vercel-ai-sdk',
+    'upstash',
+    'stripe',
+    'paypal',
+    'postgresql',
+    'manjaro',
+    'rag',
+    'drizzle-orm',
+    'better-stack',
   ]
 order: 31
 ---

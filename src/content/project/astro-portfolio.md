@@ -19,5 +19,5 @@ skills:
     'figma',
     'pwa',
   ]
-order: 31
+order: 300
 ---
