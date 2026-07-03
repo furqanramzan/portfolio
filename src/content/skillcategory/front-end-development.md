@@ -8,6 +8,8 @@ skills:
     'vue',
     'tailwindcss',
     'element',
+    'daisyui',
+    'unocss',
     'html',
     'css',
     'pwa',
