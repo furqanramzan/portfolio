@@ -5,7 +5,7 @@ import GoogleTag from '@/components/GoogleTag.astro';
 import ProgressBar from '@/components/ProgressBar.astro';
 import PWA from '@/components/PWA.astro';
 import Scripts from '@/components/Scripts.astro';
-import { name, twitterUsername } from '@/utils/constants';
+import { name } from '@/utils/constants';
 import '../styles/global.css';
 
 export interface Props {
@@ -23,11 +23,6 @@ const { title, description } = Astro.props;
       titleDefault={name}
       title={title}
       description={description}
-      twitter={{
-        creator: twitterUsername,
-        card: 'summary',
-        description,
-      }}
     />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
