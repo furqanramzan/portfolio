@@ -1,2 +1,7 @@
 @import 'tailwindcss';
 @config '../../tailwind.config.ts';
+
+a,
+button {
+  cursor: pointer;
+}
