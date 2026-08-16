@@ -9,6 +9,7 @@ skills:
     'vue',
     'laravel',
     'php',
+    'postgresql',
     'unocss',
     'git',
     'github',

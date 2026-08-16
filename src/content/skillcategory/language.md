@@ -11,5 +11,5 @@ skills:
     'nix',
     'bash',
   ]
-order: 1
+order: 5
 ---

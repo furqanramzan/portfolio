@@ -22,6 +22,11 @@ skills:
     'rag',
     'stripe',
     'paypal',
+    'chatgpt',
+    'claude',
+    'gemini',
+    'deepseek',
+    'perplexity',
   ]
 order: 251
 ---
