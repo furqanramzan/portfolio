@@ -1,5 +1,5 @@
 ---
 title: Tools
-skills: ['nx', 'git', 'neovim', 'vscode', 'figma', 'vercel-ai-sdk']
+skills: ['nx', 'git', 'neovim', 'vscode', 'figma']
 order: 51
 ---

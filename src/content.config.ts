@@ -32,9 +32,9 @@ const aboutme = defineCollection({
   }),
 });
 
-const specialization = defineCollection({
+const aiautomation = defineCollection({
   loader: glob({
-    base: './src/content/specialization',
+    base: './src/content/aiautomation',
     pattern: '**/*.{md,mdx}',
   }),
   schema: z.object({
@@ -128,7 +128,7 @@ const article = defineCollection({
 export const collections = {
   social,
   aboutme,
-  specialization,
+  aiautomation,
   skillcategory,
   skill,
   project,

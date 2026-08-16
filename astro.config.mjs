@@ -60,7 +60,7 @@ export default defineConfig({
       tailwind(),
       {
         name: 'fix-css-tree-patch',
-        transform(code, id) {
+        transform(_code, id) {
           if (id.includes('css-tree') && id.includes('data-patch.')) {
             const patchPath = path.resolve(
               path.dirname(id),

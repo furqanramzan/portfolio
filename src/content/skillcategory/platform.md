@@ -11,7 +11,6 @@ skills:
     'pusher',
     'stripe',
     'paypal',
-    'pinecone',
     'supabase',
     'upstash',
     'better-stack',

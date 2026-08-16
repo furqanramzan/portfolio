@@ -1,5 +1,5 @@
 ---
-designation: Full-stack Developer
+designation: Senior AI Engineer & Full-Stack Developer
 company: Upwork
 year: Jun 2023 - Present
 skills:
@@ -31,6 +31,11 @@ skills:
     'rag',
     'drizzle-orm',
     'better-stack',
+    'chatgpt',
+    'claude',
+    'gemini',
+    'deepseek',
+    'perplexity',
   ]
 order: 31
 ---
